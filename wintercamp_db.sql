@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 26. Feb 2019 um 12:18
+-- Erstellungszeit: 26. Feb 2019 um 14:19
 -- Server-Version: 10.1.38-MariaDB
 -- PHP-Version: 7.3.2
 
@@ -32,10 +32,9 @@ CREATE TABLE `beitrag` (
   `bId` int(11) NOT NULL,
   `nId` int(11) NOT NULL,
   `beitragstitel` varchar(255) NOT NULL,
-  `zeit` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `zeit` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `kategorie` varchar(255) NOT NULL,
-  `beitraginhalt` text NOT NULL,
-  `bewertung` int(11) NOT NULL
+  `beitraginhalt` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -46,10 +45,7 @@ CREATE TABLE `beitrag` (
 
 CREATE TABLE `galerie` (
   `gId` int(11) NOT NULL,
-  `nId` int(11) NOT NULL,
-  `bilderlink` text NOT NULL,
-  `zeit` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `aktivitaet` tinyint(1) NOT NULL
+  `galeriebezeichnung` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -62,7 +58,7 @@ CREATE TABLE `kommentar` (
   `kId` int(11) NOT NULL,
   `bId` int(11) NOT NULL,
   `nId` int(11) NOT NULL,
-  `zeit` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `zeit` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `kommentar` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -78,16 +74,20 @@ CREATE TABLE `nutzer` (
   `vorname` varchar(255) NOT NULL,
   `benutzername` varchar(255) NOT NULL,
   `eMail` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `rId` int(11) NOT NULL
+  `passwort` varchar(255) NOT NULL,
+  `rId` int(11) NOT NULL,
+  `teilnahme` varchar(255) NOT NULL,
+  `registrierungsdatum` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `aenderungsdatum` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `aktivierung` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `nutzer`
 --
 
-INSERT INTO `nutzer` (`nID`, `nachname`, `vorname`, `benutzername`, `eMail`, `password`, `rId`) VALUES
-(1, 'Mustermann', 'Max', 'tollerAdmin', 'max.mustermann@gmail.com', 'testAdmin2019', 1);
+INSERT INTO `nutzer` (`nID`, `nachname`, `vorname`, `benutzername`, `eMail`, `passwort`, `rId`, `teilnahme`, `registrierungsdatum`, `aenderungsdatum`, `aktivierung`) VALUES
+(1, 'Mustermann', 'Max', 'tollerAdmin', 'max.mustermann@gmail.com', 'testAdmin2019', 1, '', '2019-02-26 12:41:03', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -123,8 +123,7 @@ ALTER TABLE `beitrag`
 -- Indizes für die Tabelle `galerie`
 --
 ALTER TABLE `galerie`
-  ADD PRIMARY KEY (`gId`),
-  ADD UNIQUE KEY `aktivitaet` (`aktivitaet`);
+  ADD PRIMARY KEY (`gId`);
 
 --
 -- Indizes für die Tabelle `kommentar`
