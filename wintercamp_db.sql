@@ -1,179 +1,86 @@
--- phpMyAdmin SQL Dump
--- version 4.8.5
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Erstellungszeit: 26. Feb 2019 um 12:18
--- Server-Version: 10.1.38-MariaDB
--- PHP-Version: 7.3.2
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
+  <link rel="stylesheet" href="styles.css">
+  <title>IT-Camp</title>
+</head>
+ <body>
+   <div class="logo">
+   </div>
+  <h1>Registrieren</h1>
+  <div class="kontainer1">
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+   <form action="" method="post">
+     <form action="DATEI.php" method="post>"
 
---
--- Datenbank: `wintercamp`
---
+<br>
+<div class="input-group mb-3">
+<div class="input-group-prepend">
+  <span class="input-group-text" id="basic-addon1">Vorname</span>
+</div>
+<input type="text" class="form-control" name="fvorname">
+</div>
 
--- --------------------------------------------------------
 
---
--- Tabellenstruktur für Tabelle `beitrag`
---
+<br>
 
-CREATE TABLE `beitrag` (
-  `bId` int(11) NOT NULL,
-  `nId` int(11) NOT NULL,
-  `beitragstitel` varchar(255) NOT NULL,
-  `zeit` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `kategorie` varchar(255) NOT NULL,
-  `beitraginhalt` text NOT NULL,
-  `bewertung` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+<div class="input-group mb-3">
+<div class="input-group-prepend">
+  <span class="input-group-text" id="basic-addon1">Nachname</span>
+</div>
+<input type="text" class="form-control" name="fnachname">
+</div>
 
--- --------------------------------------------------------
+<br>
 
---
--- Tabellenstruktur für Tabelle `galerie`
---
+<label for="text"> Benutzername
+<input type="text" name="fbenutzername">
+</label>
 
-CREATE TABLE `galerie` (
-  `gId` int(11) NOT NULL,
-  `nId` int(11) NOT NULL,
-  `bilderlink` text NOT NULL,
-  `zeit` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `aktivitaet` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+<br>
 
--- --------------------------------------------------------
+<label for="Passwort"> Passwort
+<input type="Passwort" name="fpasswort1">
+</label>
 
---
--- Tabellenstruktur für Tabelle `kommentar`
---
+<br>
 
-CREATE TABLE `kommentar` (
-  `kId` int(11) NOT NULL,
-  `bId` int(11) NOT NULL,
-  `nId` int(11) NOT NULL,
-  `zeit` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `kommentar` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+<label for="Passwort"> Passwort bestätigen
+<input type="Passwort" name="fpasswort2">
+</label>
 
--- --------------------------------------------------------
+<br>
 
---
--- Tabellenstruktur für Tabelle `nutzer`
---
+<label for="email"> E-Mail-Adresse
+<input type="email" name="femail">
+</label>
 
-CREATE TABLE `nutzer` (
-  `nID` int(11) NOT NULL,
-  `nachname` varchar(255) NOT NULL,
-  `vorname` varchar(255) NOT NULL,
-  `benutzername` varchar(255) NOT NULL,
-  `eMail` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `rId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+<br>
 
---
--- Daten für Tabelle `nutzer`
---
+<label for="checkbox"> Teilnehmer
+<input type="checkbox" name="fteilnehmer">
+</label>
 
-INSERT INTO `nutzer` (`nID`, `nachname`, `vorname`, `benutzername`, `eMail`, `password`, `rId`) VALUES
-(1, 'Mustermann', 'Max', 'tollerAdmin', 'max.mustermann@gmail.com', 'testAdmin2019', 1);
+<br>
 
--- --------------------------------------------------------
+<label for="checkbox"> Datenschutzerklärung gelesen
+<input type="checkbox" name="fdsgelesen">
+</label>
 
---
--- Tabellenstruktur für Tabelle `rolle`
---
+<br>
 
-CREATE TABLE `rolle` (
-  `rId` int(11) NOT NULL,
-  `rollenname` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+<button type="button" class="btn btn-danger">Registrieren</button>
 
---
--- Daten für Tabelle `rolle`
---
+</form>
 
-INSERT INTO `rolle` (`rId`, `rollenname`) VALUES
-(1, 'admin'),
-(2, 'teilnehmer'),
-(3, 'interessent');
+  </div>
 
---
--- Indizes der exportierten Tabellen
---
-
---
--- Indizes für die Tabelle `beitrag`
---
-ALTER TABLE `beitrag`
-  ADD PRIMARY KEY (`bId`);
-
---
--- Indizes für die Tabelle `galerie`
---
-ALTER TABLE `galerie`
-  ADD PRIMARY KEY (`gId`),
-  ADD UNIQUE KEY `aktivitaet` (`aktivitaet`);
-
---
--- Indizes für die Tabelle `kommentar`
---
-ALTER TABLE `kommentar`
-  ADD PRIMARY KEY (`kId`);
-
---
--- Indizes für die Tabelle `nutzer`
---
-ALTER TABLE `nutzer`
-  ADD PRIMARY KEY (`nID`),
-  ADD UNIQUE KEY `benutzername` (`benutzername`);
-
---
--- Indizes für die Tabelle `rolle`
---
-ALTER TABLE `rolle`
-  ADD PRIMARY KEY (`rId`);
-
---
--- AUTO_INCREMENT für exportierte Tabellen
---
-
---
--- AUTO_INCREMENT für Tabelle `beitrag`
---
-ALTER TABLE `beitrag`
-  MODIFY `bId` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT für Tabelle `galerie`
---
-ALTER TABLE `galerie`
-  MODIFY `gId` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT für Tabelle `kommentar`
---
-ALTER TABLE `kommentar`
-  MODIFY `kId` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT für Tabelle `nutzer`
---
-ALTER TABLE `nutzer`
-  MODIFY `nID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+</body>
+</html>
