@@ -11,22 +11,21 @@
 <div class="menu">
 <table>
     <tr>
-      <th onclick="window.location.href='itwc.html'">Home </th>
+      <th>Home </th>
       <th>Forum</th>
       <th>Chat</th>
       <th>Gallerie</th>
-	  <th>
 	  <?php
 		$isLoggedIn = 1;
 		//$isLoggedIn = $_SESSION["isLoggedIn"];
 		if($isLoggedIn == 1) {
-			echo "Profil";
+			echo "<th>Profil<th/>";
 		}
 		else {
-			echo "Login";
+			echo "<th>Login</th>";
 		}
 	  ?>
-	  </th>
+
     </tr>
 </table>
 </div>
