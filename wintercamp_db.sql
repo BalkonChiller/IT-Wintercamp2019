@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 26. Feb 2019 um 14:30
+-- Erstellungszeit: 26. Feb 2019 um 15:08
 -- Server-Version: 10.1.38-MariaDB
 -- PHP-Version: 7.3.2
 
@@ -40,12 +40,40 @@ CREATE TABLE `beitrag` (
 -- --------------------------------------------------------
 
 --
+-- Tabellenstruktur für Tabelle `bewertung`
+--
+
+CREATE TABLE `bewertung` (
+  `id` int(11) NOT NULL,
+  `nId` int(11) NOT NULL,
+  `bId` int(11) NOT NULL,
+  `zeit` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Tabellenstruktur für Tabelle `galerie`
 --
 
 CREATE TABLE `galerie` (
   `gId` int(11) NOT NULL,
   `galeriebezeichnung` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `galeriebild`
+--
+
+CREATE TABLE `galeriebild` (
+  `gbId` int(11) NOT NULL,
+  `nId` int(11) NOT NULL,
+  `bilderlink` text NOT NULL,
+  `zeit` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `aktivitaet` tinyint(1) NOT NULL,
+  `gId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -120,10 +148,23 @@ ALTER TABLE `beitrag`
   ADD PRIMARY KEY (`bId`);
 
 --
+-- Indizes für die Tabelle `bewertung`
+--
+ALTER TABLE `bewertung`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indizes für die Tabelle `galerie`
 --
 ALTER TABLE `galerie`
   ADD PRIMARY KEY (`gId`);
+
+--
+-- Indizes für die Tabelle `galeriebild`
+--
+ALTER TABLE `galeriebild`
+  ADD PRIMARY KEY (`gbId`),
+  ADD UNIQUE KEY `aktivitaet` (`aktivitaet`);
 
 --
 -- Indizes für die Tabelle `kommentar`
@@ -155,10 +196,22 @@ ALTER TABLE `beitrag`
   MODIFY `bId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT für Tabelle `bewertung`
+--
+ALTER TABLE `bewertung`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT für Tabelle `galerie`
 --
 ALTER TABLE `galerie`
   MODIFY `gId` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `galeriebild`
+--
+ALTER TABLE `galeriebild`
+  MODIFY `gbId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT für Tabelle `kommentar`

@@ -12,21 +12,22 @@
 <div class="menu">
 <table>
     <tr>
-      <th>Home </th>
+      <th><a href="frontend.php">Home</a></th>
       <th>Forum</th>
       <th>Chat</th>
       <th>Gallerie</th>
+	  <th>
 	  <?php
 		$isLoggedIn = 1;
 		//$isLoggedIn = $_SESSION["isLoggedIn"];
 		if($isLoggedIn == 1) {
-			echo "<th>Profil<th/>";
+			echo "Profil";
 		}
 		else {
-			echo "<th>Login</th>";
+			echo "Login";
 		}
 	  ?>
-
+		</th>
     </tr>
 </table>
 </div>
