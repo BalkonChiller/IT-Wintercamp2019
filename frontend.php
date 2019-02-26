@@ -11,7 +11,7 @@
 <div class="menu">
 <table>
     <tr>
-      <th>Home</th>
+      <th onclick="window.location.href='itwc.html'">Home </th>
       <th>Forum</th>
       <th>Chat</th>
       <th>Gallerie</th>
