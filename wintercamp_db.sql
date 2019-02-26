@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 26. Feb 2019 um 11:58
+-- Erstellungszeit: 26. Feb 2019 um 12:18
 -- Server-Version: 10.1.38-MariaDB
 -- PHP-Version: 7.3.2
 
@@ -49,7 +49,7 @@ CREATE TABLE `galerie` (
   `nId` int(11) NOT NULL,
   `bilderlink` text NOT NULL,
   `zeit` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `aktivitaet` bigint(20) UNSIGNED NOT NULL
+  `aktivitaet` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -60,6 +60,7 @@ CREATE TABLE `galerie` (
 
 CREATE TABLE `kommentar` (
   `kId` int(11) NOT NULL,
+  `bId` int(11) NOT NULL,
   `nId` int(11) NOT NULL,
   `zeit` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `kommentar` text NOT NULL
@@ -149,10 +150,22 @@ ALTER TABLE `rolle`
 --
 
 --
+-- AUTO_INCREMENT für Tabelle `beitrag`
+--
+ALTER TABLE `beitrag`
+  MODIFY `bId` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT für Tabelle `galerie`
 --
 ALTER TABLE `galerie`
-  MODIFY `aktivitaet` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `gId` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `kommentar`
+--
+ALTER TABLE `kommentar`
+  MODIFY `kId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT für Tabelle `nutzer`
