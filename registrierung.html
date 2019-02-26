@@ -17,68 +17,61 @@
   <div class="kontainer1">
 
 
-   <form action="" method="post">
+   <form action="formularregistrierung.php" method="post">
 
+      <br>
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Vorname</span>
+      </div>
+      <input type="text" class="form-control" name="fvorname">
+      </div>
+      <br>
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Nachname</span>
+      </div>
+      <input type="text" class="form-control" name="fnachname">
+      </div>
 
+      <br>
 
+      <label for="text"> Benutzername
+      <input type="text" name="fbenutzername">
+      </label>
 
-<br>
-<div class="input-group mb-3">
-<div class="input-group-prepend">
-  <span class="input-group-text" id="basic-addon1">Vorname</span>
-</div>
-<input type="text" class="form-control" name="fvorname">
-</div>
+      <br>
 
+      <label for="Passwort"> Passwort
+      <input type="Passwort" name="fpasswort1">
+      </label>
 
-<br>
+      <br>
 
-<div class="input-group mb-3">
-<div class="input-group-prepend">
-  <span class="input-group-text" id="basic-addon1">Nachname</span>
-</div>
-<input type="text" class="form-control" name="fnachname">
-</div>
+      <label for="Passwort"> Passwort bestätigen
+      <input type="Passwort" name="fpasswort2">
+      </label>
 
-<br>
+      <br>
 
-<label for="text"> Benutzername
-<input type="text" name="fbenutzername">
-</label>
+      <label for="email"> E-Mail-Adresse
+      <input type="email" name="femail">
+      </label>
 
-<br>
+      <br>
 
-<label for="Passwort"> Passwort
-<input type="Passwort" name="fpasswort1">
-</label>
+      <label for="checkbox"> Teilnehmer
+      <input type="checkbox" name="fteilnehmer">
+      </label>
 
-<br>
+      <br>
 
-<label for="Passwort"> Passwort bestätigen
-<input type="Passwort" name="fpasswort2">
-</label>
+      <label for="checkbox"> Datenschutzerklärung gelesen
+      <input type="checkbox" name="fdsgelesen">
+      </label>
 
-<br>
-
-<label for="email"> E-Mail-Adresse
-<input type="email" name="femail">
-</label>
-
-<br>
-
-<label for="checkbox"> Teilnehmer
-<input type="checkbox" name="fteilnehmer">
-</label>
-
-<br>
-
-<label for="checkbox"> Datenschutzerklärung gelesen
-<input type="checkbox" name="fdsgelesen">
-</label>
-
-<br>
-
-<button type="button" class="btn btn-danger">Registrieren</button>
+      <br>
+      <input type = "submit" name = "reg" value="Registrieren" style="height: 50px; width: 800px;" id = "bold" >
 
 </form>
 
