@@ -5,25 +5,27 @@
 		</head>
 		<body>
 			<?php
-				print_r($POST);
+				print_r($_POST);
 
-				if(!empty ($_POST['fbenutzername']) and !empty($POST['fpasswort1']) and !empty( $POST['fpasswort2']) and !empty($POST['femail']))
+				if(!empty ($_POST['fbenutzername']) a$_POST['fpasswort1']nd !empty($_POST['fpasswort1']) and !empty( $_POST['fpasswort2']) and !empty($_POST['femail']))
 				{
 					if (empty ($_POST['fdsgelesen']))
 					{
-						if ($passwort1==$passwort2)
+						if ($_POST['fpasswort1']==$_POST['fpasswort2'])
 						{
 							$anz=strlen($passwort1)
 							if ($anz>=6)
 							{
-
-							$benutzer='tollerAdmin';
-							$adminpasswort='testAdmin2019';
+								/*$email = test_input($_POST["femail"]);
+								if (filter_var($email, FILTER_VALIDATE_EMAIL))
+								{ */
+							$benutzer='';
+							$adminpasswort='root';
 							$server='localhost';
 							$datenbakname='wintercamp';
 
-							$ok=mysqli_connect("","root","localhost",$datenbankname);
-							$db=mysql_select_db($datenbankname);
+							$ok=mysqli_connect($benutzer,$adminpasswort,$server,$datenbankname);
+
 
 								if (!$ok or !$db)
 								{
@@ -31,19 +33,31 @@
 								}
 								else echo "Verbindung zur Datenbank steht";
 
-							$vorname=$POST['fvorname'];
-							$nachname=$POST['fnachname'];
-							$benutzername=$POST['fbenutzername'];
-							$passwort1=$POST['fpasswort1'];
-							$passwort2=$POST['fpasswort2'];
-							$email=strtolower($POST['femail']);
-							$dsgelesen=$POST['fdsgelesen'];
-							$teilnehmer=$POST['fteilnehmer'];
+							$sqli="SELECT benutzername FROM nutzer";
 
+							$vorname=$_POST['fvorname'];
+							$nachname=$_POST['fnachname'];
+							$benutzername=$_POST['fbenutzername'];
+							$passwort1=$_POST['fpasswort1'];
+							$passwort2=$_POST['fpasswort2'];
+							$email=strtolower($email);
+							$dsgelesen=$_POST['fdsgelesen'];
+							$teilnehmer=$_POST['fteilnehmer'];
+							$camp=$_POST['fcamp'];
+							if ($teilnehmer==true)
+								{
+									$rID=2;
+								}
+								else $rID=3;
 							$userpasswort=md5($passwort1);
 
+							$sql="INSERT INTO 'wintercamp'.'nutzer'
+								('nID','nachname','vorname','benutzername','eMail','passwort','rID','teilnahme')
+								VALUES(NULL,'$nachname','$vorname','$benutzername','$email','$userpasswort','$rID','$camp')
+							header("Location: frontend.php")
 
-
+							/*	}
+								else echo "Ungültige Email-Adresse!"; */
 							}
 							else echo "Passwort mit mindestens 6 Zeichen verwenden!";
 						}
