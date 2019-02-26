@@ -6,7 +6,7 @@
 		<body>
 			<?php
 				print_r($POST);
-				
+
 				if(!empty ($_POST['fbenutzername']) and !empty($POST['fpasswort1']) and !empty( $POST['fpasswort2']) and !empty($POST['femail']))
 				{
 					if (empty ($_POST['fdsgelesen']))
@@ -16,21 +16,21 @@
 							$anz=strlen($passwort1)
 							if ($anz>=6)
 							{
-								
+
 							$benutzer='tollerAdmin';
 							$adminpasswort='testAdmin2019';
 							$server='localhost';
 							$datenbakname='wintercamp';
-							
+
 							$ok=mysqli_connect("","root","localhost",$datenbankname);
 							$db=mysql_select_db($datenbankname);
-							
+
 								if (!$ok or !$db)
 								{
 									echo "Fehler bei der Verbindung zu Datenbank";
 								}
 								else echo "Verbindung zur Datenbank steht";
-								
+
 							$vorname=$POST['fvorname'];
 							$nachname=$POST['fnachname'];
 							$benutzername=$POST['fbenutzername'];
@@ -39,11 +39,11 @@
 							$email=strtolower($POST['femail']);
 							$dsgelesen=$POST['fdsgelesen'];
 							$teilnehmer=$POST['fteilnehmer'];
-							
+
 							$userpasswort=md5($passwort1);
-							
-							
-							
+
+
+
 							}
 							else echo "Passwort mit mindestens 6 Zeichen verwenden!";
 						}
@@ -52,8 +52,8 @@
 					else echo "Datenschutzbestimmung akzeptieren!";
 				}
 				else echo "fehlende Eingabe!";
-				
-				
+
+
 			?>
 		</body>
 	<html>
