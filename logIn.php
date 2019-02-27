@@ -22,36 +22,43 @@ $_db_benutzername = "root";
 $_db_passwort = "";
 
 session_start();
-
-# Datenbankverbindung herstellen
-$link =mysqli_connect($_db_host, $_db_username, $_db_passwort);
-
-# Hat die Verbindung geklappt ?
-if (!$link)
-    {
-    die("Keine Datenbankverbindung möglich: " . mysql_error());
-    }
-
-# Verbindung zur richtigen Datenbank herstellen
-$datenbank = mysql_select_db($_db_datenbank, $link);
-
-if (!$datenbank)
-    {
-    echo "Kann die Datenbank nicht benutzen: " . mysql_error();
-    mysql_close($link);        # Datenbank schliessen
-    exit;                    # Programm beenden !
-    }
+$con = mysqli_connect("localhost", "root", "", "wintercamp");
 
 $fbenutzername = $_POST["fbenutzername"];
 $fpasswort1 = $_POST["fpasswort1"];
 
 ##################################################################
 
-$sql = "SELECT * from nutzer where benutzername = '$fbenutzername'";
+$sql = "SELECT passwort FROM nutzer WHERE benutzername = '$fbenutzername'";
 
-$res = mysqli_query($sql, $link);
+$res = mysqli_query($con, $sql);
 
-echo $res;
+while ($ausgabe = mysqli_fetch_assoc($res))
+{
+  $passwort = $ausgabe["passwort"];
+
+}
+mysqli_close($con);
+
+if (empty($fbenutzername) or empty($passwort1))
+  {
+    echo "Bitte Nutzerdaten eingeben";
+  }
+
+if ($fpasswort1 == $passwort)
+{
+     # weiterleitung auf die seite nach erfolgreichem login
+     header('location: menu.html'); #Bitte noch den richtigen Link eingeben
+     exit(1);
+}
+else
+{
+     # weiterleitung auf die Login-seite ...
+#     header('location: logIn.html');
+#     exit();
+     echo "Log In nicht erfolgreich.";
+}
+
 
 ?>
   </body>
