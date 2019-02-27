@@ -5,14 +5,15 @@ h1 {
 
 table  {
 	width: 100%;
-	height: 
 }	
 
 * {
   box-sizing: border-box;
 }
 
-
+img  {
+	padding: 5px;
+}	
 
 .row::after {
   content: "";
@@ -55,16 +56,17 @@ box-shadow: 10px 10px 27px -10px rgba(0,0,0,0.75);
 }
 
 .aside {
-  background-color: #36648B;
+  background-color: #ffb429;
   padding: 15px;
   color: #ffffff;
   text-align: center;
   font-size: 14px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  margin-right: 0em;
+  margin-left: 0em;
 }
 
 .footer {
-  background-color: #0099cc;
+  background-color: #386890;
   color: #ffffff;
   text-align: center;
   font-size: 12px;
@@ -105,8 +107,4 @@ box-shadow: 10px 10px 27px -10px rgba(0,0,0,0.75);
   .col-10 {width: 83.33%;}
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
-}
-a {
-  color: white;
-  text-decoration: none;
 }
