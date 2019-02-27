@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="Login.css">
   <title>IT-Camp/Registrieren</title>
 </head>
  <body>
@@ -13,52 +13,70 @@
   <div class="container1">
 
 
-   <form action="" method="post">
-     <form action="DATEI.php" method="post>"
 
-<br>
+     <form action="registrierung_neu.php" method="post">
+
+
+<br>&nbsp;
 <label for="text"> Vorname
 <input type="text" name="fvorname" required>
 </label>
 
 
-<br>
+<br>&nbsp;
 
 <label for="text"> Nachname
 <input type="text" name="fnachname" required>
 </label>
 
-<br>
+<br>&nbsp;
 
 <label for="text"> Benutzername
 <input type="text" name="fbenutzername" required>
 </label>
 
-<br>
+<br>&nbsp;
 
 <label for="Passwort"> Passwort
 <input type="Passwort" name="fpasswort1" required>
 </label>
 
-<br>
+<br>&nbsp;
 
 <label for="Passwort"> Passwort bestätigen
 <input type="Passwort" name="fpasswort2" required>
 </label>
 
-<br>
+<br>&nbsp;
 
 <label for="email"> E-Mail-Adresse
 <input type="email" name="femail" required>
 </label>
 
-<br>
+<br>&nbsp;
 
-<!--<label for="checkbox"> Habe Teilgenommen
+<label for="checkbox"> Habe Teilgenommen
 <input type="checkbox" name="fteilnehmer">
-</label>-->
+
+</label>
 
 <br>
+<div id="teilnehmerjahr">&nbsp
+<b>Wähl dein Camp aus:</b>
+<select name="fcamp" size="1">
+
+<option>SummerCamp </option>
+<option>WinterCamp </option>
+</select>
+
+<label for="number"> &nbsp;&nbsp;Teilnehmerjahr
+<input type = "number" name="fjahr">
+</label>
+
+</div>
+<br>
+
+
 
 
 <br>
@@ -68,7 +86,7 @@
 </label>
 
 <br>
-
+<br>
 <button type="button" class="btn btn-danger">Registrieren</button>
 
 </form>
