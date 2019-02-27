@@ -49,7 +49,7 @@
 									$rID=2;
 								}
 								else $rID=3;
-							$userpasswort=md5($passwort1);
+							$userpasswort=hash("sha512",$passwort1);
 
 							$sql="INSERT INTO 'wintercamp'.'nutzer'
 								('nID','nachname','vorname','benutzername','eMail','passwort','rID','teilnahme')
