@@ -22,36 +22,31 @@ $_db_benutzername = "root";
 $_db_passwort = "";
 
 session_start();
+$con = mysqli_connect("localhost", "root", "", "wintercamp");
 
-# Datenbankverbindung herstellen
-$link =mysqli_connect($_db_host, $_db_username, $_db_passwort);
-
-# Hat die Verbindung geklappt ?
-if (!$link)
-    {
-    die("Keine Datenbankverbindung möglich: " . mysql_error());
-    }
-
-# Verbindung zur richtigen Datenbank herstellen
-$datenbank = mysql_select_db($_db_datenbank, $link);
-
-if (!$datenbank)
-    {
-    echo "Kann die Datenbank nicht benutzen: " . mysql_error();
-    mysql_close($link);        # Datenbank schliessen
-    exit;                    # Programm beenden !
-    }
 
 $fbenutzername = $_POST["fbenutzername"];
 $fpasswort1 = $_POST["fpasswort1"];
 
 ##################################################################
 
-$sql = "SELECT * from nutzer where benutzername = '$fbenutzername'";
 
-$res = mysqli_query($sql, $link);
+$sql = "SELECT * FROM nutzer WHERE benutzername = '$fbenutzername'";
 
-echo $res;
+$res = mysqli_query($con, $sql);
+
+echo "<table border = 1>";
+
+while ($ausgabe = mysqli_fetch_assoc($res))
+{
+  echo "<tr><td>" . $ausgabe["nID"] . "</td>" .
+     "<td>" . $ausgabe["nachname"] . "</td>" .
+       "<td>" . $ausgabe["vorname"] . "</td></tr>" ;
+
+}
+mysqli_close($con);
+
+echo "</table>";
 
 ?>
   </body>
