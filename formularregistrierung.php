@@ -22,7 +22,7 @@
 							$benutzer='';
 							$adminpasswort='root';
 							$server='localhost';
-							$datenbakname='wintercamp';
+							$datenbankname='wintercamp';
 
 							$ok=mysqli_connect($benutzer,$adminpasswort,$server,$datenbankname);
 
@@ -33,8 +33,12 @@
 								}
 								else echo "Verbindung zur Datenbank steht";
 
-							$sqli="SELECT benutzername FROM nutzer";
+							$sqli="SELECT Count($datenbankname) AS anz FROM $benutzer WHERE benutzername='$benutzername'";
+							$r=mysqli_query($sqli);
+							$erg=mysqli_fetch_array($r);
 
+							if($erg==0)
+							{
 							$vorname=$_POST['fvorname'];
 							$nachname=$_POST['fnachname'];
 							$benutzername=$_POST['fbenutzername'];
@@ -55,7 +59,8 @@
 								('nID','nachname','vorname','benutzername','eMail','passwort','rID','teilnahme')
 								VALUES(NULL,'$nachname','$vorname','$benutzername','$email','$userpasswort','$rID','$camp')
 							header("Location: frontend.php")
-
+										}
+										else echo "Benutzername ist bereits vergeben!";
 							/*	}
 								else echo "Ungültige Email-Adresse!"; */
 							}
