@@ -27,7 +27,7 @@
 			echo "Login";
 		}
 	  ?>
-		</th>
+	  </th>
     </tr>
 </table>
 </div>
