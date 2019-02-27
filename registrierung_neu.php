@@ -89,7 +89,7 @@ $error = false;
         $sql="INSERT INTO 'wintercamp'.'nutzer'";
           ('nID','nachname','vorname','benutzername','eMail','passwort','rID','teilnahme');
           VALUES(NULL,'$nachname','$vorname','$benutzername','$email','$userpasswort','$rID','$camp');
-
+          mysqli_query=($ok,$sqli);
         header("Location: frontend.php");
         }
 ?>
