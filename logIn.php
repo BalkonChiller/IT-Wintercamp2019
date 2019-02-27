@@ -1,50 +1,58 @@
+<!DOCTYPE html>
 
+<html>
+	<head>
+		<meta charset="utf-8">
+	</head>
+
+	<body>
+	<div class="main_page">
+		  <div class="page_header floating_element">
+			<span class="floating_element">
+			  Log In - Dumpseite
+			</span>
+		  </div>
+	</div>
 
 <?php
-//Template
- 
+
+$_db_host = "localhost";
+$_db_datenbank = "wintercamp";
+$_db_benutzername = "root";
+$_db_passwort = "";
+
 session_start();
-$pdo = new PDO('mysql:host=localhost;dbname=test', 'root', '');
 
-if(isset($_GET['login'])) {
-    $email = $_POST['email'];
-    $passwort = $_POST['passwort'];
+# Datenbankverbindung herstellen
+$link =mysqli_connect($_db_host, $_db_username, $_db_passwort);
 
-    $statement = $pdo->prepare("SELECT * FROM users WHERE email = :email");
-    $result = $statement->execute(array('email' => $email));
-    $user = $statement->fetch();
-
-    //Überprüfung des Passworts
-    if ($user !== false && password_verify($passwort, $user['passwort'])) {
-        $_SESSION['userid'] = $user['id'];
-        die('Login erfolgreich. Weiter zu <a href="geheim.php">internen Bereich</a>');
-    } else {
-        $errorMessage = "E-Mail oder Passwort war ungültig<br>";
+# Hat die Verbindung geklappt ?
+if (!$link)
+    {
+    die("Keine Datenbankverbindung möglich: " . mysql_error());
     }
 
-}
+# Verbindung zur richtigen Datenbank herstellen
+$datenbank = mysql_select_db($_db_datenbank, $link);
+
+if (!$datenbank)
+    {
+    echo "Kann die Datenbank nicht benutzen: " . mysql_error();
+    mysql_close($link);        # Datenbank schliessen
+    exit;                    # Programm beenden !
+    }
+
+$fbenutzername = $_POST["fbenutzername"];
+$fpasswort1 = $_POST["fpasswort1"];
+
+##################################################################
+
+$sql = "SELECT * from nutzer where benutzername = '$fbenutzername'";
+
+$res = mysqli_query($sql, $link);
+
+echo $res;
+
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Login</title>
-</head>
-<body>
-
-<?php
-if(isset($errorMessage)) {
-    echo $errorMessage;
-}
-?>
-
-<form action="?login=1" method="post">
-E-Mail:<br>
-<input type="email" size="40" maxlength="250" name="email"><br><br>
-
-Dein Passwort:<br>
-<input type="password" size="40"  maxlength="250" name="passwort"><br>
-
-<input type="submit" value="Abschicken">
-</form>
-</body>
+  </body>
 </html>
