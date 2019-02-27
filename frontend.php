@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+  <title>IT-camp socialnetwork </title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="stylesheet.css">
@@ -11,7 +12,7 @@
 <div class="menu">
 <table>
     <tr>
-      <th onclick="window.location.href='itwc.html'">Home </th>
+      <th><a href="frontend.php">Home</a></th>
       <th>Forum</th>
       <th>Chat</th>
       <th>Gallerie</th>

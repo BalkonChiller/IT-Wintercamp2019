@@ -24,10 +24,12 @@ $_db_passwort = "";
 session_start();
 $con = mysqli_connect("localhost", "root", "", "wintercamp");
 
+
 $fbenutzername = $_POST["fbenutzername"];
 $fpasswort1 = $_POST["fpasswort1"];
 
 ##################################################################
+
 
 $sql = "SELECT * FROM nutzer WHERE benutzername = '$fbenutzername'";
 
@@ -45,6 +47,7 @@ while ($ausgabe = mysqli_fetch_assoc($res))
 mysqli_close($con);
 
 echo "</table>";
+
 ?>
   </body>
 </html>

@@ -106,3 +106,8 @@ box-shadow: 10px 10px 27px -10px rgba(0,0,0,0.75);
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
 }
+a {
+  color: white;
+  text-decoration: none;
+
+}
