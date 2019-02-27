@@ -8,13 +8,48 @@ font-family: sans-serif;
 
 }
 .container1{
-width: 320px;
-height: 420px;
-background:#000;
+width: 280px;
 color: #fff;
 top: 50%;
 left: 50%;
 position: absolute;
 transform: translate(-50%,-50%) ;
-box-sizing: border-box;
+}
+.container1 h1{
+float: left;
+margin-bottom: 50px;
+padding: 0 0 20px;
+text-align: center;
+font-size: 20px;
+border-bottom: 6px solid;
+
+}
+.container1 p{
+
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 15px;
+}
+.container1 input{
+    width: 100%;
+    margin-bottom: 20px;
+    color: white;
+
+}
+.container1 input[type= "text"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    
+}
+.container1 input[type="Passwort"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    
 }
