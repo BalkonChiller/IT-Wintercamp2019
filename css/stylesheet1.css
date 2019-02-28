@@ -94,46 +94,6 @@ html {
   font-family: "Arial", sans-serif;
 }
 
-.links {
-float: left;
-margin-right: 10px;
-}
-
-.kom  {
-	color: #ffb429;
-	font-size: 34px;
-	margin-left: 900px;
-}
-
-.anf  {
-	color: #1d71b8;
-	font-size: 39px;
-}
-
-.sofe  {
-	color: #36a8e1;
-	font-size: 46px;
-	margin-left:735px;
-}
-
-.pro  {
-	color: #ffb429;
-	font-size: 34px;
-}
-
-.soft  {
-	color: #36a8e1;
-	font-size: 34px;
-	margin-left: 900px;
-	margin-top: -33px;
-}
-
-.sofa  {
-	color: #1d71b8;
-	font-size: 39px;
-	margin-left: 665px;
-}
-
 .menu ul {
   list-style-type: none;
   margin: 0;

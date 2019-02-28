@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -6,17 +6,7 @@
 <link rel="stylesheet" href="../css/stylesheet1.css">
 </head>
 <body>
-<img class="links" src="../homepagebilder/images/logo.png" width="40%" height="auto">
-<p>
-<div>
-<div class="kom">Kommunikation</div>
-<div class="anf">Anforderungsmanagement </div>
-<div class="sofe">Software Entwicklung</div>
-<div class="pro">Projektmanagement</div>
-<div class="soft">Softwaretest</div>
-<div class="sofa">Software Architektur</div>
-</div>
-</p>
+<img src="../homepagebilder/images/logox.png" width="100%" height="auto">
 <div class="menu">
 <table>
     <tr>
