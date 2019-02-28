@@ -52,7 +52,7 @@
 
 					  # weiterleitung auf die seite nach erfolgreichem login
 			    	header('location: ./Homepage.php'); #Bitte noch den richtigen Link eingeben
-			    	exit(1);
+			    	exit(1); 
 
 
 			}
