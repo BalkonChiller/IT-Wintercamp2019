@@ -1,38 +1,67 @@
-
-if (f.onlex_password.value == ""){
-fehler += "- Anti-Spam-Kontrolle\n";
-}
-
-else {
-   (f.onlex_password.value != "trowssap")
-fehler += "- Passwort der Anti-Spam-Kontrolle ist falsch \n";
-}
-
-
+//javascript
+var fehler
+//passwort
 if (f.fpasswort1.value != f.fpasswort2.value){
-fehler += "- die eingegebenen Passwörter stimmen nicht überein\n";
+fehler += "Die eingegebenen Passwörter stimmen nicht überein\n";
 }
 
-if (f.eMail.value == ""){
-fehler += "- deine eMail-Adresse\n";
+//email
+
+if (f.femail.value.length < 7){
+fehler += "EMail-Adresse ist zu kurz\n";
+}
+else {
+if (f.femail.value.indexOf("@") == -1){
+fehler += "Eine korrekte eMail-Adresse eingeben\n";
 }
 
 else {
-if (f.eMail.value.length < 7){
-fehler += "- eMail-Adresse ist zu kurz\n";
-}
-else {
-if (f.eMail.value.indexOf("@") == -1){
-fehler += "- eine korrekte eMail-Adresse\n";
-}
-
-else {
-if (f.eMail.value.indexOf(".", f.eMail.value.indexOf("@")) == -1){
-fehler += "- nach dem @ muss ein Punkt folgen\n";
+if (f.femail.value.indexOf(".", f.femail.value.indexOf("@")) == -1){
+fehler += "Nach dem @ muss ein Punkt folgen\n";
 }
 
 }
 
 }
 
+//teilnehmer
+if(document.getElementById("fteilnehmer").checked = true){
+  visibility:visible;
+}
+
+//teilnahmejahr
+if (fcamp="SummerCamp"){
+  if (fjahr <2016){
+    fehler += "Ungültiges Jahr eingegeben\n";
+  }
+}
+
+if (fcamp="SummerCamp"){
+  if (fjahr >heute.getFullYear){
+    fehler+= "Ungültiges Jahr eingegeben\n"
+  }
+}
+
+if (fcamp="WinterCamp"){
+  if (fjahr <2018){
+    fehler += "Ungültiges Jahr eingegeben\n";
+  }
+}
+
+if (fcamp="WinterCamp"){
+  if (fjahr >heute.getFullYear){
+    fehler+= "Ungültiges Jahr eingegeben\n"
+  }
+}
+//datenschutz
+if (document.getElementById("fdsgelesen").checked == false){
+fehler += "Die Datenschutzestimmungen sind noch nicht akzeptiert\n";
+}
+
+//ausgabe
+if (fehler != ""){
+var fehlertext = "Die folgenden Felder wurden nicht vollständig ausgefüllt:\n\n";
+fehlertext += fehler;
+alert(fehlertext + "\nBitte füll die Informationen noch aus. Danke.");
+return false;
 }
