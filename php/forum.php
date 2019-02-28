@@ -5,14 +5,15 @@
     <title></title>
   </head>
 <body>
-  <div class="Oben">
+  <div class="Oben" align="center">
       <h1>Forum</h1>
   </div>
-  <div class="mitte">
-      <form class="" action="Vorschlag_erstellen.php" method="post">
+
+      <form class="" action="Vorschlag_erstellen.php" align="right" method="post">
           <input type="submit" name="neubeitrag" value="Neuer Vorschlag">
       </form>
   <br>
+  <div class="mitte" align="center">
 <?php
             error_reporting(E_ALL);
 
@@ -21,21 +22,31 @@
 
             mysqli_set_charset($db_link, 'utf8');
 
-            $wertebeitrag=$db_link->query("SELECT beitragstitel, beschreibung FROM beitrag");
+            $wertebeitrag=$db_link->query("SELECT * FROM beitrag");
             //$target = 'zum Vorschlag';    // Die ist die bereits existierende Datei
 
-                  while ($row = $wertebeitrag->fetch_assoc()) {
-                              //ergebniss ausgeben
-                      echo "<div>";
-                      foreach ($row as $field) {
-                          echo $field."<br>";
-                      }
-                      //link($target, $link);
-                      echo "</div><br>";
+            while($wertebeitrag2=$wertebeitrag->fetch_array()){
 
-                      //$link   = ' // Dies ist der Dateiname, auf den verlinkt
+              $ueberschrift=$wertebeitrag2['beitragstitel'];
+              $beschreibung=$wertebeitrag2['beschreibung'];
+              $inhalt=$wertebeitrag2['beitragsinhalt'];
+              $kategorie=$wertebeitrag2['kategorie'];
 
-                  }
+              echo "<div>";
+              echo "<h3>".$ueberschrift."</h3>";
+              echo $beschreibung;
+              echo "</div>";
+
+
+            }
+
+
+
+
+
+
+
+
 
 ?>
 
