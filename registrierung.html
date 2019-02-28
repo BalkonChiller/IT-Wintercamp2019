@@ -2,71 +2,63 @@
 <html>
 <head>
 <meta charset="utf-8">
-  <link rel="stylesheet" href="Login.css">
+  <link rel="stylesheet" href="reg.css">
   <title>IT-Camp/Registrieren</title>
 </head>
  <body>
    <div class="logo">
    </div>
-  <h1>IT-Camp</h1>
-  <h2>Registrieren</h2>
-  <div class="container1">
+   <div class="container1">  
+
+      <form class="box" action="registrierung_neu.html"  method="post">
+  <h1>IT-Camp Registrierung</h1>
+  
+
 
 
 
      <form action="registrierung_neu.php" method="post">
 
 
-<br>&nbsp;
-<label for="text"> Vorname
-<input type="text" name="fvorname" required>
-</label>
+
+<input type="text" name="fvorname" required placeholder="Vorname">
 
 
-<br>&nbsp;
 
-<label for="text"> Nachname
-<input type="text" name="fnachname" required>
-</label>
 
-<br>&nbsp;
 
-<label for="text"> Benutzername
-<input type="text" name="fbenutzername" required>
-</label>
+<input type="text" name="fnachname" required placeholder="Nachname">
 
-<br>&nbsp;
 
-<label for="Passwort"> Passwort
-<input type="Passwort" name="fpasswort1" required>
-</label>
 
-<br>&nbsp;
 
-<label for="Passwort"> Passwort bestätigen
-<input type="Passwort" name="fpasswort2" required>
-</label>
+<input type="text" name="fbenutzername" required placeholder="Benutzername">
 
-<br>&nbsp;
 
-<label for="email"> E-Mail-Adresse
-<input type="email" name="femail" required>
-</label>
 
-<br>&nbsp;
 
-<label for="checkbox"> Habe Teilgenommen
+<input type="password" name="fpasswort1" required placeholder="Passwort">
+
+
+<input type="password" name="fpasswort2" required placeholder="Passwort bestätigen">
+
+
+
+<input type="email" name="femail" required placeholder="E-Mail-Adresse">
+
+
+<labbel for="checkbox"> Habe Teilgenommen
 <input type="checkbox" name="fteilnehmer">
 
 </label>
 
-<br>
-<div id="teilnehmerjahr">&nbsp
-<b>Wähl dein Camp aus:</b>
-<select name="fcamp" size="1">
 
-<option>SummerCamp </option>
-<option>WinterCamp </option>
+<div id="teilnehmerjahr" >&nbsp
+<select name="fcamp" size="1"  >
+
+<option value ="Wähl dein Camp aus" selected> Wähl dein Camp aus</option>
+<option value="SummerCamp">SummerCamp </option>
+<option value="WinterCamp">WinterCamp </option>
 </select>
 
 <label for="number"> &nbsp;&nbsp;Teilnehmerjahr
@@ -88,7 +80,7 @@
 <br>
 <br>
 <button type="button" class="btn btn-danger">Registrieren</button>
-
+</form>
 </form>
 
   </div>

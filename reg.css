@@ -1,76 +1,50 @@
 body{
 margin: 0;
 padding: 0;
-background: url("https://images2.alphacoders.com/601/601078.jpg");
-background-size: 150%;
-background-position: center;
+background-image: url("loginBG.jpg");
+background-size:   1920px 1280px;
 font-family: sans-serif;
 
 }
-.container1{
-width: 280px;
-color: #fff;
+.box{
+border-radius: 15px;
+width: 300px;
+padding: 40px;
+position: absolute;
 top: 50%;
 left: 50%;
-position: absolute;
-transform: translate(-50%,-50%) ;
-}
-.container1 h1{
-float: left;
-margin-bottom: 50px;
-padding: 0 0 20px;
+transform: translate(-50%, -50%);
+background: #191919;
 text-align: center;
-font-size: 20px;
-border-bottom: 6px solid;
-
+opacity: 0.95;
 }
-.container1 p{
-
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
-    font-size: 15px;
-}
-.container1 input{
-    width: 100%;
-    margin-bottom: 20px;
+.box h1{
     color: white;
-
+    text-transform: uppercase;
+    font-weight: 500;
 }
-.container1 input[type= "text"]{
-    border: none;
-    border-bottom: 1px solid #fff;
-    background: transparent;
+.box input[type = "text"]{
+    border: 0;
+    color: white;
+    background: none;
+    display: block;
+    margin: 5px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
     outline: none;
-    height: 40px;
     
 }
-.container1 input[type="Passwort"]{
-    border: none;
-    border-bottom: 1px solid #fff;
-    background: transparent;
+.box input[type = "password"], .box input[type = "email"]{
+    border: 0;
+    color: white;
+    background: none;
+    display: block;
+    margin: 5px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
     outline: none;
-    height: 40px;
-    
-}
-.container1 input[type="email"]{
-    border: none;
-    border-bottom: 1px solid #fff;
-    background: transparent;
-    outline: none;
-    height: 40px;
-    
-}
-.container1 input[type="number"]{
-    border: none;
-    border-bottom: 1px solid #fff;
-    background: transparent;
-    outline: none;
-    height: 40px;
-    
-}
-#teilnehmerjahr{display: none;}
-
-input[type=checkbox]:checked ~ #teilnehmerjahr {
-     display: block;
 }
