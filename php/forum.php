@@ -17,8 +17,8 @@
             error_reporting(E_ALL);
 
             // Zum Aufbau der Verbindung zur Datenbank
-            //$db_link = mysqli_connect ('localhost' , 'root' , '' , 'wintercamp');
-            $db_link = mysqli_connect ('localhost' , 'd02bbde5' , 'Senkel2002' , 'd02bbde5');
+            $db_link = mysqli_connect ('localhost' , 'root' , '' , 'wintercamp');
+
             mysqli_set_charset($db_link, 'utf8');
 
             $wertebeitrag=$db_link->query("SELECT beitragstitel, beschreibung FROM beitrag");
@@ -33,7 +33,7 @@
                       //link($target, $link);
                       echo "</div><br>";
 
-                      //$link   = 'https://trojato.de/Passwort_aendern.php?hash='.$id; // Dies ist der Dateiname, auf den verlinkt
+                      //$link   = ' // Dies ist der Dateiname, auf den verlinkt
 
                   }
 

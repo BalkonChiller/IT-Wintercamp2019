@@ -38,8 +38,8 @@ if (isset($_POST["submit"])) {
     error_reporting(E_ALL);
 
     // Zum Aufbau der Verbindung zur Datenbank
-    //$db_link = mysqli_connect ('localhost' , 'root' , '' , 'wintercamp');
-    $db_link = mysqli_connect ('localhost' , 'd02bbde5' , 'Senkel2002' , 'd02bbde5');
+    $db_link = mysqli_connect ('localhost' , 'root' , '' , 'wintercamp');
+
     mysqli_set_charset($db_link, 'utf8');
 
 
@@ -55,6 +55,6 @@ if (isset($_POST["submit"])) {
 }
  ?>
   <br>
-  <a href="https://trojato.de/forum.php">zurück zum Forum</a>
+  <a href="https://trojato.de/forum.php">zurück zum Forum</a> <!--Link zum Forum-->
   </body>
 </html>
