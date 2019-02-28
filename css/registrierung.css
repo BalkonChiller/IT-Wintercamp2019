@@ -1,7 +1,7 @@
 body{
 margin: 0;
 padding: 0;
-background-image: url("loginBG.jpg");
+background-image: url("loginBG.png");
 background-size:   1920px 1280px;
 font-family: sans-serif;
 color:white;
@@ -17,6 +17,7 @@ transform: translate(-50%, -50%);
 background: #191919;
 text-align: center;
 opacity: 0.95;
+font-size:15px;
 }
 .box h1{
     color: white;
@@ -35,6 +36,7 @@ opacity: 0.95;
     width: 200px;
     outline: none;
     border-radius:25px;
+	font-size:20px;
 }
 .box input[type = "password"], .box input[type = "email"]{
     border: 0;
@@ -47,7 +49,8 @@ opacity: 0.95;
     padding: 14px 10px;
     width: 200px;
     outline: none;
-	 border-radius:25px;
+	border-radius:25px;
+	font-size:20px;
 }
 #teilnehmerjahr{
 	visibility: hidden;
@@ -63,8 +66,43 @@ opacity: 0.95;
     outline: none;
 	border-radius:25px;
 	transition-duration: 0.4s;
+	font-size:20px;
 }
 .box button:hover {
   background-color: #3498db;
   color: white;
 }
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 100%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 100%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
