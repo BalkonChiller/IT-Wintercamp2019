@@ -5,7 +5,7 @@ h1 {
 
 table  {
 	width: 100%;
-}	
+}
 
 * {
   box-sizing: border-box;
@@ -13,7 +13,7 @@ table  {
 
 img  {
 	padding: 5px;
-}	
+}
 
 .dropdown {
 			float: center;
@@ -43,7 +43,7 @@ img  {
 			margin: 0px 0px 0px 0px;
 			}
 
-			
+
 			.dropdown-content {
 			display: none;
 			position: absolute;
@@ -171,4 +171,7 @@ html {
   .col-10 {width: 83.33%;}
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
+a {
+  color: white;
+  text-decoration: none;
 }
