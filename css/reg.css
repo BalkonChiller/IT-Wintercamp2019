@@ -1,0 +1,50 @@
+body{
+margin: 0;
+padding: 0;
+background-image: url("loginBG.jpg");
+background-size:   1920px 1280px;
+font-family: sans-serif;
+
+}
+.box{
+border-radius: 15px;
+width: 300px;
+padding: 40px;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background: #191919;
+text-align: center;
+opacity: 0.95;
+}
+.box h1{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.box input[type = "text"]{
+    border: 0;
+    color: white;
+    background: none;
+    display: block;
+    margin: 5px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    
+}
+.box input[type = "password"], .box input[type = "email"]{
+    border: 0;
+    color: white;
+    background: none;
+    display: block;
+    margin: 5px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+}
