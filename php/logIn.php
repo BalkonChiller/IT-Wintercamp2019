@@ -1,19 +1,3 @@
-<!DOCTYPE html>
-
-<html>
-	<head>
-		<meta charset="utf-8">
-	</head>
-
-	<body>
-	<div class="main_page">
-		  <div class="page_header floating_element">
-			<span class="floating_element">
-			  Log In - Dumpseite
-			</span>
-		  </div>
-	</div>
-
 <?php
 
 			$_db_host = "localhost";
@@ -21,46 +5,64 @@
 			$_db_benutzername = "root";
 			$_db_passwort = "";
 
-			session_start();
+
 			$con = mysqli_connect("localhost", "root", "", "wintercamp");
 
 			$fbenutzername = $_POST["fbenutzername"];
 			$fpasswort1 = $_POST["fpasswort1"];
 
+			$fpasswort1=hash("sha512",$fpasswort1);
+
 			##################################################################
 
-			$sql = "SELECT passwort FROM nutzer WHERE benutzername = '$fbenutzername'";
+			$sql = "SELECT * FROM nutzer WHERE benutzername = '$fbenutzername'";
 
 			$res = mysqli_query($con, $sql);
 
 			while ($ausgabe = mysqli_fetch_assoc($res))
 			{
 			  $passwort = $ausgabe["passwort"];
+				$nID = $ausgabe["nID"];
+				$vorname = $ausgabe["vorname"];
+				$nachname = $ausgabe["nachname"];
+				$eMail = $ausgabe["eMail"];
+				$rId = $ausgabe["rId"];
 
 			}
 			mysqli_close($con);
 
-			if (empty($fbenutzername) or empty($passwort1))
+			if (empty($fbenutzername) || empty($fpasswort1))
 			  {
 			    echo "Bitte Nutzerdaten eingeben";
 			  }
 
 			if ($fpasswort1 == $passwort)
 			{
-			     # weiterleitung auf die seite nach erfolgreichem login
-			     header('location: menu.html'); #Bitte noch den richtigen Link eingeben
-			     exit(1);
+
+					#session variable!
+					 session_start();
+					 $_SESSION['fbenutzername'] = $fbenutzername;
+					 $_SESSION['angemeldet'] = 1;
+					 $_SESSION['nID'] = $nID;
+					 $_SESSION['vorname'] = $vorname;
+					 $_SESSION['nachname'] = $nachname;
+					 $_SESSION['eMail'] = $eMail;
+					 $_SESSION['rId'] = $rId;
+
+
+					  # weiterleitung auf die seite nach erfolgreichem login
+			    	header('location: ./Homepage.html'); #Bitte noch den richtigen Link eingeben
+			    	exit(1);
+
+
 			}
 			else
 			{
-			     # weiterleitung auf die Login-seite ...
-					 alert ("Anmeldung nicht erfolgreich.");
-					# header('location: logIn.html');
-			   #  exit();
+						# falsche eingabe gibt meldung aus
+						session_start();
+						$_SESSION['angemeldet'] = 0;
+					 	echo "<script>alert('Anmeldung nicht erfolgreich'); window.location('../html/logIn.html');</script>";
+
 
 			}
-
-
 ?>
-  </body>
-</html>
