@@ -1,90 +1,101 @@
-
+<!Doctype html>
 <html>
 <head>
 <meta charset="utf-8">
-
-
-<script language="javascript" type="text/javascript" src="../javascript/registrierung.js"></script>
-<link rel="stylesheet" href="../css/registrierung.css">
-
-
-  <title>IT-Camp/Registrieren</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="registrierung.css" type = "text/css">
+<script language="javascript" type="text/javascript" src="registrierung.js"></script>
 </head>
- <body>
-   <div class="logo">
+<body>
+<img src="images/logo.png" width="40%" height="auto">
+<img src="images/logo2.png" width="30%" height="auto">
+<br>
+<div class="row">
+   <div class="col-3 col-s-3 menu">
    </div>
-
-  <h1>IT-Camp</h1>
-  <h2>Registrieren</h2>
-     <div class="container1">
-
-
-<form action="../php/registrierung.php" method="post">
-
-
-
-<input type="text" name="fvorname" required placeholder="Vorname">
-
-
-<input type="text" name="fnachname" required placeholder="Nachname">
-
-
-<input type="text" name="fbenutzername" required placeholder="Benutzername">
+   <br>
+   <form class="box" action="registrierung_neu.html"  method="post">
+   <h1>IT-Camp Registrierung</h1>
 
 
 
 
-<input type="password" name="fpasswort1" required placeholder="Passwort">
 
-
-<input type="password" name="fpasswort2" required placeholder="Passwort bestätigen">
+   <form action="registrierung_neu.php" method="post">
 
 
 
-<input type="email" name="femail" required placeholder="E-Mail-Adresse">
+   <input type="text" name="fvorname" required placeholder="Vorname">
 
 
-<labbel for="checkbox"> Habe Teilgenommen
-<input type="checkbox" name="fteilnehmer">
-
-</label>
 
 
-<div id="teilnehmerjahr" >&nbsp
-<select name="fcamp" size="1"  >
 
-<option value ="Wähl dein Camp aus" selected> Wähl dein Camp aus</option>
-<option value="SummerCamp">SummerCamp </option>
-<option value="WinterCamp">WinterCamp </option>
-</select>
+   <input type="text" name="fnachname" required placeholder="Nachname">
 
-<label for="number"> &nbsp;&nbsp;Teilnehmerjahr
-<input type = "number" name="fjahr">
-</label>
+
+
+
+   <input type="text" name="fbenutzername" required placeholder="Benutzername">
+
+
+
+
+   <input type="password" name="fpasswort1" required placeholder="Passwort">
+
+
+   <input type="password" name="fpasswort2" required placeholder="Passwort bestätigen">
+
+
+
+   <input type="text" id='femail' name="femail" required placeholder="E-Mail-Adresse">
+
+   <br>
+   <label for="checkbox"> Habe Teilgenommen
+   <input type="checkbox" id='fteilnehmer' name="fteilnehmer" onclick="sichtbarkeit()">
+
+   </label>
+   <br>
+
+   <div id="teilnehmerjahr" >&nbsp
+   <select id='fcamp' name="fcamp" size="1"  >
+
+   <option value ="Wähl dein Camp aus" selected> Wähl dein Camp aus</option>
+   <option value="SummerCamp">SummerCamp </option>
+   <option value="WinterCamp">WinterCamp </option>
+   </select>
+   <br><br>
+   <label for="number"> &nbsp;&nbsp;Teilnehmerjahr
+   <input type = "number" id='fjahr' name="fjahr">
+   </label>
+
+   </div>
+   <br>
+
+
+
+
+   <br>
+
+   <label for="checkbox"> Datenschutzerklärung akzeptieren
+   <input type="checkbox" id='fdsgelesen' name="fdsgelesen" required>
+   </label>
+
+   <br>
+   <br>
+   <button type="button" class="btn btn-danger" onclick="registrieren()" >Registrieren</button>
+   </form>
+   </form>
 
 </div>
 <br>
-
-
-
-
+<div class="footer">
+<h2 class="widget-title">powered by</h2>
 <br>
-
-<label for="checkbox"> Datenschutzerklärung akzeptieren
-<input type="checkbox" name="fdsgelesen" required>
-</label>
-
-<br>
-
-
-
-
-<input type = "submit" name = "reg" value="Registrieren" style="height: 50px; width: 800px;" id = "bold" >
-
-
-</form>
-
-  </div>
+<a href="https://www.communardo.de/"><img src="images/communardo.png" srcset="communardoi.jpg 320w, communardom.png 600w, images/communardo.png 900w" alt="Communardo"></a>
+<a href="https://www.sap.com/germany/index.html"><img src="images/sap.png" srcset="sapi.jpg 320w, sapm.png 600w, images/sap.png 900w" alt="SAP"></a>
+<a href="https://www.t-systems-mms.com/"><img src="images/tsystems.png" srcset="tsystemsi.jpg 320w, tsystemsm.png 600w, images/tsystems.png 900w" alt="T-Systems"></a>
+</div>
 
 </body>
 </html>
