@@ -55,6 +55,6 @@ if (isset($_POST["submit"])) {
 }
  ?>
   <br>
-  <a href="https://localhost/forum.php">zurück zum Forum</a>
+  <a href="../php/forum.php">zurück zum Forum</a>
   </body>
 </html>

@@ -31,7 +31,7 @@
               $ueberschrift=$wertebeitrag2['beitragstitel'];
               $beschreibung=$wertebeitrag2['beschreibung'];
               $id=$wertebeitrag2["bId"];
-              $link="https://localhost/Vorschlag_kommentieren.php?id=".$id;
+              $link="../php/Vorschlag_kommentieren.php?id=".$id;
               $vorschlag="vorschlag";
 
 
@@ -43,12 +43,6 @@
 
 
             }
-
-
-
-
-
-
 
 
 

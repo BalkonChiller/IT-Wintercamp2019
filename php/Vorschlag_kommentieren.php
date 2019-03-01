@@ -18,8 +18,8 @@
 
   mysqli_set_charset($db_link, 'utf8');
 
-  $id=$_GET["id"];
-  $beitrag=$db_link->query("SELECT * FROM beitrag WHERE bId='$id'");
+  $bid=$_GET["id"];
+  $beitrag=$db_link->query("SELECT * FROM beitrag WHERE bId='$bid'");
 
 
   while($beitrag2=$beitrag->fetch_array()){
@@ -48,30 +48,36 @@
           <input type="submit" name="submit" value="Posten">
       </form>
 </div>
+<br>
 <?php
     if (isset($_POST["submit"])) {
 
 //eingabe
         $kommentar=$_POST["kommentar"];
 
-        $db_link->query("INSERT INTO kommentar (kommentar) VALUES ('$kommentar')");//Hochladen des Kommentars
+        $db_link->query("INSERT INTO kommentar (kommentar, bId) VALUES ('$kommentar', '$bid')");//Hochladen des Kommentars
 
-        $kId=$db_link->query("SELECT MAX(ID) FROM kommentar");//Verküpfung von vorsclag und kommentar
-
+        //$kId=$db_link->query("SELECT * FROM `kommentar` ORDER BY `kommentar`.`kId`  DESC limit 1");//Verküpfung von vorsclag und kommentar
 
         //$kId=$kId->fetch_array();
         //$kId=$kId["kId"];
         //echo $kId;
-        $db_link->query("INSERT INTO kommentar_beitrag (kId,bId) VALUES ('$kId','$id')");
 
+
+    }
 
 //ausgabe
 
-        $db_link->query("SELECT kommentar FROM beitrag, kommentar, kommentar_beitrag WHERE (kommentar.kId=kommentar_beitrag.kId) AND (beitrag.bId=kommentar_beitrag.bId)");
 
-    }
+        $kommausgabe=$db_link->query("SELECT kommentar FROM kommentar WHERE $bid=kommentar.bId ORDER BY kId");
+        while ($kommausgabe2=$kommausgabe->fetch_array()) {
+          $kommausgabe2=$kommausgabe2['kommentar'];
+          echo $kommausgabe2."<br>";
+        }
+
+
 ?>
   <br>
-  <a href="https://localhost/forum.php">zurück zum Forum</a>
+  <a href="../php/forum.php">zurück zum Forum</a>
   </body>
 </html>
