@@ -82,7 +82,7 @@ $error = false;
 	$sqli="INSERT INTO nutzer (nachname,vorname,benutzername,eMail,passwort,rID,teilnahme) VALUES('".$nachname."','".$vorname."','".$benutzername."','".$email."','".$userpasswort."','".$rID."','".$camp."')";
 	  $query_result= mysqli_query($ok,$sqli);
 
-    header('location: ../html/logIn.html'); #Bitte noch den richtigen Link eingeben
+    header('location: ./logIn.php'); #Bitte noch den richtigen Link eingeben
     exit(1);
 	}
 	else echo ".$error.";
