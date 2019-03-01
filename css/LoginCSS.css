@@ -3,7 +3,7 @@ body{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-image: url("loginBG.jpg");
+    background-image: url("../homepagebilder/images/loginBG.jpg");
      background-size:   1920px 1280px;
 }
 .box{
