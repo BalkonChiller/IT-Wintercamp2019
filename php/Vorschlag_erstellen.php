@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> Beitrag erstellen </title>
-    <link rel="stylesheet" href="./.css">
+    <title> Vorschlag erstellen </title>
+    <link rel="stylesheet" href="forum.css">
   </head>
   <body>
 
@@ -55,6 +55,6 @@ if (isset($_POST["submit"])) {
 }
  ?>
   <br>
-  <a href="https://trojato.de/forum.php">zurück zum Forum</a> <!--Link zum Forum-->
+  <a href="https://localhost/forum.php">zurück zum Forum</a>
   </body>
 </html>

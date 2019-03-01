@@ -2,10 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <link rel="stylesheet" href="forum.css">
+    <title>Forum</title>
   </head>
 <body>
-  <div class="Oben" align="center">
+  <div class="oben" align="center">
       <h1>Forum</h1>
   </div>
 
@@ -13,7 +14,7 @@
           <input type="submit" name="neubeitrag" value="Neuer Vorschlag">
       </form>
   <br>
-  <div class="mitte" align="center">
+  <div class="vorschlagallg" align="center">
 <?php
             error_reporting(E_ALL);
 
@@ -29,13 +30,16 @@
 
               $ueberschrift=$wertebeitrag2['beitragstitel'];
               $beschreibung=$wertebeitrag2['beschreibung'];
-              $inhalt=$wertebeitrag2['beitragsinhalt'];
-              $kategorie=$wertebeitrag2['kategorie'];
+              $id=$wertebeitrag2["bId"];
+              $link="https://localhost/Vorschlag_kommentieren.php?id=".$id;
+              $vorschlag="vorschlag";
 
-              echo "<div>";
-              echo "<h3>".$ueberschrift."</h3>";
-              echo $beschreibung;
-              echo "</div>";
+
+              echo "<div class=\"".$vorschlag."\"><table>";
+              echo "<tr><th>".$ueberschrift."</th></tr>";
+              echo "<tr><td>".$beschreibung."</td></tr>";
+              echo "<tr><td><a href=\"".$link."\">zum Vorschlag</a></td></tr>";
+              echo "</table></div><br><hr><br>";
 
 
             }
