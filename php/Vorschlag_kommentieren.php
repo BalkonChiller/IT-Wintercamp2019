@@ -58,6 +58,7 @@
 
         $kId=$db_link->query("SELECT MAX(ID) FROM kommentar");//Verküpfung von vorsclag und kommentar
 
+
         //$kId=$kId->fetch_array();
         //$kId=$kId["kId"];
         //echo $kId;
