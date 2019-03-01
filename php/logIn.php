@@ -37,11 +37,11 @@ include '../php/header.php';
 
 <br>
 
-<a href="./registrierung.html">Registrieren</a>
+<a href="../html/registrierung.html">Registrieren</a>
 
 <br>
 
-<a href="./Passwortvergessen.html">Passwort vergessen</a>
+<a href="../html/Passwortvergessen.html">Passwort vergessen</a>
 
 </form>
   </div>
