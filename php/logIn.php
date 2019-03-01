@@ -1,68 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html" charset="utf-8">
+<link rel="stylesheet" type="text/css"  href="../css/stylesheet1.css">
+</head>
+<body>
 <?php
 
-			$_db_host = "localhost";
-			$_db_datenbank = "wintercamp";
-			$_db_benutzername = "root";
-			$_db_passwort = "";
+include '../php/header.php';
+
+?><div class="row">
+   <div class="col-3 col-s-3 menu">
+   </div>
+
+    <div class="aside">
 
 
-			$con = mysqli_connect("localhost", "root", "", "wintercamp");
+  <form class="box" action="../php/logIn_funktion.php"  method="post">
 
-			$fbenutzername = $_POST["fbenutzername"];
-			$fpasswort1 = $_POST["fpasswort1"];
+<br>
 
-			$fpasswort1=hash("sha512",$fpasswort1);
+    <h1>Login IT-Camp</h1>
 
-			##################################################################
+<p for="text">
+<input type="text" name="fbenutzername" placeholder="Benutzername">
+</p>
 
-			$sql = "SELECT * FROM nutzer WHERE benutzername = '$fbenutzername'";
+<br>
+<p for="Passwort">
+<input type="password" name="fpasswort1" placeholder="Passwort">
+</p>
 
-			$res = mysqli_query($con, $sql);
+<br>
 
-			while ($ausgabe = mysqli_fetch_assoc($res))
-			{
-			  $passwort = $ausgabe["passwort"];
-				$nID = $ausgabe["nID"];
-				$vorname = $ausgabe["vorname"];
-				$nachname = $ausgabe["nachname"];
-				$eMail = $ausgabe["eMail"];
-				$rId = $ausgabe["rId"];
+<button type="submit">Login</button>
 
-			}
-			mysqli_close($con);
+<br>
 
-			if (empty($fbenutzername) || empty($fpasswort1))
-			  {
-			    echo "Bitte Nutzerdaten eingeben";
-			  }
+<a href="./registrierung.html">Registrieren</a>
 
-			if ($fpasswort1 == $passwort)
-			{
+<br>
 
-					#session variable!
-					 session_start();
-					 $_SESSION['fbenutzername'] = $fbenutzername;
-					 $_SESSION['angemeldet'] = 1;
-					 $_SESSION['nID'] = $nID;
-					 $_SESSION['vorname'] = $vorname;
-					 $_SESSION['nachname'] = $nachname;
-					 $_SESSION['eMail'] = $eMail;
-					 $_SESSION['rId'] = $rId;
+<a href="./Passwortvergessen.html">Passwort vergessen</a>
 
+</form>
+  </div>
+</div>
+<br>
+<?php
 
-					  # weiterleitung auf die seite nach erfolgreichem login
-			    	header('location: ./Homepage.php'); #Bitte noch den richtigen Link eingeben
-			    	exit(1); 
+include '../php/footer.php';
 
-
-			}
-			else
-			{
-						# falsche eingabe gibt meldung aus
-						session_start();
-						$_SESSION['angemeldet'] = 0;
-					 	echo "<script>alert('Anmeldung nicht erfolgreich'); window.location('../html/logIn.html');</script>";
-
-
-			}
 ?>
+</body>
+</html>
