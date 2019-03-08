@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../css/stylesheet1.css">
+<link rel="stylesheet" href="../css/hpstyle.css">
 </head>
 <body>
 <img src="../homepagebilder/images/logox.png" width="100%" height="auto">
