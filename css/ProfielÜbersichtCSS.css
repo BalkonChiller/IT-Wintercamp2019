@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Josefin+Slab|Lobster');
+body {
+  background: #201c29;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.center {
+	border-radius: 15px;
+	width: 300px;
+	padding: 40px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: #ffffff;
+	text-align: center;
+	opacity: 0.95;
+}
+
+.profile {
+  float: left;
+  width: 200px;
+  height: 320px;
+  text-align: center;
+}
+.profile .image {
+  position: relative;
+  width: 80px;
+  height: 70px;
+  margin: 38px auto 0 auto;
+}
+.profile .image .circle-1, .profile .image .circle-2 {
+  position: absolute;
+  box-sizing: border-box;
+  width: 76px;
+  height: 76px;
+  top: -3px;
+  left: -3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #643a7a #643a7a #643a7a transparent;
+  border-radius: 50%;
+  transition: all 1.5s ease-in-out;
+}
+.circle-1 {
+  animation: circle-1 2s;
+}
+@keyframes circle-1 {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+.profile .image .circle-2 {
+  width: 82px;
+  height: 82px;
+  top: -6px;
+  left: -6px;
+  border-color: #786450 transparent #786450 #786450;
+  animation: circle 2s;
+}
+@keyframes circle {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.profile .image img {
+  display: block;
+  border-radius: 50%;
+  background: #F5E8DF;
+}
+.profile .image:hover {
+  cursor: pointer;
+}
+.profile .image:hover .circle-1, .profile .image:hover .circle-2 {
+          transform: rotate(360deg);
+}
+.profile .image:hover .circle-2 {
+          transform: rotate(-360deg);
+}
+.profile .name {
+  font-size: 2rem;
+  margin-top: 20px;
+}
+.profile .Bio {
+  font-size: 1.2rem;
+  line-height: 15px;
+}
+svg { 
+  margin: 0 auto; 
+  overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
