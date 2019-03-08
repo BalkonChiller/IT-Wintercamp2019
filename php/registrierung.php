@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 $error = false;
 
@@ -89,7 +88,6 @@ $error = false;
 	else echo ".$error.";
   }
 ?>
-=======
 
 <html>
 <head>
@@ -104,7 +102,7 @@ $error = false;
 include '../php/header.php';
 
 ?>
-br>
+<br>
 <div class="row">
    <div class="col-3 col-s-3 menu">
    </div>
@@ -193,4 +191,3 @@ include '../php/footer.php';
 
 </body>
 </html>
->>>>>>> design
