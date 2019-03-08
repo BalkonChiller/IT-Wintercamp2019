@@ -4,12 +4,18 @@ h1 {
 }
 
 p  {
-	font-size: 20px;
+	font-size: 1.2em;
+	text-align: left;
+	line-height: 2em;
+}	
+
+a  {
+	color: white
 }	
 
 table  {
 	width: 100%;
-}	
+}
 
 * {
   box-sizing: border-box;
@@ -17,7 +23,7 @@ table  {
 
 img  {
 	padding: 5px;
-}	
+}
 
 .navbar {
   overflow: hidden;
