@@ -52,7 +52,7 @@
 
 					  # weiterleitung auf die seite nach erfolgreichem login
 			    	header('location: ./Homepage.php'); #Bitte noch den richtigen Link eingeben
-			    	exit(1); 
+			    	exit(1);
 
 
 			}
@@ -61,7 +61,7 @@
 						# falsche eingabe gibt meldung aus
 						session_start();
 						$_SESSION['angemeldet'] = 0;
-					 	echo "<script>alert('Anmeldung nicht erfolgreich'); window.location('../html/logIn.html');</script>";
+					 	echo "<script>alert('Anmeldung nicht erfolgreich'); window.location('./logIn.php');</script>";
 
 
 			}
