@@ -49,7 +49,7 @@ include '../php/header.php';
   </div>
 </div>
 <br>
-<?php
+
 
 
   <div class="logo">
