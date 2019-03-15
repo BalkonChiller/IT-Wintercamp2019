@@ -1,7 +1,6 @@
-<<<<<<< HEAD
+
 <!DOCTYPE html>
-=======
->>>>>>> design
+
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html" charset="utf-8">
@@ -12,10 +11,11 @@
 
 include '../php/header.php';
 
-?><div class="row">
+?>
+
+  <div class="row">
    <div class="col-3 col-s-3 menu">
    </div>
-<<<<<<< HEAD
 
     <div class="aside">
 
@@ -53,7 +53,7 @@ include '../php/header.php';
 <br>
 <?php
 
-=======
+
   <div class="logo">
    </div>
 
@@ -103,7 +103,7 @@ include '../php/header.php';
 <br>
 <?php
 
->>>>>>> design
+
 include '../php/footer.php';
 
 ?>
