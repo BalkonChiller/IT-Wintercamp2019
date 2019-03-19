@@ -1,66 +1,111 @@
+
 <!DOCTYPE html>
 
 <html>
-	<head>
-		<meta charset="utf-8">
-	</head>
-
-	<body>
-	<div class="main_page">
-		  <div class="page_header floating_element">
-			<span class="floating_element">
-			  Log In - Dumpseite
-			</span>
-		  </div>
-	</div>
-
+<head>
+<meta http-equiv="content-type" content="text/html" charset="utf-8">
+<link rel="stylesheet" type="text/css"  href="../css/hpstyle.css">
+</head>
+<body>
 <?php
 
-			$_db_host = "localhost";
-			$_db_datenbank = "wintercamp";
-			$_db_benutzername = "root";
-			$_db_passwort = "";
-
-			session_start();
-			$con = mysqli_connect("localhost", "root", "", "wintercamp");
-
-			$fbenutzername = $_POST["fbenutzername"];
-			$fpasswort1 = $_POST["fpasswort1"];
-
-			##################################################################
-
-			$sql = "SELECT passwort FROM nutzer WHERE benutzername = '$fbenutzername'";
-
-			$res = mysqli_query($con, $sql);
-
-			while ($ausgabe = mysqli_fetch_assoc($res))
-			{
-			  $passwort = $ausgabe["passwort"];
-
-			}
-			mysqli_close($con);
-
-			if (empty($fbenutzername) or empty($passwort1))
-			  {
-			    echo "Bitte Nutzerdaten eingeben";
-			  }
-
-			if ($fpasswort1 == $passwort)
-			{
-			     # weiterleitung auf die seite nach erfolgreichem login
-			     header('location: menu.html'); #Bitte noch den richtigen Link eingeben
-			     exit(1);
-			}
-			else
-			{
-			     # weiterleitung auf die Login-seite ...
-					 alert ("Anmeldung nicht erfolgreich.");
-					# header('location: logIn.html');
-			   #  exit();
-
-			}
-
+include '../php/header.php';
 
 ?>
-  </body>
+
+  <div class="row">
+   <div class="col-3 col-s-3 menu">
+   </div>
+
+    <div class="aside">
+
+
+  <form class="box" action="../php/logIn_funktion.php"  method="post">
+
+<br>
+
+    <h1>Login IT-Camp</h1>
+
+<p for="text">
+<input type="text" name="fbenutzername" placeholder="Benutzername">
+</p>
+
+<br>
+<p for="Passwort">
+<input type="password" name="fpasswort1" placeholder="Passwort">
+</p>
+
+<br>
+
+<button type="submit">Login</button>
+
+<br>
+
+<a href="../html/registrierung.html">Registrieren</a>
+
+<br>
+
+<a href="../html/Passwortvergessen.html">Passwort vergessen</a>
+
+</form>
+  </div>
+</div>
+<br>
+<?php
+
+
+  <div class="logo">
+   </div>
+
+  <h1>IT-Camp</h1>
+  <h2>Login</h2>
+  <div class="kontainer1">
+
+   <form action="../php/logIndata.php" method="post">
+
+
+  <div class="container1">
+
+<br>
+
+<br>
+<p for="text"> Benutzername
+<input type="text" name="fbenutzername" placeholder="Email" required>
+</p>
+
+<br>
+
+<p for="Passwort"> Passwort
+<input type="Passwort" name="fpasswort1" placeholder="Passwort" required>
+</p>
+
+
+<br>
+
+
+<input type = "submit" name = "login" value="Log In" style="height: 50px; width: 800px;" id = "bold" >
+
+
+
+
+<a href="./registrierung.html">Registrieren</a>
+
+<br>
+
+<a href="./passwortvergessen.html">Passwort vergessen</a>
+
+
+</form>
+
+</div>
+  </div>
+</div>
+<br>
+<?php
+
+
+include '../php/footer.php';
+
+?>
+</body>
 </html>

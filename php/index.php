@@ -30,7 +30,7 @@
 	  <th>
 	 <?php
 	 if(isset($_SESSION)) {
-
+	
 		if($_SESSION['angemeldet'] != 1)
 		{
 			echo "<a href='../html/logIn.html'> Login </a>";
@@ -55,52 +55,13 @@
 
     <div class="aside">
       <h2>Informationen</h2>
-      <div class="oben" align="center">
-          <h1>Forum</h1>
-      </div>
-
-          <form class="" action="Vorschlag_erstellen.php" align="right" method="post">
-              <input type="submit" name="neubeitrag" value="Neuer Vorschlag">
-          </form>
-      <br>
-      <div class="vorschlagallg" align="center">
-    <?php
-                error_reporting(E_ALL);
-
-                // Zum Aufbau der Verbindung zur Datenbank
-                $db_link = mysqli_connect ('localhost' , 'root' , '' , 'wintercamp');
-
-                mysqli_set_charset($db_link, 'utf8');
-
-                $wertebeitrag=$db_link->query("SELECT * FROM beitrag");
-                //$target = 'zum Vorschlag';    // Die ist die bereits existierende Datei
-
-                while($wertebeitrag2=$wertebeitrag->fetch_array()){
-
-                  $ueberschrift=$wertebeitrag2['beitragstitel'];
-                  $beschreibung=$wertebeitrag2['beschreibung'];
-                  $id=$wertebeitrag2["bId"];
-                  $link="../php/Vorschlag_kommentieren.php?id=".$id;
-                  $vorschlag="vorschlag";
-
-
-                  echo "<div class=\"".$vorschlag."\"><table>";
-                  echo "<tr><th>".$ueberschrift."</th></tr>";
-                  echo "<tr><td>".$beschreibung."</td></tr>";
-                  echo "<tr><td><a href=\"".$link."\">zum Vorschlag</a></td></tr>";
-                  echo "</table></div><br><hr><br>";
-
-
-                }
-
-
-
-    ?>
-
-        </div>
-        <div class="unten">
-
-        </div>
+      <p>Du wolltest schon immer einmal in ein IT-Unternehmen schnuppern und Dich ausprobieren? Im Sommer und im Winter hast du die Chance 3 Unternehmen in einer Woche kennenzulernen. Nutze dazu eine Woche deiner Sommer- oder Winterferien und nimm Teil am IT-Camp in Dresden!
+	  <br>
+	  Im Team entwickelt Ihr eine eigene Software und durchlauft alle Positionen der Arbeitskette.
+	  <br>
+	  Schicke uns für das Sommercamp ab Mai und für das Wintercamp ab November deine Bewerbung via E-Mail an personal@communardo.de. Für die genauen Infos kannst du unter den Internetseiten <a href="http://it-summercamp-dd.de/">http://it-summercamp-dd.de/</a> und <a href="http://it-wintercamp-dd.de/">http://it-wintercamp-dd.de/</a> mehr herrausfinden.
+		Nutze die Möglichkeit Deinen Traumberuf zu testen!
+	  </p>
     </div>
 </div>
 <br>

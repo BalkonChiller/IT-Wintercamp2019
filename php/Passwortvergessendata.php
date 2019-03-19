@@ -2,20 +2,27 @@
 <html>
 <head>
 <meta charset="utf-8">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" content="text/css" href="../css/hpstyle.css">
   <title>IT-Camp/passwortvergessen</title>
 </head>
  <body>
-   <div class="logo">
+<?php
+
+include '../php/header.php';
+
+?><div class="row">
+   <div class="col-3 col-s-3 menu">
    </div>
+
+    <div class="aside">
   <h1>IT-Camp</h1>
   <h2>Passwort vergessen</h2>
-  <div class="kontainer1">
+
 
 
 
    <form action="" method="post">
-     <form action="DATEI.php" method="post>"
+
 
 <form action="Passwortvergessen.php" method="post">
 
@@ -39,6 +46,10 @@
 </form>
 
   </div>
+<?php
 
+include '../php/footer.php';
+
+?>
 </body>
 </html>
