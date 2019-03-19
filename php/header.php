@@ -21,15 +21,20 @@
 		</div></th>
 	  <th>
 	 <?php
-		$isLoggedIn = 1;
-		//$isLoggedIn = $_SESSION["isLoggedIn"];
-		if($isLoggedIn == 1) {
-			echo "Profil";
-		}
-		else {
-			echo "Login";
-		}
-	  ?>
+		 if(isset($_SESSION)) {
+
+			if($_SESSION['angemeldet'] != 1) {
+				echo "<a href='../html/logIn.html'> Login </a>";
+			}
+			else {
+				echo "Profil";
+			}
+		 }
+		 else {
+			 echo "<a href='../html/logIn.html'> Login </a>";
+		 }
+		#<a href="logIn.php"> Login </a>if($isLoggedIn == 1)		$fpasswort1 == $passwort
+	?>
 	  </th>
     </tr>
 </table>
