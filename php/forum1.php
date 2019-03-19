@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="forum.css">
+    <link rel="stylesheet" href="../css/forum.css">
     <title>Forum</title>
   </head>
 <body>
