@@ -4,13 +4,14 @@
 		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="../css/stylesheet1.css">
 	</head>
-	
+
 	<body>
+		
 		<?php
 			include './header.php';
 		?>
 		<br>
-		
+
 		<div class="row">
 	   		<div class="col-3 col-s-3 menu"></div>
 			<div class="aside">
@@ -25,7 +26,7 @@
 	    		</div>
 		</div>
 		<br>
-	
+
 		<?php
 			include './footer.php';
 		?>
