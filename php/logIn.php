@@ -13,7 +13,7 @@
     <div class="row">
      <div class="col-3 col-s-3 menu"></div>
      <div class="aside">
-      <form class="box" action="../php/logIn_funktion.php"  method="post">
+      <form class="box" action="./logIn_funktion.php"  method="post">
         <br>
         <h1>Login IT-Camp</h1>
         <p for="text">
