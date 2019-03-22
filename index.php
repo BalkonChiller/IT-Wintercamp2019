@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="../css/stylesheet1.css">
+		<link rel="stylesheet" href="./css/stylesheet1.css">
 	</head>
 
 	<body>
@@ -21,7 +21,7 @@
 		  			Im Team entwickelt Ihr eine eigene Software und durchlauft alle Positionen der Arbeitskette.
 		  			<br>
 		  			Schicke uns für das Sommercamp ab Mai und für das Wintercamp ab November deine Bewerbung via E-Mail an personal@communardo.de. Für die genauen Infos kannst du unter den Internetseiten <a href="http://it-summercamp-dd.de/">http://it-summercamp-dd.de/</a> und <a href="http://it-wintercamp-dd.de/">http://it-wintercamp-dd.de/</a> mehr herrausfinden.
-					Nutze die Möglichkeit Deinen Traumberuf zu testen!
+					Nutze die Möglichkeit deinen Traumberuf zu testen!
 		  		</p>
 	    		</div>
 		</div>

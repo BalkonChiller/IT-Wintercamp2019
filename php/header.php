@@ -1,4 +1,4 @@
-<img src="../homepagebilder/images/logox.png" width="100%" height="auto">
+<img src="./homepagebilder/images/logox.png" width="100%" height="auto">
 <div class="menu">
 <table>
     <tr>
@@ -30,7 +30,7 @@
 				echo "<a href='./logIn.php'> Login </a>";
 			}
 			else {
-        echo "<a href='../html/ProfielÜbersich.html'> Profil </a>";
+        echo "<a href='./html/ProfielÜbersich.html'> Profil </a>";
 			}
     } else {
      echo "<a href='./logIn.php'> Login </a>";
