@@ -30,7 +30,7 @@
 				echo "<a href='./logIn.php'> Login </a>";
 			}
 			else {
-        echo "<a href='./html/ProfielÜbersich.html'> Profil </a>";
+        echo "<a href='../html/ProfielÜbersich.html'> Profil </a>";
 			}
     } else {
      echo "<a href='./logIn.php'> Login </a>";
