@@ -13,7 +13,7 @@ include '../php/header.php';
    </div>
 
     <div class="aside">
-<form action="galerie_upload.php" method="post" enctype="multipart/form-data">
+<form action="galerie_upload_funktion.php" method="post" enctype="multipart/form-data">
     <h1>Wähle ein Bild aus.</h1>
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Hochladen" name="submit">
