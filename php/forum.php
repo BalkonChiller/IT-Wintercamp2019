@@ -1,31 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="homepageCSS.css">
+<link rel="stylesheet" href="../css/hpstyle.css">
 </head>
 <body>
-<img src="logo.jpg" width="50%" height="auto">
-<h1>IT-Camp</h1>
-<div class="menu">
-<table>
-    <tr>
-      <th><a href="Homepage.php">Home</a></th>
-      <th>Forum</th>
-      <th>Chat</th>
-      <th>Gallerie</th>
-	  <th>
-	 <?php
-		$isLoggedIn = 0;
-		//$isLoggedIn = $_SESSION["isLoggedIn"];
-		if($isLoggedIn == 1) {
-			echo "Profil";
-		}
-		else {
-			echo "Login";
-		}
-	  ?>
+<?php
+
+include '../php/header.php';
+
+?>
 	  </th>
     </tr>
 </table>
@@ -36,27 +21,60 @@
    </div>
 
     <div class="aside">
-      <h2>Willkommen in Forum WIP</h2>
-	  <!--Dies ist nur ein Dummy für das Design -->
-      <p>
-	  <?php
-echo "<table border>";	           
-echo"<tr>";
-echo"<th>Kategorie</th>";
-echo"<th>letzter Beitrag</th>";
-echo"</tr>";
+      <h2>Informationen</h2>
+      <div class="oben" align="center">
+          <h1>Forum</h1>
+      </div>
 
-	  ?>
-	  </p>
+          <form class="" action="Vorschlag_erstellen.php" align="right" method="post">
+              <input type="submit" name="neubeitrag" value="Neuer Vorschlag">
+          </form>
+      <br>
+      <div class="vorschlagallg" align="center">
+    <?php
+                error_reporting(E_ALL);
+
+                // Zum Aufbau der Verbindung zur Datenbank
+                $db_link = mysqli_connect ('localhost' , 'root' , '' , 'wintercamp');
+
+                mysqli_set_charset($db_link, 'utf8');
+
+                $wertebeitrag=$db_link->query("SELECT * FROM beitrag");
+                //$target = 'zum Vorschlag';    // Die ist die bereits existierende Datei
+
+                while($wertebeitrag2=$wertebeitrag->fetch_array()){
+
+                  $ueberschrift=$wertebeitrag2['beitragstitel'];
+                  $beschreibung=$wertebeitrag2['beschreibung'];
+                  $id=$wertebeitrag2["bId"];
+                  $link="../php/Vorschlag_kommentieren.php?id=".$id;
+                  $vorschlag="vorschlag";
+
+
+                  echo "<div class=\"".$vorschlag."\"><table>";
+                  echo "<tr><th>".$ueberschrift."</th></tr>";
+                  echo "<tr><td>".$beschreibung."</td></tr>";
+                  echo "<tr><td><a href=\"".$link."\">zum Vorschlag</a></td></tr>";
+                  echo "</table></div><br><hr><br>";
+
+
+                }
+
+
+
+    ?>
+
+        </div>
+        <div class="unten">
+
+        </div>
     </div>
 </div>
 <br>
-<div class="footer">
-<h2 class="widget-title">powered by</h2>
-<br>
-<a href="https://www.communardo.de/"><img src="images/communardo.png" alt="Communardo" height="100px"></a>
-<a href="https://www.sap.com/germany/index.html"><img src="images/sap.png" alt="SAP" height="100px"></a>
-<a href="https://www.t-systems-mms.com/"><img src="images/tsystems.png" alt="T-Systems" height="100px"></a>
-</div>
+<?php
+
+include '../php/footer.php';
+
+?>
 </body>
 </html>
