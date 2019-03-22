@@ -6,9 +6,9 @@
 	</head>
 
 	<body>
-		
+
 		<?php
-			include './header.php';
+			include './php/header.php';
 		?>
 		<br>
 
@@ -28,7 +28,7 @@
 		<br>
 
 		<?php
-			include './footer.php';
+			include './php/footer.php';
 		?>
 	</body>
 </html>
