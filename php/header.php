@@ -20,16 +20,23 @@
 		</div>
 		</div></th>
 	  <th>
-	 <?php
-		$isLoggedIn = 1;
-		//$isLoggedIn = $_SESSION["isLoggedIn"];
-		if($isLoggedIn == 1) {
-			echo "Profil";
-		}
-		else {
-			echo "Login";
-		}
-	  ?>
+	  <?php
+
+    session_start();
+
+     if(isset($_SESSION)) {
+
+			if($_SESSION['angemeldet'] != 1) {
+				echo "<a href='./logIn.php'> Login </a>";
+			}
+			else {
+        echo "<a href='../html/ProfielÜbersich.html'> Profil </a>";
+			}
+    } else {
+     echo "<a href='./logIn.php'> Login </a>";
+   }
+		#<a href="logIn.php"> Login </a>if($isLoggedIn == 1)		$fpasswort1 == $passwort
+	?>
 	  </th>
     </tr>
 </table>
