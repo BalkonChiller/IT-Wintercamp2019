@@ -32,7 +32,7 @@
 
         <br>
 
-        <a href="../html/registrierung.html">Registrieren</a>
+        <a href="./registrierung.php">Registrieren</a>
 
         <br>
 
