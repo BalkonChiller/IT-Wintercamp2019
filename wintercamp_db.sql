@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 26. Feb 2019 um 15:08
+-- Erstellungszeit: 28. Feb 2019 um 11:02
 -- Server-Version: 10.1.38-MariaDB
 -- PHP-Version: 7.3.2
 
@@ -11,6 +11,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -114,7 +115,7 @@ CREATE TABLE `nutzer` (
 --
 
 INSERT INTO `nutzer` (`nID`, `nachname`, `vorname`, `benutzername`, `eMail`, `passwort`, `rId`, `teilnahme`, `registrierungsdatum`, `aenderungsdatum`, `aktivierung`) VALUES
-(1, 'Mustermann', 'Max', 'tollerAdmin', 'max.mustermann@gmail.com', 'testAdmin2019', 1, '', '2019-02-26 12:41:03', '0000-00-00 00:00:00', 0);
+(1, 'Mustermann', 'Max', 'tollerAdmin', 'max.mustermann@gmail.com', 'ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413', 1, '', '2019-02-28 09:08:04', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
