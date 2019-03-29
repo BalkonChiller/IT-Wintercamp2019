@@ -16,11 +16,6 @@
 
         <br><br>
 
-        <label for="beschreibung">Beschreibung:</label><br>
-        <input type="text" name="be" required>
-
-        <br><br>
-
         <label for="Beitraginhalt">Beitragsinhalt:</label><br>
         <textarea rows="10" cols="70" name="bi"></textarea>
 
@@ -32,29 +27,45 @@
         <br><br>
 
         <input type="submit" name="submit" value="Vorschlag abschicken">
-
+		</form>
 <?php
-if (isset($_POST["submit"])) {
-    error_reporting(E_ALL);
+session_start();
+if (isset($_POST["submit"]))
+{
+	if ($_SESSION['angemeldet']==1)	
+	{
+		error_reporting(E_ALL);
+		if(isset($_SESSION['nID'])) 
+		{
+		$id = $_SESSION['nID'];
+		}
+		// Zum Aufbau der Verbindung zur Datenbank
+		$benutzer='root';
+		$adminpasswort='';
+		$server='localhost';
+		$datenbankname='wintercamp';
 
-    // Zum Aufbau der Verbindung zur Datenbank
-    $db_link = mysqli_connect ('localhost' , 'root' , '' , 'wintercamp');
-
-    mysqli_set_charset($db_link, 'utf8');
+		$db_link=mysqli_connect($server,$benutzer,$adminpasswort,$datenbankname);
+		mysqli_set_charset($db_link, 'utf8');
 
 
-    $btitel=$_POST["ue"];//Überschrift
-    $bbeschreibung=$_POST["be"];//kurze Beschreibung
-    $binhalt=$_POST["bi"];//Text zu Vorschlag
-    $bkategorie=$_POST["kt"];//Kategorie
-
-    $db_link->query("INSERT INTO beitrag ( beitragstitel, beschreibung, beitragsinhalt, kategorie) VALUES ( '$btitel', '$bbeschreibung','$binhalt', '$bkategorie')");//Hochladen des Beitrags
-
-
-
+		$btitel=$_POST["ue"];//Überschrift
+		$binhalt=$_POST["bi"];//Text zu Vorschlag
+		$bkategorie=$_POST["kt"];//Kategorie
+		
+		$sql = "INSERT INTO beitrag (nID, beitragstitel, beitraginhalt, kategorie) VALUES ('$id','$btitel','$binhalt','$bkategorie')";
+		$db_link->query($sql);
+		
+		$sql2 = "SELECT Count(bID) FROM beitrag";
+		$erg = mysqli_query($db_link, $sql2);
+		$erg2 = mysqli_fetch_array($erg, MYSQLI_NUM);
+		
+		header('location: http://localhost/Vorschlag_kommentieren.php?id='.$erg2[0]);
+	}
+	else {
+		 header('location: login.php');
+		 }
 }
- ?>
-  <br>
-  <a href="../php/forum.php">zurück zum Forum</a>
+?>
   </body>
 </html>
