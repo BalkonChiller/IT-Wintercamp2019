@@ -1,66 +1,49 @@
 <!DOCTYPE html>
-
 <html>
-	<head>
-		<meta charset="utf-8">
-	</head>
+  <head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+    <link rel="stylesheet" type="text/css"  href="../css/stylesheet1.css">
+  </head>
+  
+  <body>
+    <?php
+      include '../php/header.php';
+    ?>
 
-	<body>
-	<div class="main_page">
-		  <div class="page_header floating_element">
-			<span class="floating_element">
-			  Log In - Dumpseite
-			</span>
-		  </div>
-	</div>
+    <div class="row">
+     <div class="col-3 col-s-3 menu"></div>
+     <div class="aside">
+      <form class="box" action="../php/logIn_funktion.php"  method="post">
+        <br>
+        <h1>Login IT-Camp</h1>
+        <p for="text">
+          <input type="text" name="fbenutzername" placeholder="Benutzername">
+        </p>
+        
+        <br>
+        
+        <p for="Passwort">
+          <input type="password" name="fpasswort1" placeholder="Passwort">
+        </p>
 
-<?php
+        <br>
 
-			$_db_host = "localhost";
-			$_db_datenbank = "wintercamp";
-			$_db_benutzername = "root";
-			$_db_passwort = "";
+        <button type="submit">Login</button>
 
-			session_start();
-			$con = mysqli_connect("localhost", "root", "", "wintercamp");
+        <br>
 
-			$fbenutzername = $_POST["fbenutzername"];
-			$fpasswort1 = $_POST["fpasswort1"];
+        <a href="../html/registrierung.html">Registrieren</a>
 
-			##################################################################
+        <br>
 
-			$sql = "SELECT passwort FROM nutzer WHERE benutzername = '$fbenutzername'";
+        <a href="../html/Passwortvergessen.html">Passwort vergessen</a>
 
-			$res = mysqli_query($con, $sql);
+      </form>
+    </div>
+  </div>
 
-			while ($ausgabe = mysqli_fetch_assoc($res))
-			{
-			  $passwort = $ausgabe["passwort"];
-
-			}
-			mysqli_close($con);
-
-			if (empty($fbenutzername) or empty($passwort1))
-			  {
-			    echo "Bitte Nutzerdaten eingeben";
-			  }
-
-			if ($fpasswort1 == $passwort)
-			{
-			     # weiterleitung auf die seite nach erfolgreichem login
-			     header('location: menu.html'); #Bitte noch den richtigen Link eingeben
-			     exit(1);
-			}
-			else
-			{
-			     # weiterleitung auf die Login-seite ...
-					 alert ("Anmeldung nicht erfolgreich.");
-					# header('location: logIn.html');
-			   #  exit();
-
-			}
-
-
-?>
+  <?php
+    include '../php/footer.php';
+  ?>
   </body>
 </html>

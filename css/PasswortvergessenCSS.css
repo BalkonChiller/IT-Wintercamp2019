@@ -1,13 +1,12 @@
-
 body{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-image: url("../homepagebilder/images/loginBG.jpg");
-     background-size:   1920px 1280px;
+    background: gray;
+
 }
 .box{
-border-radius: 15px;
+    border-radius: 15px;
 width: 300px;
 padding: 40px;
 position: absolute;
@@ -18,13 +17,12 @@ background: #191919;
 text-align: center;
 opacity: 0.95;
 }
-.box h1{
+.box h1,h2{
     color: white;
     text-transform: uppercase;
     font-weight: 500;
-
 }
-.box input[type = "text"], .box input[type = "password"]{
+.box input{
     border: 0;
     color: white;
     background: none;
@@ -37,11 +35,6 @@ opacity: 0.95;
     outline: none;
     border-radius: 25px;
     transition: 0.25s;
-}
-.box input[type = "text"]:focus, .box input[type = "password"]:focus{
-    width: 280px;
-    border-color: #2ecc71;
-
 }
 .box button{
     border: 0;
@@ -58,27 +51,10 @@ opacity: 0.95;
     cursor: pointer;
 }
 .box button:hover{
-background:#2ecc71;
-
-}
-
-.box a{
-    text-decoration: none;
-    font-size: 10px;
-    border: 0;
-    color: white;
-    background: none;
-    display: block;
-    margin: 0px auto;
-    text-align: center;
-    border: 2px solid #3498db;
-    padding: 14px 5px;
-    width: 120px;
-    outline: none;
-    border-radius: 25px;
-    transition: 0.25s;
-    cursor: pointer;
-}
-.box a:hover {
-    background:#3498db;
+    background:#2ecc71;
+    
+    }
+.box input{
+    width: 280px;
+    border-color: #2ecc71;
 }
