@@ -21,19 +21,27 @@
 		</div></th>
 	  <th>
 	  <?php
+      session_start();
 
-    session_start();
+      if(isset($_SESSION)){
+        if ($_SESSION['angemeldet'] == 1) {
+
+        } else {
+          $_SESSION['angemeldet'] = 0;
+        }
+      }
 
      if(isset($_SESSION)) {
 
+
 			if($_SESSION['angemeldet'] != 1) {
-				echo "<a href='./logIn.php'> Login </a>";
+				echo "<a href='../php/logIn.php'> Login </a>";
 			}
 			else {
         echo "<a href='../html/ProfielÜbersich.html'> Profil </a>";
 			}
     } else {
-     echo "<a href='./logIn.php'> Login </a>";
+     echo "<a href='../php/logIn.php'> Login </a>";
    }
 		#<a href="logIn.php"> Login </a>if($isLoggedIn == 1)		$fpasswort1 == $passwort
 	?>

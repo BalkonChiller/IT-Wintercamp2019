@@ -99,7 +99,7 @@ $error = false;
  <body>
 <?php
 
-include '../php/header.php';
+include './header.php';
 
 ?>
 <br>
@@ -185,7 +185,7 @@ include '../php/header.php';
 <br>
 <?php
 
-include '../php/footer.php';
+include './footer.php';
 
 ?>
 

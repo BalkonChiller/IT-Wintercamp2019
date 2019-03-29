@@ -51,7 +51,7 @@
 
 
 					  # weiterleitung auf die seite nach erfolgreichem login
-			    	header('location: ./index.php'); #Bitte noch den richtigen Link eingeben
+			    	header('location: ../index.php'); #Bitte noch den richtigen Link eingeben
 			    	exit(1);
 
 
