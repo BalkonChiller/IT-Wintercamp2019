@@ -120,19 +120,19 @@ include './header.php';
 
 
 <input type="text" name="fvorname" required placeholder="Vorname">
-
+<br>
 
 
 
 
 <input type="text" name="fnachname" required placeholder="Nachname">
-
+<br>
 
 
 
 <input type="text" name="fbenutzername" required placeholder="Benutzername">
 
-
+<br>
 
 
 <input type="password" name="fpasswort1" required placeholder="Passwort">
@@ -147,7 +147,6 @@ include './header.php';
 <br>
 <label for="checkbox"> Habe Teilgenommen
 <input type="checkbox" id='fteilnehmer' name="fteilnehmer" onclick="sichtbarkeit()">
-<br>
 </label>
 <br>
 
