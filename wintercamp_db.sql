@@ -3,14 +3,15 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 26. Feb 2019 um 15:08
+-- Erstellungszeit: 29. Mrz 2019 um 18:00
 -- Server-Version: 10.1.38-MariaDB
--- PHP-Version: 7.3.2
+-- PHP-Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -46,6 +47,34 @@ CREATE TABLE `bewertung` (
   `id` int(11) NOT NULL,
   `nId` int(11) NOT NULL,
   `bId` int(11) NOT NULL,
+  `zeit` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `chatreferenz`
+--
+
+CREATE TABLE `chatreferenz` (
+  `crID` int(11) NOT NULL,
+  `nutzer1` int(11) NOT NULL,
+  `nutzer2` int(11) NOT NULL,
+  `erstellungsdatum` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `aenderungsdatum` timestamp(6) NOT NULL DEFAULT '0000-00-00 00:00:00.000000' ON UPDATE CURRENT_TIMESTAMP(6)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `ch_nid1_nid2`
+--
+
+CREATE TABLE `ch_nid1_nid2` (
+  `chID` int(11) NOT NULL,
+  `crID` int(11) NOT NULL,
+  `cnutzer` int(11) NOT NULL,
+  `nachricht` text NOT NULL,
   `zeit` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -114,7 +143,7 @@ CREATE TABLE `nutzer` (
 --
 
 INSERT INTO `nutzer` (`nID`, `nachname`, `vorname`, `benutzername`, `eMail`, `passwort`, `rId`, `teilnahme`, `registrierungsdatum`, `aenderungsdatum`, `aktivierung`) VALUES
-(1, 'Mustermann', 'Max', 'tollerAdmin', 'max.mustermann@gmail.com', 'testAdmin2019', 1, '', '2019-02-26 12:41:03', '0000-00-00 00:00:00', 0);
+(1, 'Mustermann', 'Max', 'tollerAdmin', 'max.mustermann@gmail.com', 'ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413', 1, '', '2019-02-28 09:08:04', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -151,6 +180,19 @@ ALTER TABLE `beitrag`
 --
 ALTER TABLE `bewertung`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indizes für die Tabelle `chatreferenz`
+--
+ALTER TABLE `chatreferenz`
+  ADD PRIMARY KEY (`crID`);
+
+--
+-- Indizes für die Tabelle `ch_nid1_nid2`
+--
+ALTER TABLE `ch_nid1_nid2`
+  ADD PRIMARY KEY (`chID`),
+  ADD UNIQUE KEY `crID` (`crID`);
 
 --
 -- Indizes für die Tabelle `galerie`
@@ -199,6 +241,18 @@ ALTER TABLE `beitrag`
 --
 ALTER TABLE `bewertung`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `chatreferenz`
+--
+ALTER TABLE `chatreferenz`
+  MODIFY `crID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `ch_nid1_nid2`
+--
+ALTER TABLE `ch_nid1_nid2`
+  MODIFY `chID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT für Tabelle `galerie`
