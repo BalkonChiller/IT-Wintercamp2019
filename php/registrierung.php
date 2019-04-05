@@ -99,7 +99,7 @@ $error = false;
  <body>
 <?php
 
-include '../php/header.php';
+include './header.php';
 
 ?>
 <br>
@@ -120,26 +120,26 @@ include '../php/header.php';
 
 
 <input type="text" name="fvorname" required placeholder="Vorname">
-
+<br>
 
 
 
 
 <input type="text" name="fnachname" required placeholder="Nachname">
-
+<br>
 
 
 
 <input type="text" name="fbenutzername" required placeholder="Benutzername">
 
-
+<br>
 
 
 <input type="password" name="fpasswort1" required placeholder="Passwort">
 
-
+<br>
 <input type="password" name="fpasswort2" required placeholder="Passwort bestätigen">
-
+<br>
 
 
 <input type="email" id='femail' name="femail" required placeholder="E-Mail-Adresse">
@@ -147,13 +147,12 @@ include '../php/header.php';
 <br>
 <label for="checkbox"> Habe Teilgenommen
 <input type="checkbox" id='fteilnehmer' name="fteilnehmer" onclick="sichtbarkeit()">
-
 </label>
 <br>
 
 <div id="teilnehmerjahr" >&nbsp
 <select id='fcamp' name="fcamp" size="1"  >
-
+<br>
 <option value ="Wähl dein Camp aus" selected> Wähl dein Camp aus</option>
 <option value="SummerCamp">SummerCamp </option>
 <option value="WinterCamp">WinterCamp </option>
@@ -185,7 +184,7 @@ include '../php/header.php';
 <br>
 <?php
 
-include '../php/footer.php';
+include './footer.php';
 
 ?>
 
