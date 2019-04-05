@@ -23,12 +23,15 @@
 	  <?php
       session_start();
 
-      if(isset($_SESSION)){
+      if(isset($_SESSION['angemeldet'])){
         if ($_SESSION['angemeldet'] == 1) {
 
-        } else {
+        }
+         else {
           $_SESSION['angemeldet'] = 0;
         }
+      } else {
+        $_SESSION['angemeldet'] = 0;
       }
 
      if(isset($_SESSION)) {
