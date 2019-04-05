@@ -3,9 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title> Vorschlag erstellen </title>
-    <link rel="stylesheet" href="forum.css">
+     <link rel="stylesheet" type="text/css"  href=> <!--stylesheet noch einfügen-->
   </head>
   <body>
+<?php
+      include './header.php';
+?>
 
         <h2>Beitrag erstellen</h2>
 
@@ -29,7 +32,6 @@
         <input type="submit" name="submit" value="Vorschlag abschicken">
 		</form>
 <?php
-session_start();
 if (isset($_POST["submit"]))
 {
 	if ($_SESSION['angemeldet']==1)	
@@ -66,6 +68,10 @@ if (isset($_POST["submit"]))
 		 header('location: login.php');
 		 }
 }
+
+?>
+<?php
+    include './footer.php';
 ?>
   </body>
 </html>
