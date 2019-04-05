@@ -41,13 +41,8 @@
 
 					#session variable!
 					 session_start();
-					 $_SESSION['fbenutzername'] = $fbenutzername;
 					 $_SESSION['angemeldet'] = 1;
 					 $_SESSION['nID'] = $nID;
-					 $_SESSION['vorname'] = $vorname;
-					 $_SESSION['nachname'] = $nachname;
-					 $_SESSION['eMail'] = $eMail;
-					 $_SESSION['rId'] = $rId;
 
 
 					  # weiterleitung auf die seite nach erfolgreichem login

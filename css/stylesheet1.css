@@ -8,11 +8,11 @@ p  {
 	font-size: 1.2em;
 	text-align: left;
 	line-height: 2em;
-}	
+}
 
 a  {
 	color: white
-}	
+}
 
 table  {
 	width: 100%;
@@ -192,4 +192,11 @@ html {
   -webkit-box-shadow: 10px 10px 27px -10px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 27px -10px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 27px -10px rgba(0,0,0,0.75);
+}
+
+.chat {
+    text-align: center;
+    border: 1px solid black;
+    width: 20%;
+    margin: auto;
 }

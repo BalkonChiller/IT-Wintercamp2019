@@ -4,7 +4,7 @@
     <tr>
       <th>Home</th>
       <th>Forum</th>
-      <th>Chat</th>
+      <th><a href="./php/chatErstellen.php">Chat</a></th>
       <th><div class="dropdown">
 		<button class="dropbtn"><b>Galerie</b>
 			<i class="fa fa-caret-down"></i>

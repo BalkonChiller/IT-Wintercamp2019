@@ -1,8 +1,4 @@
 //javascript
-function isValid(str){
-  return !/[~`$%\^*+=\-\[\]\\';/{}|\\"<>]/g.test(str);
-}
-
 function registrieren(){
 var fehler = "";
 //passwort
