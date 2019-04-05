@@ -1,66 +1,49 @@
 <!DOCTYPE html>
-
 <html>
-	<head>
-		<meta charset="utf-8">
-	</head>
+  <head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+    <link rel="stylesheet" type="text/css"  href="../css/stylesheet1.css">
+  </head>
 
-	<body>
-	<div class="main_page">
-		  <div class="page_header floating_element">
-			<span class="floating_element">
-			  Log In - Dumpseite
-			</span>
-		  </div>
-	</div>
+  <body>
+    <?php
+      include './header.php';
+    ?>
 
-<?php
+    <div class="row">
+     <div class="col-3 col-s-3 menu"></div>
+     <div class="aside">
+      <form class="box" action="./logIn_funktion.php"  method="post">
+        <br>
+        <h1>Login IT-Camp</h1>
+        <p for="text">
+          <input type="text" name="fbenutzername" placeholder="Benutzername">
+        </p>
 
-			$_db_host = "localhost";
-			$_db_datenbank = "wintercamp";
-			$_db_benutzername = "root";
-			$_db_passwort = "";
+        <br>
 
-			session_start();
-			$con = mysqli_connect("localhost", "root", "", "wintercamp");
+        <p for="Passwort">
+          <input type="password" name="fpasswort1" placeholder="Passwort">
+        </p>
 
-			$fbenutzername = $_POST["fbenutzername"];
-			$fpasswort1 = $_POST["fpasswort1"];
+        <br>
 
-			##################################################################
+        <button type="submit">Login</button>
 
-			$sql = "SELECT passwort FROM nutzer WHERE benutzername = '$fbenutzername'";
+        <br>
 
-			$res = mysqli_query($con, $sql);
+        <a href="./registrierung.php">Registrieren</a>
 
-			while ($ausgabe = mysqli_fetch_assoc($res))
-			{
-			  $passwort = $ausgabe["passwort"];
+        <br>
 
-			}
-			mysqli_close($con);
+        <a href="../html/Passwortvergessen.html">Passwort vergessen</a>
 
-			if (empty($fbenutzername) or empty($passwort1))
-			  {
-			    echo "Bitte Nutzerdaten eingeben";
-			  }
+      </form>
+    </div>
+  </div>
 
-			if ($fpasswort1 == $passwort)
-			{
-			     # weiterleitung auf die seite nach erfolgreichem login
-			     header('location: menu.html'); #Bitte noch den richtigen Link eingeben
-			     exit(1);
-			}
-			else
-			{
-			     # weiterleitung auf die Login-seite ...
-					 alert ("Anmeldung nicht erfolgreich.");
-					# header('location: logIn.html');
-			   #  exit();
-
-			}
-
-
-?>
+  <?php
+    include './footer.php';
+  ?>
   </body>
 </html>
