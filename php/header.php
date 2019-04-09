@@ -2,7 +2,7 @@
 <div class="menu">
 <table>
     <tr>
-      <th>Home</th>
+      <th><a href="index.php">Home</a></th>
       <th>Forum</th>
       <th><a href="chat.php">Chat</a></th>
       <th><div class="dropdown">
