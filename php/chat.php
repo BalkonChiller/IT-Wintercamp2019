@@ -85,16 +85,7 @@
 			include './header.php';
 		?>
 	
-	 <?php
-		$isLoggedIn = 1;
-		//$isLoggedIn = $_SESSION["isLoggedIn"];
-		if($isLoggedIn == 1) {
-			echo "Profil";
-		}
-		else {
-			echo "Login";
-		}
-	  ?>
+	 
 	  </th>
     </tr>
 </table>
