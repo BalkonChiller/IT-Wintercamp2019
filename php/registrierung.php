@@ -106,80 +106,78 @@ include './header.php';
 <div class="row">
    <div class="col-3 col-s-3 menu">
    </div>
-
-    <div class="aside">
-      <form class="box" action="registrierung_neu.html"  method="post">
-  <h1>IT-Camp Registrierung</h1>
+   <br>
+   <h1>IT-Camp Registrierung</h1>
 
 
 
 
 
-     <form action="registrierung.php" method="post">
+   <form action="../php/registrierung.php" method="post">
 
 
 
-<input type="text" name="fvorname" required placeholder="Vorname">
-<br>
-
-
-
-
-<input type="text" name="fnachname" required placeholder="Nachname">
-<br>
-
-
-
-<input type="text" name="fbenutzername" required placeholder="Benutzername">
-
-<br>
-
-
-<input type="password" name="fpasswort1" required placeholder="Passwort">
-
-<br>
-<input type="password" name="fpasswort2" required placeholder="Passwort bestätigen">
-<br>
-
-
-<input type="email" id='femail' name="femail" required placeholder="E-Mail-Adresse">
-
-<br>
-<label for="checkbox"> Habe Teilgenommen
-<input type="checkbox" id='fteilnehmer' name="fteilnehmer" onclick="sichtbarkeit()">
-</label>
-<br>
-
-<div id="teilnehmerjahr" >&nbsp
-<select id='fcamp' name="fcamp" size="1"  >
-<br>
-<option value ="Wähl dein Camp aus" selected> Wähl dein Camp aus</option>
-<option value="SummerCamp">SummerCamp </option>
-<option value="WinterCamp">WinterCamp </option>
-</select>
-<br><br>
-<label for="number"> &nbsp;&nbsp;Teilnehmerjahr
-<input type = "number" id='fjahr' name="fjahr">
-</label>
-
-</div>
-<br>
+   <input type="text" name="fvorname" id="fvorname" required placeholder="Vorname">
 
 
 
 
-<br>
 
-<label for="checkbox"> Datenschutzerklärung akzeptieren
-<input type="checkbox" id='fdsgelesen' name="fdsgelesen" required>
-</label>
+   <input type="text" name="fnachname" id="fnachname" required placeholder="Nachname">
 
-<br>
-<br>
-<button type="button" class="btn btn-danger" onclick="registrieren()" >Registrieren</button>
-</form>
-</form>
- </div>
+
+
+
+   <input type="text" name="fbenutzername" id="fbenutzername" required placeholder="Benutzername">
+
+
+
+
+   <input type="password" name="fpasswort1" id="fpasswort1" required placeholder="Passwort">
+
+
+   <input type="password" name="fpasswort2" id="fpasswort2" required placeholder="Passwort bestätigen">
+
+
+
+   <input type="text" id='femail' name="femail" required placeholder="E-Mail-Adresse">
+
+   <br>
+   <label for="checkbox"> Habe Teilgenommen
+   <input type="checkbox" id='fteilnehmer' name="fteilnehmer" onclick="sichtbarkeit()">
+
+   </label>
+   <br>
+
+   <div id="teilnehmerjahr" >&nbsp
+   <select id='fcamp' name="fcamp" size="1"  >
+
+   <option value ="Wähl dein Camp aus" selected> Wähl dein Camp aus</option>
+   <option value="SummerCamp">SummerCamp </option>
+   <option value="WinterCamp">WinterCamp </option>
+   </select>
+   <br><br>
+   <label for="number"> &nbsp;&nbsp;Teilnehmerjahr
+   <input type = "number" id='fjahr' name="fjahr">
+   </label>
+
+   </div>
+   <br>
+
+
+
+
+   <br>
+
+   <label for="checkbox"> Datenschutzerklärung akzeptieren
+   <input type="checkbox" id='fdsgelesen' name="fdsgelesen" required>
+   </label>
+
+   <br>
+   <br>
+   <button type="submit" onclick="registrieren()" >Registrieren</button>
+   </form>
+
 </div>
 <br>
 <?php
