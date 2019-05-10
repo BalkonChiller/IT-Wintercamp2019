@@ -2,9 +2,9 @@
 <div class="menu">
 <table>
     <tr>
-      <th>Home</th>
+      <th><a href="index.php">Home</a></th>
       <th>Forum</th>
-      <th>Chat</th>
+      <th><a href="chat.php">Chat</a></th>
       <th><div class="dropdown">
 		<button class="dropbtn"><b>Galerie</b>
 			<i class="fa fa-caret-down"></i>
@@ -23,12 +23,15 @@
 	  <?php
       session_start();
 
-      if(isset($_SESSION)){
+      if(isset($_SESSION['angemeldet'])){
         if ($_SESSION['angemeldet'] == 1) {
 
-        } else {
+        }
+         else {
           $_SESSION['angemeldet'] = 0;
         }
+      } else {
+        $_SESSION['angemeldet'] = 0;
       }
 
      if(isset($_SESSION)) {

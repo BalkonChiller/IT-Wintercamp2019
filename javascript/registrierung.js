@@ -1,6 +1,6 @@
 //javascript
 function isValid(str){
-  return !/[~`$%\^*+=\-\[\]\\';/{}|\\"<>]/g.test(str);
+  return /[~`$%\^*+=\-\[\]\\';/{}|\\"<>]/g.test(str);
 }
 
 function registrieren(){
@@ -16,12 +16,12 @@ if (document.getElementById("femail").value.length < 7){
 fehler += "EMail-Adresse ist zu kurz\n";
 }
 else {
-if (document.getElementsByName("femail").value.indexOf("@") == -1){
+if (document.getElementById("femail").value.indexOf("@") == -1){
 fehler += "Eine korrekte eMail-Adresse eingeben\n";
 }
 
 else {
-if (document.getElementsByName("femail").value.indexOf(".", document.getElementsByName("femail").value.indexOf("@")) == -1){
+if (document.getElementById("femail").value.indexOf(".", document.getElementById("femail").value.indexOf("@")) == -1){
 fehler += "Nach dem @ muss ein Punkt folgen\n";
 }
 
@@ -54,9 +54,41 @@ if (document.getElementById("fcamp").value="WinterCamp"){
     fehler+= "Ungültiges Jahr eingegeben\n"
  }
 }
+
+//fehler Sonderzeichen ausgabe
+if (isValid(document.getElementById("fbenutzername").value)){
+  fehler+="Folgende Sonderzeichen können nicht benutzt werden: [~`$%\^*+=\-\[\]\\';/{}|\\<>]\n"
+}
+
+if (isValid(document.getElementById("fvorname").value)){
+  fehler+="Folgende Sonderzeichen können nicht benutzt werden: [~`$%\^*+=\-\[\]\\';/{}|\\<>]\n"
+}
+
+if (isValid(document.getElementById("fnachname").value)){
+  fehler+="Folgende Sonderzeichen können nicht benutzt werden: [~`$%\^*+=\-\[\]\\';/{}|\\<>]\n"
+}
+
+if (isValid(document.getElementById("fjahr").value)){
+  fehler+="Folgende Sonderzeichen können nicht benutzt werden: [~`$%\^*+=\-\[\]\\';/{}|\\<>]\n"
+}
+
+if (isValid(document.getElementById("fcamp").value)){
+  fehler+="Folgende Sonderzeichen können nicht benutzt werden: [~`$%\^*+=\-\[\]\\';/{}|\\<>]\n"
+}
+
+
+
+if (isValid(document.getElementById("fpasswort1").value)){
+  fehler+="Folgende Sonderzeichen können nicht benutzt werden: [~`$%\^*+=\-\[\]\\';/{}|\\<>]\n"
+}
+
+if (isValid(document.getElementById("fpasswort2").value)){
+  fehler+="Folgende Sonderzeichen können nicht benutzt werden: [~`$%\^*+=\-\[\]\\';/{}|\\<>]\n"
+}
+
 //datenschutz
 if (document.getElementById("fdsgelesen").checked == false){
-fehler += "Die Datenschutzestimmungen sind noch nicht akzeptiert\n";
+fehler += "Die Datenschutzbestimmungen sind noch nicht akzeptiert\n";
 }
 
 //ausgabe
@@ -66,6 +98,7 @@ fehlertext += fehler;
 alert(fehlertext + "\nBitte füll die Informationen noch aus. Danke.");
 
 }
+
 }
 //teilnehmer
 function sichtbarkeit(){
