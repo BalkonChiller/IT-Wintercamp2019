@@ -3,16 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>Passwort ändern</title>
+    <script language="javascript" type="text/javascript" src="./passwort_aendern.js"></script>
   </head>
   <body>
     <form action="" method="post">
         <label for="emailf">E-Mail:</label>
-        <input type="email" name="emailf" required><br>
+        <input type="email" id="emailf" name="emailf" required><br>
         <label for="pw1">Neues Passwort:</label>
-        <input type="password" name="pw1" required><br>
+        <input type="password" id="pw1" name="pw1" required><br>
         <label for="pw2">Neues Passwort:</label>
-        <input type="password" name="pw2" required><br>
-        <input type="submit" name="submit" value="Bestätigen" >
+        <input type="password" id="pw2" name="pw2" required><br>
+        <input type="submit" name="submit" value="Bestätigen" onclick="passwort_aendern()">
 
     </form>
 
@@ -22,10 +23,11 @@ if (isset($_POST["submit"])) {
     	error_reporting(E_ALL);
 
        //Zum Aufbau der Verbindung zur Datenbank
+       /*
       define ( 'MYSQL_HOST',      'localhost' );
       define ( 'MYSQL_BENUTZER',  'root'      );
       define ( 'MYSQL_KENNWORT',  ''          );
-      define ( 'MYSQL_DATENBANK', 'wintercamp');
+      define ( 'MYSQL_DATENBANK', 'wintercamp'); */
 
       $db_link = mysqli_connect ('localhost' , 'root' , '' , 'wintercamp');
       mysqli_set_charset($db_link, 'utf8');
@@ -39,7 +41,7 @@ if (isset($_POST["submit"])) {
       $time_old = intval($time_krpyt_split[1]);
 
       $hashdb=$db_link->query("SELECT hash FROM nutzer WHERE eMail='$email'"); //hash Datenbank
-      $hashdb=$hashdb->fetch_array();
+      #$hashdb=$hashdb->fetch_array();
       $hashend = $hashdb['hash'];
 
       $diff = time()-$time_old;
