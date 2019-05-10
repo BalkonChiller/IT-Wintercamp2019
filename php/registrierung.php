@@ -93,7 +93,7 @@ $error = false;
 <head>
 <meta charset="utf-8">
 <script language="javascript" type="text/javascript" src="registrierung.js"></script>
-  <link rel="stylesheet" href="../css/stylesheet1.css">
+  <link rel="stylesheet" href="../css/registrierung.css" type = "text/css">
   <title>IT-Camp/Registrieren</title>
 </head>
  <body>
