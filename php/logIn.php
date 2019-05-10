@@ -38,8 +38,17 @@
 
         <a href="../html/Passwortvergessen.html">Passwort vergessen</a>
 
-      </form>
-    </div>
+<button type="submit">Login</button>
+
+<br>
+
+<a href="./registrierung.php">Registrieren</a>
+
+<br>
+
+<a href="./Passwortvergessen.php">Passwort vergessen</a>
+
+</form>
   </div>
 
   <?php
