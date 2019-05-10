@@ -24,11 +24,11 @@ if ($_SESSION['angemeldet']==1)
 	  $datenbankname='wintercamp';
 
 	  $db_link = mysqli_connect($server,$benutzer,$adminpasswort,$datenbankname);
-	  
+
 		if(isset($_SESSION['nID'])) {
 		$nID = $_SESSION['nID'];
 		}
-		
+
 	  $bid=$_GET["id"];
 	  $beitrag=$db_link->query("SELECT * FROM beitrag WHERE bId='$bid'");
 
@@ -48,7 +48,7 @@ if ($_SESSION['angemeldet']==1)
 		$sql2 = "SELECT Count(id) FROM bewertung WHERE bID='$bid'";
 		$erg = mysqli_query($db_link, $sql2);
 		$erg2 = mysqli_fetch_array($erg, MYSQLI_NUM);
-		
+
 
 		echo "<div class=\"".$vorschlag."\"><table>";
 		echo "<tr><th colspan=\"".$zahl."\"><h1>".$ueberschrift."</h1></th></tr>";
@@ -99,11 +99,11 @@ if (isset($_POST["submit"])) {
 	  echo $kommausgabe2."<br>";
 	}
 
-if (isset($_POST["like"])) {	
+if (isset($_POST["like"])) {
 	if($erg1 == 0)
     {
 	$sql = "INSERT INTO bewertung (nID, bId) VALUES ('$nID','$bid')";
-    $db_link->query($sql);	
+    $db_link->query($sql);
 	}
 }
 ?>

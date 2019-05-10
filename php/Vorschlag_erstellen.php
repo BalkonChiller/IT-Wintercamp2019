@@ -34,10 +34,10 @@
 <?php
 if (isset($_POST["submit"]))
 {
-	if ($_SESSION['angemeldet']==1)	
+	if ($_SESSION['angemeldet']==1)
 	{
 		error_reporting(E_ALL);
-		if(isset($_SESSION['nID'])) 
+		if(isset($_SESSION['nID']))
 		{
 		$id = $_SESSION['nID'];
 		}
@@ -54,14 +54,14 @@ if (isset($_POST["submit"]))
 		$btitel=$_POST["ue"];//Überschrift
 		$binhalt=$_POST["bi"];//Text zu Vorschlag
 		$bkategorie=$_POST["kt"];//Kategorie
-		
+
 		$sql = "INSERT INTO beitrag (nID, beitragstitel, beitraginhalt, kategorie) VALUES ('$id','$btitel','$binhalt','$bkategorie')";
 		$db_link->query($sql);
-		
+
 		$sql2 = "SELECT Count(bID) FROM beitrag";
 		$erg = mysqli_query($db_link, $sql2);
 		$erg2 = mysqli_fetch_array($erg, MYSQLI_NUM);
-		
+
 		header('location: http://localhost/Vorschlag_kommentieren.php?id='.$erg2[0]);
 	}
 	else {
