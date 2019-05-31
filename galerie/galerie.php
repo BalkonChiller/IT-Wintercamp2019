@@ -101,7 +101,7 @@ $benutzer='root';
 		while($erg2=mysqli_fetch_array($r2, MYSQLI_NUM)) {
 
 			echo "<li>";
-			echo '<div class="slide"><img src="galerie/bilder/'.$erg2[0].'" ></div>';
+			echo '<div class="slide"><img src="bilder/'.$erg2[0].'" ></div>';
 			echo "</li>";
 		}
 	}
