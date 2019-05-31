@@ -219,3 +219,8 @@ html {
 .login {
   padding: 12px 20px !important;
 }
+
+.vorschlagallg a {
+  color: black;
+  text-decoration: none;
+}
