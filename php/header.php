@@ -2,9 +2,9 @@
 <div class="menu">
 <table>
     <tr>
-      <th><a href="index.php">Home</a></th>
+      <th><a href="../index.php">Home</a></th>
       <th>Forum</th>
-      <th><a href="chat.php">Chat</a></th>
+      <th><a href="../php/globalchat.php">Chat</a></th>
       <th><div class="dropdown">
 		<button class="dropbtn"><b>Galerie</b>
 			<i class="fa fa-caret-down"></i>

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-  <link rel="stylesheet" content="text/css" href="..\css\hpstyle.css">
+  <link rel="stylesheet" content="text/css" href="../css/hpstyle.css">
   <title>IT-Camp/passwortvergessen</title>
 </head>
  <body>
