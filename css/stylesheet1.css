@@ -8,11 +8,11 @@ p  {
 	font-size: 1.2em;
 	text-align: left;
 	line-height: 2em;
-}	
+}
 
 a  {
 	color: white
-}	
+}
 
 table  {
 	width: 100%;
@@ -192,4 +192,30 @@ html {
   -webkit-box-shadow: 10px 10px 27px -10px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 27px -10px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 27px -10px rgba(0,0,0,0.75);
+}
+
+.box p {
+    text-align: center;
+}
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: white;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: white;
+}
+
+.checkbox {
+  width: 1% !important;
+}
+
+.login {
+  padding: 12px 20px !important;
 }

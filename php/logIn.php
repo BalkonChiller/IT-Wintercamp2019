@@ -2,16 +2,14 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html" charset="utf-8">
-<link rel="stylesheet" type="text/css"  href="../css/hpstyle.css">
+<link rel="stylesheet" type="text/css"  href="../css/stylesheet1.css">
 </head>
 <body>
 <?php
 
 include '../php/header.php';
 
-?>
-
-  <div class="row">
+?><div class="row">
    <div class="col-3 col-s-3 menu">
    </div>
 
@@ -22,16 +20,13 @@ include '../php/header.php';
 
 <br>
 
-    <h1>Login IT-Camp</h1>
+    <h1>Login IT-Camp</h1> <br />
 
-<p for="text">
-<input type="text" name="fbenutzername" placeholder="Benutzername">
-</p>
+<input type="text" name="fbenutzername" placeholder="Benutzername" class="login">
 
 <br>
-<p for="Passwort">
-<input type="password" name="fpasswort1" placeholder="Passwort">
-</p>
+
+<input type="password" name="fpasswort1" placeholder="Passwort" class="login">
 
 <br>
 
@@ -39,49 +34,20 @@ include '../php/header.php';
 
 <br>
 
-<a href="../html/registrierung.html">Registrieren</a>
+<a href="./registrierung.php">Registrieren</a>
 
 <br>
 
-  <body>
-    <?php
-      include './header.php';
-    ?>
+<a href="./Passwortvergessen.php">Passwort vergessen</a>
 
-    <div class="row">
-     <div class="col-3 col-s-3 menu"></div>
-     <div class="aside">
-      <form class="box" action="./logIn_funktion.php"  method="post">
-        <br>
-        <h1>Login IT-Camp</h1>
-        <p for="text">
-          <input type="text" name="fbenutzername" placeholder="Benutzername">
-        </p>
-
-        <br>
-
-        <p for="Passwort">
-          <input type="password" name="fpasswort1" placeholder="Passwort">
-        </p>
-
-        <br>
-
-        <button type="submit">Login</button>
-
-        <br>
-
-        <a href="./registrierung.php">Registrieren</a>
-
-        <br>
-
-        <a href="../html/Passwortvergessen.html">Passwort vergessen</a>
-
-      </form>
-    </div>
+</form>
   </div>
+</div>
+<br>
+<?php
 
-  <?php
-    include './footer.php';
-  ?>
-  </body>
+include '../php/footer.php';
+
+?>
+</body>
 </html>
