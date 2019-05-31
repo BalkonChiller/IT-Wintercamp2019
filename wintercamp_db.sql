@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 28. Feb 2019 um 11:02
+-- Erstellungszeit: 31. Mai 2019 um 13:13
 -- Server-Version: 10.1.38-MariaDB
--- PHP-Version: 7.3.2
+-- PHP-Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -53,6 +53,34 @@ CREATE TABLE `bewertung` (
 -- --------------------------------------------------------
 
 --
+-- Tabellenstruktur für Tabelle `chatreferenz`
+--
+
+CREATE TABLE `chatreferenz` (
+  `crID` int(11) NOT NULL,
+  `nutzer1` int(11) NOT NULL,
+  `nutzer2` int(11) NOT NULL,
+  `erstellungsdatum` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `aenderungsdatum` timestamp(6) NOT NULL DEFAULT '0000-00-00 00:00:00.000000' ON UPDATE CURRENT_TIMESTAMP(6)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `ch_nid1_nid2`
+--
+
+CREATE TABLE `ch_nid1_nid2` (
+  `chID` int(11) NOT NULL,
+  `crID` int(11) NOT NULL,
+  `cnutzer` int(11) NOT NULL,
+  `nachricht` text NOT NULL,
+  `zeit` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Tabellenstruktur für Tabelle `galerie`
 --
 
@@ -75,6 +103,37 @@ CREATE TABLE `galeriebild` (
   `aktivitaet` tinyint(1) NOT NULL,
   `gId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `globalchat`
+--
+
+CREATE TABLE `globalchat` (
+  `gcId` int(11) NOT NULL,
+  `nId` int(11) NOT NULL,
+  `kommentar` text NOT NULL,
+  `zeit` int(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `globalchat`
+--
+
+INSERT INTO `globalchat` (`gcId`, `nId`, `kommentar`, `zeit`) VALUES
+(1, 1, 'hallo', 1559295926),
+(2, 1, 'test', 1559295931),
+(3, 1, 'es klappt!', 1559295939),
+(4, 1, 'es klappt!', 1559295983),
+(5, 1, 'ich', 1559295988),
+(6, 1, 'ich', 1559296014),
+(7, 1, 'ich', 1559296026),
+(8, 1, 'ich', 1559296036),
+(9, 1, 'ich', 1559296113),
+(10, 1, 'ich', 1559296121),
+(11, 1, 'wow', 1559296886),
+(12, 1, 'wow', 1559296892);
 
 -- --------------------------------------------------------
 
@@ -154,6 +213,19 @@ ALTER TABLE `bewertung`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indizes für die Tabelle `chatreferenz`
+--
+ALTER TABLE `chatreferenz`
+  ADD PRIMARY KEY (`crID`);
+
+--
+-- Indizes für die Tabelle `ch_nid1_nid2`
+--
+ALTER TABLE `ch_nid1_nid2`
+  ADD PRIMARY KEY (`chID`),
+  ADD UNIQUE KEY `crID` (`crID`);
+
+--
 -- Indizes für die Tabelle `galerie`
 --
 ALTER TABLE `galerie`
@@ -165,6 +237,12 @@ ALTER TABLE `galerie`
 ALTER TABLE `galeriebild`
   ADD PRIMARY KEY (`gbId`),
   ADD UNIQUE KEY `aktivitaet` (`aktivitaet`);
+
+--
+-- Indizes für die Tabelle `globalchat`
+--
+ALTER TABLE `globalchat`
+  ADD PRIMARY KEY (`gcId`);
 
 --
 -- Indizes für die Tabelle `kommentar`
@@ -202,6 +280,18 @@ ALTER TABLE `bewertung`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT für Tabelle `chatreferenz`
+--
+ALTER TABLE `chatreferenz`
+  MODIFY `crID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `ch_nid1_nid2`
+--
+ALTER TABLE `ch_nid1_nid2`
+  MODIFY `chID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT für Tabelle `galerie`
 --
 ALTER TABLE `galerie`
@@ -212,6 +302,12 @@ ALTER TABLE `galerie`
 --
 ALTER TABLE `galeriebild`
   MODIFY `gbId` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `globalchat`
+--
+ALTER TABLE `globalchat`
+  MODIFY `gcId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT für Tabelle `kommentar`
