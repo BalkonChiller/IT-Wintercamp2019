@@ -3,7 +3,7 @@
 <table>
     <tr>
       <th><a href="../index.php">Home</a></th>
-      <th>Forum</th>
+      <th><a href="../php/forum.php">Forum</a></th>
       <th><a href="../php/globalchat.php">Chat</a></th>
       <th><div class="dropdown">
 		<button class="dropbtn"><b>Galerie</b>
@@ -11,16 +11,16 @@
 		</button>
 
     <div class="dropdown-content">
-			<a href="#">Winter 2019</a>
-			<a href="#">Sommer 2018</a>
-			<a href="#">Winter 2018</a>
-			<a href="#">Sommer 2017</a>
-			<a href="#">Sommer 2016</a>
+      <a href="../galerie/galerie.php?campid=191">Winter 2019</a>
+      <a href="../galerie/galerie.php?campid=180">Sommer 2018</a>
+      <a href="../galerie/galerie.php?campid=181">Winter 2018</a>
+      <a href="../galerie/galerie.php?campid=170">Sommer 2017</a>
+      <a href="../galerie/galerie.php?campid=160">Sommer 2016</a>
 	</div>
 		</div>
 		</div></th>
 	  <th>
-	  <?php
+<?php
       session_start();
 
       if(isset($_SESSION['angemeldet'])){
@@ -36,18 +36,16 @@
 
      if(isset($_SESSION)) {
 
-
 			if($_SESSION['angemeldet'] != 1) {
 				echo "<a href='../php/logIn.php'> Login </a>";
 			}
 			else {
-        echo "<a href='../html/ProfielÜbersich.html'> Profil </a>";
+        echo "<a href='../php/profil.php'> Profil </a>";
 			}
     } else {
      echo "<a href='../php/logIn.php'> Login </a>";
    }
-		#<a href="logIn.php"> Login </a>if($isLoggedIn == 1)		$fpasswort1 == $passwort
-	?>
+?>
 	  </th>
     </tr>
 </table>
