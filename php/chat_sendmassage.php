@@ -1,19 +1,21 @@
 <?php
 
+    include './header.php';
+
     $function = $_POST['function'];
-    
+
     $log = array();
-    
+
     switch($function) {
-    
+
     	 case('getState'):
         	 if(file_exists('chatLOG.txt')){
 							 $lines = file('chatLOG.txt');
-						
+
         	 }
-             $log['state'] = count($lines); 
-        	 break;	
-    	
+             $log['state'] = count($lines);
+        	 break;
+
     	 case('update'):
         	$state = $_POST['state'];
         	if(file_exists('chatLOG.txt')){
@@ -23,7 +25,7 @@
         	 if($state == $count){
         		 $log['state'] = $state;
         		 $log['text'] = false;
-        		 
+
         		 }
         		 else{
         			 $text= array();
@@ -33,30 +35,30 @@
         				   if($line_num >= $state){
                          $text[] =  $line = str_replace("\n", "", $line);
         				   }
-         
+
                         }
-        			 $log['text'] = $text; 
+        			 $log['text'] = $text;
         		 }
-        	  
+
              break;
-    	 
+
     	 case('send'):
-		  $nickname = htmlentities(strip_tags($_POST['nickname']));
+		  $nickname = htmlentities(strip_tags($_SESSION['fbenutzername']));
 			 $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
 			  $message = htmlentities(strip_tags($_POST['message']));
 		 if(($message) != "\n"){
-        	
+
 			 if(preg_match($reg_exUrl, $message, $url)) {
        			$message = preg_replace($reg_exUrl, '<a href="'.$url[0].'" target="_blank">'.$url[0].'</a>', $message);
-				} 
-			 
-        	
-        	 fwrite(fopen('chatLOG.txt', 'a'), "<span>". $nickname . "</span>" . $message = str_replace("\n", " ", $message) . "\n"); 
+				}
+
+
+        	 fwrite(fopen('chatLOG.txt', 'a'), "<span>". $nickname . "</span>" . $message = str_replace("\n", " ", $message) . "\n");
 		 }
         	 break;
-    	
+
     }
-    
+
     echo json_encode($log);
 
 ?>
