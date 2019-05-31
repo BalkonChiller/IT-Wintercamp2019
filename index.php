@@ -8,9 +8,9 @@
 	<body>
 
 <?php
-		
-			include './php/header.php';
+
 			$_SESSION['angemeldet'] = 0;
+			include './php/header.php';
 
 ?>
 		<br>
