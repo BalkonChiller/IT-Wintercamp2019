@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title> Vorschlag kommentieren </title>
-    <link rel="stylesheet" type="text/css"  href=> <!--stylesheet noch einfügen-->
+    <link rel="stylesheet" type="text/css"  href="/css/stylesheet1.css">
   </head>
   <body>
 <?php
@@ -12,7 +12,6 @@
 
 <div class="vorschlagallg" align="center">
 <?php
-session_start();
 if ($_SESSION['angemeldet']==1)
 	{
 	  error_reporting(E_ALL);

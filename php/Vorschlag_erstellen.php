@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title> Vorschlag erstellen </title>
-     <link rel="stylesheet" type="text/css"  href=> <!--stylesheet noch einfügen-->
+    <link rel="stylesheet" type="text/css"  href="/css/stylesheet1.css">
   </head>
   <body>
 <?php
