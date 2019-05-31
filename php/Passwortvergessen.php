@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-  <link rel="stylesheet" content="text/css" href="../css/hpstyle.css">
+  <link rel="stylesheet" content="text/css" href="..\css\hpstyle.css">
   <title>IT-Camp/passwortvergessen</title>
 </head>
  <body>
@@ -30,9 +30,9 @@ include '../php/header.php';
 
 <br>
 
-<label for="email"> E-Mail-Adresse
-<input type="email" name="femail">
+<input type="email" name="femail" placeholder="Email" class="vergessen">
 </label>
+<br />
 
 
 <br>
