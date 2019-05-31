@@ -8,6 +8,11 @@
   <body>
 <?php
       include './header.php';
+      echo '<head>
+    		      <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    		      <link rel="stylesheet" href="../css/stylesheet1.css">
+	         </head>';
+
 ?>
 
         <h2>Beitrag erstellen</h2>

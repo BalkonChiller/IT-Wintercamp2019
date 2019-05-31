@@ -1,5 +1,10 @@
 <?php
   include '../php/header.php';
+  echo '<head>
+          <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="../css/stylesheet1.css">
+       </head>';
+
 
   $db_link = mysqli_connect('localhost', 'root', '', 'wintercamp');
   $bid=$_SESSION["nID"];
