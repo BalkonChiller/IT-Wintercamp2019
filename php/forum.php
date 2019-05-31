@@ -2,10 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="forum.css">
+    <link rel="stylesheet" type="text/css"  href="/css/stylesheet1.css">
     <title>Forum</title>
   </head>
 <body>
+<?php
+      include './header.php';
+?>
   <div class="oben" align="center">
       <h1>Forum</h1>
   </div>
@@ -16,7 +19,6 @@
   <br>
   <div class="vorschlagallg" align="center">
 <?php
-session_start();
 if ($_SESSION['angemeldet']==1)
 	{
 		error_reporting(E_ALL);
@@ -32,19 +34,30 @@ if ($_SESSION['angemeldet']==1)
 
 		$wertebeitrag=$db_link->query("SELECT * FROM beitrag");
 
+    echo '<table>';
 		while($wertebeitrag2=$wertebeitrag->fetch_array()){
 
 		  $ueberschrift=$wertebeitrag2['beitragstitel'];
 		  $id=$wertebeitrag2["bId"];
 		  $link="Vorschlag_kommentieren.php?id=".$id;
-		  $vorschlag="vorschlag";
+		  //$vorschlag="vorschlag";
 
 
-		  echo "<div class=\"".$vorschlag."\"><table>";
-		  echo "<tr><th>".$ueberschrift."</th></tr>";
-		  echo "<tr><td><a href=\"".$link."\">zum Vorschlag</a></td></tr>";
-		  echo "</table></div><br><hr><br>";
+      // echo "<hr>";
+		  // echo "<table><a href=\"".$link."\"><div class=\"vorschlag\">";
+		  // echo "<tr><th>".$ueberschrift."</th></tr>";
+		  // //echo "<tr><td></td></tr></table>";
+      // echo "<br><br></div></a></table>";
+      echo '<tr>
+              <td>
+                <hr/>
+                <a href="'.$link.'">
+                  <div align="center" text-align="center" class="vorschlag">'.$ueberschrift.'</div>
+                </a>
+              </td>
+            </tr>';
 		}
+    echo '</table>';
 	}
 	else {
 		 header('location: login.php');
@@ -55,6 +68,8 @@ if ($_SESSION['angemeldet']==1)
     <div class="unten">
 
     </div>
-
+<?php
+    include './footer.php';
+?>
   </body>
 </html>
