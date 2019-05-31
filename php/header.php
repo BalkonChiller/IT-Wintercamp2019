@@ -2,9 +2,9 @@
 <div class="menu">
 <table>
     <tr>
-      <th><a href="index.php">Home</a></th>
+      <th><a href="../index.php">Home</a></th>
       <th>Forum</th>
-      <th><a href="chat.php">Chat</a></th>
+      <th><a href="../php/globalchat.php">Chat</a></th>
       <th><div class="dropdown">
 		<button class="dropbtn"><b>Galerie</b>
 			<i class="fa fa-caret-down"></i>
@@ -21,19 +21,30 @@
 		</div></th>
 	  <th>
 	  <?php
+      session_start();
 
-    session_start();
+      if(isset($_SESSION['angemeldet'])){
+        if ($_SESSION['angemeldet'] == 1) {
+
+        }
+         else {
+          $_SESSION['angemeldet'] = 0;
+        }
+      } else {
+        $_SESSION['angemeldet'] = 0;
+      }
 
      if(isset($_SESSION)) {
 
+
 			if($_SESSION['angemeldet'] != 1) {
-				echo "<a href='./logIn.php'> Login </a>";
+				echo "<a href='../php/logIn.php'> Login </a>";
 			}
 			else {
-        echo "<a href='../html/ProfielÜbersich.html'> Profil </a>";
+        echo "<a href='../php/profil.php'> Profil </a>";
 			}
     } else {
-     echo "<a href='./logIn.php'> Login </a>";
+     echo "<a href='../php/logIn.php'> Login </a>";
    }
 		#<a href="logIn.php"> Login </a>if($isLoggedIn == 1)		$fpasswort1 == $passwort
 	?>
