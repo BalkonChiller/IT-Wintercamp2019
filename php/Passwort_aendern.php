@@ -2,10 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
+	<link rel="stylesheet" type="text/css"  href="../css/hpstyle.css">
     <title>Passwort ändern</title>
     <script language="javascript" type="text/javascript" src="./passwort_aendern.js"></script>
   </head>
   <body>
+  <?php
+
+include '../php/header.php';
+
+?><div class="row">
+   <div class="col-3 col-s-3 menu">
+   </div>
+
+    <div class="aside">
+	<h1>Passwort ändern</h1>
     <form action="" method="post">
         <label for="emailf">E-Mail:</label>
         <input type="email" id="emailf" name="emailf" required><br>
@@ -69,7 +80,14 @@ if (isset($_POST["submit"])) {
 
 ?>
 
+  </div>
+</div>
+<br>
+<?php
 
+include '../php/footer.php';
+
+?>
 
 </body>
 </html
