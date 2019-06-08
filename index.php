@@ -30,6 +30,27 @@
 	    		</div>
 		</div>
 		<br>
+		<div class="row">
+			<div class="col-3 col-s-3 menu"></div>
+			<div class="aside">
+				<h2> Aktuelles</h2>
+				<p>Lieber interessierter Internetznutzer,<br>
+				wie du eventuell bereits bemerkt hast, wird an dieser Internetseite noch gearbeitet. Bitte habe Verständnis dafür, dass gewisse Funktionen noch nicht vorhanden sind oder fehlerhaft funktionieren. Hast du Kritik, sind dir Fehler aufgefallen oder hast du Verbesserungsvorschläge und Wünsche, dann freuen wir uns über ein Feedback von dir. Den Kontakt mit uns kannst du über <a href="../php/kontakt.php"> diesen Link </a> oder über das Kontaktformular bei der Profilübersicht zukommen lassen.<br>
+Wir als Entwicklerteam freuen uns über jede Rückmeldung. </p>
+			</div>
+		</div><br>
+
+	<div class="row">
+			<div class="col-3 col-s-3 menu"></div>
+			<div class="aside">
+			<h2> Entwicklung des Projektes </h2>
+			<p>
+				<ul>
+					<li>31.05.2019: Initial Upload</li>
+				</ul>
+			</p>
+			</div>
+			</div><br>
 
 		<?php
 			include './php/footer.php';
