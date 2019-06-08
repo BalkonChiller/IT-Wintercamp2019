@@ -5,6 +5,10 @@
           <link rel="stylesheet" href="../css/stylesheet1.css">
        </head>';
 
+	if ($_SESSION['angemeldet'] == 0) {
+		header('location: ../php/logIn.php');
+	}
+
 
   $db_link = mysqli_connect('localhost', 'root', '', 'wintercamp');
   $bid=$_SESSION["nID"];
