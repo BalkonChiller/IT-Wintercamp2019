@@ -40,7 +40,15 @@
 				echo "<a href='../php/logIn.php'> Login </a>";
 			}
 			else {
-        echo "<a href='../php/profil.php'> Profil </a>";
+        echo "<div class='dropdown'>
+		<button class='dropbtn'><b>Profil</b>
+			<i class='fa fa-caret-down'></i>
+		</button>
+	<div class='dropdown-content'>
+	<a href='../php/profil.php'> Profil </a>
+	<a href='../php/abmelden.php'> Abmelden </a>
+	</div></div>";
+
 			}
     } else {
      echo "<a href='../php/logIn.php'> Login </a>";
