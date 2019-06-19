@@ -61,7 +61,7 @@
 						# falsche eingabe gibt meldung aus
 						session_start();
 						$_SESSION['angemeldet'] = 0;
-					 	echo "<script>alert('Anmeldung nicht erfolgreich'); window.location('./logIn.php');</script>";
+					 	echo "<script>alert('Anmeldung nicht erfolgreich'); window.location('../php/logIn.php');</script>";
 
 
 			}

@@ -92,8 +92,9 @@ $error = false;
 <html>
 <head>
 <meta charset="utf-8">
-<script language="javascript" type="text/javascript" src="registrierung.js"></script>
-  <link rel="stylesheet" href="../css/stylesheet1.css">
+<script language="javascript" type="text/javascript" src="../javascript/registrierung.js"></script>
+  <link rel="stylesheet" type="text/css"  href="../css/stylesheet1.css">
+  <link rel="stylesheet" href="../css/registrierung.css" type = "text/css">
   <title>IT-Camp/Registrieren</title>
 </head>
  <body>
@@ -103,7 +104,7 @@ include './header.php';
 
 ?>
 <br>
-<div class="row">
+<div class="row aside">
    <div class="col-3 col-s-3 menu">
    </div>
    <br>
@@ -117,34 +118,34 @@ include './header.php';
 
 
 
-   <input type="text" name="fvorname" id="fvorname" required placeholder="Vorname">
+   <input type="text" name="fvorname" id="fvorname" required placeholder="Vorname"> <br />
 
 
 
 
 
-   <input type="text" name="fnachname" id="fnachname" required placeholder="Nachname">
+   <input type="text" name="fnachname" id="fnachname" required placeholder="Nachname"> <br />
 
 
 
 
-   <input type="text" name="fbenutzername" id="fbenutzername" required placeholder="Benutzername">
+   <input type="text" name="fbenutzername" id="fbenutzername" required placeholder="Benutzername"> <br />
 
 
 
 
-   <input type="password" name="fpasswort1" id="fpasswort1" required placeholder="Passwort">
+   <input type="password" name="fpasswort1" id="fpasswort1" required placeholder="Passwort"> <br />
 
 
-   <input type="password" name="fpasswort2" id="fpasswort2" required placeholder="Passwort bestätigen">
+   <input type="password" name="fpasswort2" id="fpasswort2" required placeholder="Passwort bestätigen"> <br />
 
 
 
-   <input type="text" id='femail' name="femail" required placeholder="E-Mail-Adresse">
+   <input type="text" id='femail' name="femail" required placeholder="E-Mail-Adresse"> <br />
 
    <br>
    <label for="checkbox"> Habe Teilgenommen
-   <input type="checkbox" id='fteilnehmer' name="fteilnehmer" onclick="sichtbarkeit()">
+   <input type="checkbox" class="checkbox" id='fteilnehmer' name="fteilnehmer" onclick="sichtbarkeit()">
 
    </label>
    <br>
@@ -162,15 +163,9 @@ include './header.php';
    </label>
 
    </div>
-   <br>
-
-
-
-
-   <br>
 
    <label for="checkbox"> Datenschutzerklärung akzeptieren
-   <input type="checkbox" id='fdsgelesen' name="fdsgelesen" required>
+   <input type="checkbox" class="checkbox" id='fdsgelesen' name="fdsgelesen" required>
    </label>
 
    <br>

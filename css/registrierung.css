@@ -15,7 +15,6 @@ img  {
 	padding: 5px;
 }
 
-
 .row::after {
   content: "";
   clear: both;
@@ -98,7 +97,7 @@ form {
 
 /* Full-width inputs */
 input[type=text], input[type=password] {
-  width: 100%;
+  width: 20%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -161,4 +160,18 @@ span.psw {
   .cancelbtn {
     width: 100%;
   }
+}
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: white;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: white;
 }

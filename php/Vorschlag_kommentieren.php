@@ -15,40 +15,29 @@
 if ($_SESSION['angemeldet']==1)
 	{
 	  error_reporting(E_ALL);
-
 	  // Zum Aufbau der Verbindung zur Datenbank
 	  $benutzer='root';
 	  $adminpasswort='';
 	  $server='localhost';
 	  $datenbankname='wintercamp';
-
 	  $db_link = mysqli_connect($server,$benutzer,$adminpasswort,$datenbankname);
-
 		if(isset($_SESSION['nID'])) {
 		$nID = $_SESSION['nID'];
 		}
-
 	  $bid=$_GET["id"];
 	  $beitrag=$db_link->query("SELECT * FROM beitrag WHERE bId='$bid'");
-
 		//Bereits Geliket?
 		$sqli="SELECT Count(nID) AS anz FROM bewertung WHERE bID='".$bid."'";
 		$erg1=mysqli_fetch_row(mysqli_query($db_link,$sqli))[0];
-
-
 	  while($beitrag2=$beitrag->fetch_array()){
-
 		$ueberschrift=$beitrag2['beitragstitel'];
 		$binhalt=$beitrag2['beitraginhalt'];
 		$bkategorie=$beitrag2['kategorie'];
 		$vorschlag="vorschlag";
 		$zahl=2;
-
 		$sql2 = "SELECT Count(id) FROM bewertung WHERE bID='$bid'";
 		$erg = mysqli_query($db_link, $sql2);
 		$erg2 = mysqli_fetch_array($erg, MYSQLI_NUM);
-
-
 		echo "<div class=\"".$vorschlag."\"><table>";
 		echo "<tr><th colspan=\"".$zahl."\"><h1>".$ueberschrift."</h1></th></tr>";
 		echo "<tr><td><h3>Inhalt:</h3></td><td>".$binhalt."</td></tr>";
@@ -97,7 +86,6 @@ if (isset($_POST["submit"])) {
 	  $kommausgabe2=$kommausgabe2['kommentar'];
 	  echo $kommausgabe2."<br>";
 	}
-
 if (isset($_POST["like"])) {
 	if($erg1 == 0)
     {

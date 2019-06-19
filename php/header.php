@@ -2,9 +2,9 @@
 <div class="menu">
 <table>
     <tr>
-      <th><a href="../index.php">Home</a></th>
-      <th><a href="../php/forum.php">Forum</a></th>
-      <th><a href="../php/globalchat.php">Chat</a></th>
+      <th onclick="self.location.href='../index.php'">Home</th>
+      <th onclick="self.location.href='../php/forum.php'">Forum</th>
+      <th onclick="self.location.href='../php/globalchat.php'">Chat</th>
       <th><div class="dropdown">
 		<button class="dropbtn"><b>Galerie</b>
 			<i class="fa fa-caret-down"></i>
