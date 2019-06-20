@@ -99,9 +99,7 @@ $error = false;
 </head>
  <body>
 <?php
-
 include './header.php';
-
 ?>
 <br>
 <div class="row aside">
@@ -110,36 +108,17 @@ include './header.php';
    <br>
    <h1>IT-Camp Registrierung</h1>
 
-
-
-
-
    <form action="../php/registrierung.php" method="post">
-
-
 
    <input type="text" name="fvorname" id="fvorname" required placeholder="Vorname"> <br />
 
-
-
-
-
    <input type="text" name="fnachname" id="fnachname" required placeholder="Nachname"> <br />
-
-
-
 
    <input type="text" name="fbenutzername" id="fbenutzername" required placeholder="Benutzername"> <br />
 
-
-
-
    <input type="password" name="fpasswort1" id="fpasswort1" required placeholder="Passwort"> <br />
 
-
    <input type="password" name="fpasswort2" id="fpasswort2" required placeholder="Passwort bestätigen"> <br />
-
-
 
    <input type="text" id='femail' name="femail" required placeholder="E-Mail-Adresse"> <br />
 
@@ -172,14 +151,10 @@ include './header.php';
    <br>
    <button type="submit" onclick="registrieren()" >Registrieren</button>
    </form>
-
 </div>
 <br>
 <?php
-
 include './footer.php';
-
 ?>
-
 </body>
 </html>

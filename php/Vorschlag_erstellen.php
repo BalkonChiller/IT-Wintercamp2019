@@ -9,28 +9,35 @@
 <?php
       include './header.php';
 ?>
+<br>
+<div class="row">
+ <div class="col-3 col-s-3 menu">
+ </div>
+  <div class="aside">
+    <h1>Beitrag erstellen</h1>
 
-        <h2>Beitrag erstellen</h2>
+    <form class="" action="" method="post">
 
-        <form class="" action="" method="post">
+    <label for="ueberschrift">Überschrift:</label><br>
+    <input type="text" name="ue" required>
 
-        <label for="ueberschrift">Überschrift:</label><br>
-        <input type="text" name="ue" required>
+    <br><br>
 
-        <br><br>
+    <label for="Beitraginhalt">Beitragsinhalt:</label><br>
+    <textarea rows="10" cols="70" name="bi"></textarea>
 
-        <label for="Beitraginhalt">Beitragsinhalt:</label><br>
-        <textarea rows="10" cols="70" name="bi"></textarea>
+    <br><br><br>
 
-        <br><br>
+    <label for="Kategorie">Kategorie:</label><br>
+    <input type="text" name="kt" required>
 
-        <label for="Kategorie">Kategorie:</label><br>
-        <input type="text" name="kt" required>
+    <br><br>
 
-        <br><br>
-
-        <input type="submit" name="submit" value="Vorschlag abschicken">
-		</form>
+    <button type="submit" name="submit" value="">Vorschlag abschicken</button>
+  </form>
+  </div>
+</div>
+<br>
 <?php
 if (isset($_POST["submit"]))
 {

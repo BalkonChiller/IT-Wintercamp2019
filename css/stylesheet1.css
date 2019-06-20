@@ -3,7 +3,6 @@ h1 {
     background-color: #ffb429;
 }
 
-
 p  {
 	font-size: 1.2em;
 	text-align: left;
@@ -181,6 +180,7 @@ html {
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
 }
+
 .aside input {
   display: center;
   font-size: 16px;
@@ -197,7 +197,6 @@ html {
 .box p {
     text-align: center;
 }
-
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: white;
