@@ -7,40 +7,39 @@
     <script language="javascript" type="text/javascript" src="./passwort_aendern.js"></script>
   </head>
   <body>
-  <?php
 
+<?php
 include '../php/header.php';
-
-?><div class="row">
+?>
+<br>
+<div class="row">
    <div class="col-3 col-s-3 menu">
    </div>
-
     <div class="aside">
 	<h1>Passwort ändern</h1>
     <form action="" method="post">
-        <label for="emailf">E-Mail:</label>
-        <input type="email" id="emailf" name="emailf" required><br>
-        <label for="pw1">Neues Passwort:</label>
-        <input type="password" id="pw1" name="pw1" required><br>
-        <label for="pw2">Neues Passwort:</label>
-        <input type="password" id="pw2" name="pw2" required><br>
+        <input type="email" id="emailf" name="emailf" placeholder="E-Mail" class="login" required><br>
+        <input type="password" id="pw1" name="pw1" placeholder="Neues Passwort" class="login"required><br>
+        <input type="password" id="pw2" name="pw2" placeholder="Neues Passwort wiederholen" class="login"required><br>
         <input type="submit" name="submit" value="Bestätigen" onclick="passwort_aendern()">
-
     </form>
+    </div>
+</div>
+<br>
+
 
 <?php
 if (isset($_POST["submit"])) {
 
-    	error_reporting(E_ALL);
+      error_reporting(E_ALL);
 
-       //Zum Aufbau der Verbindung zur Datenbank
-       /*
-      define ( 'MYSQL_HOST',      'localhost' );
-      define ( 'MYSQL_BENUTZER',  'root'      );
-      define ( 'MYSQL_KENNWORT',  ''          );
-      define ( 'MYSQL_DATENBANK', 'wintercamp'); */
+      //Zum Aufbau der Verbindung zur Datenbank
+      $benutzer='root';
+      $adminpasswort='';
+      $server='localhost';
+      $datenbankname='wintercamp';
 
-      $db_link = mysqli_connect ('localhost' , 'root' , '' , 'wintercamp');
+      $ok=mysqli_connect($server,$benutzer,$adminpasswort,$datenbankname);
       mysqli_set_charset($db_link, 'utf8');
 
       $email=$_POST["emailf"];  //E-Mail
@@ -66,28 +65,15 @@ if (isset($_POST["submit"])) {
                   }else {
                     echo "fehler";
                   }
-
-
               }else {
                 echo "Passwörter stimmen nicht überein!";
-
               }
-
     }else {
       echo "mindestens 6 Zeichen oder Hash ausgelaufen";
     }
   }
 
-?>
-
-  </div>
-</div>
-<br>
-<?php
-
 include '../php/footer.php';
-
 ?>
-
 </body>
 </html
