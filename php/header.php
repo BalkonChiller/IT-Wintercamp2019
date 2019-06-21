@@ -45,7 +45,7 @@
               <i class='fa fa-caret-down'></i>
               </button>
               <div class='dropdown-content'>
-              <a href='../php/profil.php'> Profil </a>
+              <a href='../php/profil.php'> Profilübersicht </a>
               <a href='../php/abmelden.php'> Abmelden </a>
               </div></div>";
 
