@@ -37,11 +37,11 @@ include './php/header.php';
 		<p>
 			Lieber interessierter Internetznutzer,
 			<br>
-			wie du eventuell bereits bemerkt hast, wird an dieser Internetseite noch gearbeitet. Bitte habe Verständnis dafür, dass gewisse Funktionen noch nicht vorhanden sind oder fehlerhaft funktionieren.
+			wie du eventuell bereits bemerkt hast, wird an dieser Internetseite noch gearbeitet. Bitte habe Verständnis dafür, dass gewisse Funktionen noch nicht vorhanden sind oder nur fehlerhaft funktionieren.
 			<br>
 			Hast du Kritik, sind dir Fehler aufgefallen oder hast du Verbesserungsvorschläge und Wünsche, dann freuen wir uns über ein Feedback von dir.
 			<br>
-			Kontaktieren kannst du uns gerne über <a href="../php/kontakt.php"> diesen Link </a> oder über das Kontaktformular bei der Profilübersicht.
+			Kontaktieren kannst du uns gerne über <a href="../php/kontakt.php">diesen Link</a> oder über das Kontaktformular bei der Profilübersicht.
 			<br>
 			Wir als Entwicklerteam freuen uns über jede Rückmeldung.
 		</p>
@@ -54,7 +54,8 @@ include './php/header.php';
 		<h2> Entwicklung des Projektes </h2>
 		<p>
 			<ul>
-				<li>31.05.2019: Initial Upload</li>
+				<!--<li>31.05.2019: Initial Upload</li>-->
+				31.05.2019: Initial Upload
 			</ul>
 		</p>
 	</div>
