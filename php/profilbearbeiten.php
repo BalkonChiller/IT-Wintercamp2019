@@ -43,8 +43,6 @@ echo "<br>
                     <td><label for='email'>E-Mail:</label></td>
                     <td><input type='email' name='email' value='".$eMail."'></td>
                 </tr>
-
-
                 <tr><td colspan='2'><br></td></tr>
                 <tr>
                     <td><input type='submit' name='speichern' value='Änderungen speichern'></td>
@@ -60,7 +58,7 @@ $vname=$_POST["vname"];
 $nname=$_POST["nname"];
 $bname=$_POST["bname"];
 $eMail=$_POST["email"];
-$db_link->query("UPDATE nutzer SET vorname='$vname', nachname='$nname', benutzername = '$bname', eMail='$email' WHERE nID='$nID'");
+$db_link->query("UPDATE nutzer SET vorname='$vname', nachname='$nname', benutzername = '$bname', eMail='$eMail' WHERE nID='$nID'");
 
 $_SESSION['fbenutzername'] = $bname;
 $_SESSION['vorname'] = $vname;
@@ -71,5 +69,5 @@ header('location: ./profil.php');
 }
 include '../php/footer.php';
 ?>
-</body>
+    </body>
 </hmtl>
