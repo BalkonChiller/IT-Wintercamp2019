@@ -69,9 +69,8 @@ if (isset($_POST["submit"]))
 		 header('location: login.php');
 		 }
 }
-?>
-<?php
-    include './footer.php';
+
+include './footer.php';
 ?>
   </body>
 </html>
