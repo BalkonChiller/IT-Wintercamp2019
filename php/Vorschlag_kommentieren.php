@@ -16,11 +16,11 @@ if ($_SESSION['angemeldet']==1)
 	{
 	  error_reporting(E_ALL);
 	  // Zum Aufbau der Verbindung zur Datenbank
-	  $benutzer='root';
-	  $adminpasswort='';
-	  $server='localhost';
-	  $datenbankname='wintercamp';
-	  $db_link = mysqli_connect($server,$benutzer,$adminpasswort,$datenbankname);
+	  //$benutzer='root';
+	  //$adminpasswort='';
+	  //$server='localhost';
+	  //$datenbankname='wintercamp';
+	  include '../php/datenbanklink.php';
 		if(isset($_SESSION['nID'])) {
 		$nID = $_SESSION['nID'];
 		}
