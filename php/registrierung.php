@@ -44,12 +44,12 @@ $error = false;
   $server='localhost';
   $datenbankname='wintercamp';
 
-  $ok=mysqli_connect($server,$benutzer,$adminpasswort,$datenbankname);
+  include '../php/datenbanklink.php';
 
     $sqli="SELECT Count(nID) AS anz FROM nutzer WHERE benutzername='".$benutzername."'";
 
 	$erg1 = 0;
-    $erg1=mysqli_fetch_row(mysqli_query($ok,$sqli))[0];
+    $erg1=mysqli_fetch_row(mysqli_query($db_link,$sqli))[0];
 
     if($erg1 != 0)
     {
@@ -60,7 +60,7 @@ $error = false;
     $sqli="SELECT Count(nID) AS anz FROM nutzer WHERE eMail='".$email."'";
 
 	$erg2 = 0;
-    $erg2=mysqli_fetch_row(mysqli_query($ok,$sqli))[0];
+    $erg2=mysqli_fetch_row(mysqli_query($db_link,$sqli))[0];
 
     if($erg2 != 0)
     {
@@ -80,7 +80,7 @@ $error = false;
 	if (!$error)
 	{
 	$sqli="INSERT INTO nutzer (nachname,vorname,benutzername,eMail,passwort,rID,teilnahme) VALUES('".$nachname."','".$vorname."','".$benutzername."','".$email."','".$userpasswort."','".$rID."','".$camp."')";
-	  $query_result= mysqli_query($ok,$sqli);
+	  $query_result= mysqli_query($db_link,$sqli);
 
     header('location: ./logIn.php'); #Bitte noch den richtigen Link eingeben
     exit(1);
