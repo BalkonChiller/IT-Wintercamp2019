@@ -8,7 +8,7 @@
 <?php
 include '../php/header.php';
 
-include '../php/datenbaklink.php';
+include '../php/datenbanklink.php';
 
 $nID = $_SESSION['nID'];
 $bname = $_SESSION['fbenutzername'];
