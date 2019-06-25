@@ -34,13 +34,14 @@ if (isset($_POST["submit"])) {
       error_reporting(E_ALL);
 
       //Zum Aufbau der Verbindung zur Datenbank
-      $benutzer='root';
-      $adminpasswort='';
-      $server='localhost';
-      $datenbankname='wintercamp';
+      //$benutzer='root';
+      //$adminpasswort='';
+      //$server='localhost';
+      //$datenbankname='wintercamp';
 
-      $ok=mysqli_connect($server,$benutzer,$adminpasswort,$datenbankname);
-      mysqli_set_charset($db_link, 'utf8');
+      include '../php/datenbanklink.php';
+      
+	mysqli_set_charset($db_link, 'utf8');
 
       $email=$_POST["emailf"];  //E-Mail
       $npw=$_POST["pw1"];     //neues Passwort
