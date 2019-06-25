@@ -36,8 +36,8 @@ if (isset($_POST["submit"])) {
         $server='localhost';
         $datenbankname='wintercamp';
 
-        $ok=mysqli_connect($server,$benutzer,$adminpasswort,$datenbankname);
-        mysqli_set_charset($ok, 'utf8');
+        include '../php/datenbanklink.php';
+        mysqli_set_charset($db_link, 'utf8');
 
         $email=$_POST["emailf"];
         $hash= password_hash($email, PASSWORD_DEFAULT);
@@ -45,7 +45,7 @@ if (isset($_POST["submit"])) {
         #$krypt_time = '728346524x84365387645y'.$time_old.'y28946538767846';
         //echo $time_old;
 
-        $ok->query("UPDATE nutzer SET hash='$hash' WHERE email='$email' LIMIT 1");
+        $db_link->query("UPDATE nutzer SET hash='$hash' WHERE email='$email' LIMIT 1");
 
 
         //E-Mail an User
