@@ -1,12 +1,12 @@
 <?php
 
-			$_db_host = "localhost";
-			$_db_datenbank = "wintercamp";
-			$_db_benutzername = "root";
-			$_db_passwort = "";
+			//$_db_host = "localhost";
+			//$_db_datenbank = "wintercamp";
+			//$_db_benutzername = "root";
+			//$_db_passwort = "";
 
 
-			$con = mysqli_connect("localhost", "root", "", "wintercamp");
+			include '../php/datenbanklink.php';
 
 			$fbenutzername = $_POST["fbenutzername"];
 			$fpasswort1 = $_POST["fpasswort1"];
@@ -17,7 +17,7 @@
 
 			$sql = "SELECT * FROM nutzer WHERE benutzername = '$fbenutzername'";
 
-			$res = mysqli_query($con, $sql);
+			$res = mysqli_query($db_link, $sql);
 
 			while ($ausgabe = mysqli_fetch_assoc($res))
 			{
@@ -29,7 +29,7 @@
 				$rId = $ausgabe["rId"];
 
 			}
-			mysqli_close($con);
+			mysqli_close($db_link);
 
 			if (empty($fbenutzername) || empty($fpasswort1))
 			  {
