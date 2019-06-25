@@ -62,7 +62,6 @@ $eMail = $_SESSION['eMail'];
         </div>
         </div>
         <br>";
-}
 include '../php/footer.php';
 ?>
     </body>
