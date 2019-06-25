@@ -49,11 +49,11 @@ if (isset($_POST["submit"]))
 		$id = $_SESSION['nID'];
 		}
 		// Zum Aufbau der Verbindung zur Datenbank
-		$benutzer='root';
-		$adminpasswort='';
-		$server='localhost';
-		$datenbankname='wintercamp';
-		$db_link=mysqli_connect($server,$benutzer,$adminpasswort,$datenbankname);
+		//$benutzer='root';
+		//$adminpasswort='';
+		//$server='localhost';
+		//$datenbankname='wintercamp';
+		include '../php/datenbanklink.php';
 		mysqli_set_charset($db_link, 'utf8');
 		$btitel=$_POST["ue"];//Überschrift
 		$binhalt=$_POST["bi"];//Text zu Vorschlag
