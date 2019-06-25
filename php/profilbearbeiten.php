@@ -8,7 +8,7 @@
 <?php
 include '../php/header.php';
 
-$db_link = mysqli_connect('localhost', 'root', '', 'wintercamp');
+include '../php/datenbaklink.php';
 
 $nID = $_SESSION['nID'];
 $bname = $_SESSION['fbenutzername'];
