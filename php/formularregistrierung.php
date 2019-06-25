@@ -19,15 +19,15 @@
 								/*$email = test_input($_POST["femail"]);
 								if (filter_var($email, FILTER_VALIDATE_EMAIL))
 								{ */
-							$benutzer='';
-							$adminpasswort='root';
-							$server='localhost';
-							$datenbankname='wintercamp';
+							//$benutzer='';
+							//$adminpasswort='root';
+							//$server='localhost';
+							//$datenbankname='wintercamp';
 
-							$ok=mysqli_connect($benutzer,$adminpasswort,$server,$datenbankname);
+							include '../php/datenbanklink.php';
 
 
-								if (!$ok or !$db)
+								if (!$db_link or !$db)
 								{
 									echo "Fehler bei der Verbindung zu Datenbank";
 								}
