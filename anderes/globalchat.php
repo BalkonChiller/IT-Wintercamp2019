@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <link rel="stylesheet" type="text/css"  href="../css/chat.css">
 <?php
+
+include '../php/header.php';
 if ($_SESSION['angemeldet'] == 0) {
      header('location: ../php/logIn.php');
  }
-include '../php/header.php';
+
 ?>
 <div id=ausgabe >
 <h2>GlobalerChat</h2>
