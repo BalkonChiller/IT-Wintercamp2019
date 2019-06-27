@@ -1,27 +1,52 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css"  href="../css/chat.css">
 <?php
-  include '../php/header.php';
-  echo '<head>
-          <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-          <link rel="stylesheet" href="../css/stylesheet1.css">
-       </head>';
 
-       if ($_SESSION['angemeldet'] == 0) {
-       		header('location: ../php/logIn.php');
-       	}
+include './header.php';
+if ($_SESSION['angemeldet'] == 0) {
+     header('location: ../php/logIn.php');
+ }
 
-  include '../php/datenbanklink.php';
+?>
+<div id=ausgabe >
+<h2>GlobalerChat</h2>
+  <div id= chat>
+
+<?php
+
+
+  $db_link = mysqli_connect('localhost', 'root', '', 'wintercamp');
   $bid=$_SESSION["nID"];
+ //ausgabe
+
+
+ $kommausgabe=$db_link->query("SELECT kommentar, benutzername FROM globalchat,nutzer WHERE nutzer.nId=globalchat.nId ");
+ while ($kommausgabe2=$kommausgabe->fetch_array()) {
+   $komm=$kommausgabe2['kommentar'];
+   $bname=$kommausgabe2['benutzername'];
+
+   echo "
+    <table class='kommentar'>
+           <tr class='kommentar2'>
+               <td class='kommentar2' valign='top' align='left'>$bname:  </td>
+               <th class='kommentar2' align='left'>$komm</th>
+           </tr>
+           </table> ";
+ }
+
+
+
 ?>
 </div>
 
-<div align='center'>
+<div id=sendi >
       <form method="post">
           <input type="text" name="kommentar">
           <input type="submit" name="submit" value="Posten">
       </form>
 </div>
 <br>
-<center>
+
 <?php
 if (isset( $_POST['submit'] )) {
   $zeit = time();
@@ -57,24 +82,11 @@ if (isset( $_POST['submit'] )) {
         }
   }
 }
-        //ausgabe
-                $kommausgabe=$db_link->query("SELECT kommentar, benutzername FROM globalchat,nutzer WHERE nutzer.nId=globalchat.nId ");
-                while ($kommausgabe2=$kommausgabe->fetch_array()) {
-                  $komm=$kommausgabe2['kommentar'];
-                  $bname=$kommausgabe2['benutzername'];
 
-                  echo "<table class='kommentar'>
-                          <tr class='kommentar2'>
-                              <td class='kommentar2' width='40%' valign='top' align='right'>$bname: </td>
-                              <th class='kommentar2' width='60%' align='left'>$komm</th>
-                          </tr>
-                        </table>";
-                }
-
-      echo "<br>
-            <a href='../index.php'>zurück zur Startseite</a>
-            </center>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            </section>";
-      include 'footer.php';
  ?>
+ </div>
+ <body onload="setInterval('chat.update()', 1000)">
+<?php
+include './footer.php';
+?>
+</body>
