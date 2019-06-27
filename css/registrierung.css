@@ -28,7 +28,7 @@ img  {
 }
 
 html {
-  font-family: "Merriweather Light", sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 .aside {
@@ -97,24 +97,13 @@ form {
 }
 
 /* Full-width inputs */
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=number] {
   width: 20%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
-}
-
-/* Set a style for all buttons*/
-button {
-  background-color: #ffb429;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
 }
 
 /* Add a hover effect for buttons */
