@@ -54,6 +54,7 @@ echo "<br>
       <br>";
 
 if (isset($_POST["speichern"])) {
+    if ($_POST["vname"] && $_POST["nname"] && $_POST["bname"] && $_POST["email"] !="") {
 $vname=$_POST["vname"];
 $nname=$_POST["nname"];
 $bname=$_POST["bname"];
@@ -64,8 +65,12 @@ $_SESSION['fbenutzername'] = $bname;
 $_SESSION['vorname'] = $vname;
 $_SESSION['nachname'] = $nname;
 $_SESSION['eMail'] = $eMail;
-
 header('location: ./profil.php');
+    } else {
+    echo '<script type="text/javascript" language="javascript">
+          alert("Fehlende Eingabe")
+          </script>';
+    }
 }
 include '../php/footer.php';
 ?>
