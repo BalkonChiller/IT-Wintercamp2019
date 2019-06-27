@@ -1,8 +1,18 @@
+
+<?php session_start(); ?>
 <img src="../homepagebilder/images/logox.png" width="100%" height="auto">
 <div class="menu">
 <table>
     <tr>
-      <th onclick="self.location.href='../index.php'">Home</th>
+      <th><div class="dropdown">
+	<button class="dropbtn"><b>Home</b>
+		<i class="fa fa-caret-down"></i>
+	</button>
+<div class="dropdown-content">
+<a href='../index.php'>Home</a>
+<a href='../php/kontakt.php'>Kontakt</a>
+</div>
+</div></th>
       <th onclick="self.location.href='../php/forum.php'">Forum</th>
       <th onclick="self.location.href='../php/globalchat.php'">Chat</th>
       <th><div class="dropdown">
@@ -21,7 +31,7 @@
 		</div></th>
 	  <th>
 <?php
-      session_start();
+      
 
       if(isset($_SESSION['angemeldet'])){
         if ($_SESSION['angemeldet'] == 1) {
