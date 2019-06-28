@@ -4,16 +4,8 @@
 <div class="menu">
 <table>
     <tr>
-      <th><div class="dropdown">
-	<button class="dropbtn"><b>Home</b>
-		<i class="fa fa-caret-down"></i>
-	</button>
-<div class="dropdown-content">
-<a href='../index.php'>Home</a>
-<a href='../php/kontakt.php'>Kontakt</a>
-</div>
-</div></th>
-      <th onclick="self.location.href='../php/forum.php'">Forum</th>
+<th onclick="self.location.href='../index.php'">Home</th>
+<th onclick="self.location.href='../php/forum.php'">Forum</th>
       <th onclick="self.location.href='../php/globalchat.php'">Chat</th>
       <th><div class="dropdown">
 		<button class="dropbtn"><b>Galerie</b>
@@ -47,7 +39,14 @@
      if(isset($_SESSION)) {
 
 			if($_SESSION['angemeldet'] != 1) {
-				echo "<a href='../php/logIn.php'> Login </a>";
+	echo"<div class='dropdown'>			
+              <button class='dropbtn'><b>Login</b>
+              <i class='fa fa-caret-down'></i>
+              </button>
+              <div class='dropdown-content'>
+              <a href='../php/logIn.php'>Login </a>
+              <a href='../php/kontakt.php'> Kontakt</a>
+              </div></div>";
 			}
 			else {
         echo "<div class='dropdown'>
@@ -56,6 +55,7 @@
               </button>
               <div class='dropdown-content'>
               <a href='../php/profil.php'> Profilübersicht </a>
+              <a href='../php/kontakt.php'> Kontakt</a>
               <a href='../php/abmelden.php'> Abmelden </a>
               </div></div>";
 
