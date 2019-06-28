@@ -15,7 +15,7 @@ if ($_SESSION['angemeldet'] == 0) {
 <?php
 
 
-  $db_link = mysqli_connect('localhost', 'root', '', 'wintercamp');
+  include '../php/datenbanklink.php';
   $bid=$_SESSION["nID"];
  //ausgabe
 
