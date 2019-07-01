@@ -1,11 +1,4 @@
 <?php
-
-			//$_db_host = "localhost";
-			//$_db_datenbank = "wintercamp";
-			//$_db_benutzername = "root";
-			//$_db_passwort = "";
-
-
 			include '../php/datenbanklink.php';
 
 			$fbenutzername = $_POST["fbenutzername"];
@@ -38,7 +31,6 @@
 
 			if ($fpasswort1 == $passwort)
 			{
-
 					#session variable!
 					 session_start();
 					 $_SESSION['fbenutzername'] = $fbenutzername;
@@ -49,12 +41,9 @@
 					 $_SESSION['eMail'] = $eMail;
 					 $_SESSION['rId'] = $rId;
 
-
 					  # weiterleitung auf die seite nach erfolgreichem login
-			    	header('location: ../index.php'); #Bitte noch den richtigen Link eingeben
+			    	header('location: ../index.php');
 			    	exit(1);
-
-
 			}
 			else
 			{
@@ -62,7 +51,5 @@
 						session_start();
 						$_SESSION['angemeldet'] = 0;
 					 	echo "<script>alert('Anmeldung nicht erfolgreich'); window.location('../php/logIn.php');</script>";
-
-
 			}
 ?>
