@@ -2,7 +2,6 @@
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html" charset="utf-8">
-        <script language="javascript" type="text/javascript" src="./passwort_aendern.js"></script>
         <link rel="stylesheet" type="text/css"  href="../css/stylesheet1.css">
         <title>Passwort vergessen</title>
     </head>
@@ -43,6 +42,13 @@ if (isset($_POST["submit"])) {
         }
     }
 
+    $sql2 = "SELECT nID FROM nutzer WHERE benutzername = '$fbenutzername'";
+    if ($result = $db_link->query($sql2)) {
+        while ($row = $result->fetch_row()) {
+            $nID = implode($row);
+        }
+    }
+
     $bytes = random_bytes(16);
     $str = bin2hex($bytes);
     $zeit = time();
@@ -51,9 +57,9 @@ if (isset($_POST["submit"])) {
     $betreff = "Passwort vergessen";
     $nachricht = "Hallo $name,<br>
                   Sie haben angefordert, Ihr Passwort für die Website des <a href=http://winter2019.it-wintercamp-dd.de/>IT-Camps<a> zurückzusetzen, da Sie Ihr Passwort vergessen haben.<br>
-                  Wenn Sie dies nicht angefordert haben, ignorieren Sie diese E-Mail bitte. Sie verfällt und wird innerhalb von 24 Stunden unbrauchbar.<br><br>
+                  Wenn Sie dies nicht angefordert haben, ignorieren Sie diese E-Mail bitte. Sie verfällt und wird innerhalb von 2 Stunden unbrauchbar.<br><br>
                   Um Ihr Passwort zurückzusetzen, besuchen Sie bitte die folgende Seite:<br>
-                  https://localhost/php/passwort_zuruecksetzen.php?code=$str
+                  https://localhost/php/passwort_zuruecksetzen.php?id=$nID&code=$str
                   <br><br>
                   Mit freundlichen Grüßen,<br>
                   Das IT-Wintercamp Team";
@@ -61,7 +67,8 @@ if (isset($_POST["submit"])) {
     $headers.= "From: IT_Wintercamp <IT_Wintercamp@SAP.de>\r\n";
     $headers.= "Content-Type: text/html; charset=utf-8\r\n";
     mail($email, $betreff, $nachricht, $headers);
-    $sql = "INSERT INTO nutzer (passwortcode, passwortcode_zeit) VALUES ('$str','$zeit')";
+
+    $db_link->query("UPDATE nutzer SET passwortcode = '$str', passwortcode_zeit='$zeit' WHERE nID = '$nID'");
 }
 
 include '../php/footer.php';

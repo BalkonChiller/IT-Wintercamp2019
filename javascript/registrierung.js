@@ -35,8 +35,8 @@ if (document.getElementById("fcamp").value="WinterCamp"){
 }
 
 //fehler Sonderzeichen ausgabe
-if (isValid(document.getElementById("fvorname").value) && isValid(document.getElementById("fnachname").value) && isValid(document.getElementById("fbenutzername").value)){
-  fehler+="Folgende Sonderzeichen können nicht benutzt werden: [~`$%\^*+=\-\[\]\\';/{}|\\<>] bei Vorname, Nachname und Benutzername\n"
+if (isValid(document.getElementById("fvorname").value) || isValid(document.getElementById("fnachname").value) || isValid(document.getElementById("fbenutzername").value)){
+  fehler += "Folgende Sonderzeichen können nicht benutzt werden:\n ~`$%\^*+=\-\[\]\\';/{}|\<> bei Vorname, Nachname und Benutzername\n"
 }
 
 //datenschutz
@@ -50,7 +50,7 @@ var fehlertext = "Die folgenden Felder wurden nicht vollständig ausgefüllt:\n\
 fehlertext += fehler;
 alert(fehlertext + "\nBitte füll die Informationen noch aus. Danke.");
 }
-}   
+}
 
 //teilnehmer
 function sichtbarkeit(){

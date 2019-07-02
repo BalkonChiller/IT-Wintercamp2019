@@ -9,35 +9,27 @@
 <?php
       include './header.php';
 ?>
-<br>
-<div class="row">
- <div class="col-3 col-s-3 menu">
- </div>
-  <div class="aside">
-    <h1>Beitrag erstellen</h1>
-
-    <form class="" action="" method="post">
-
-    <label for="ueberschrift">Überschrift:</label><br>
-    <input type="text" name="ue" required>
-
-    <br><br>
-
-    <label for="Beitraginhalt">Beitragsinhalt:</label><br>
-    <textarea rows="10" cols="70" name="bi"></textarea>
-
-    <br><br><br>
-
-    <label for="Kategorie">Kategorie:</label><br>
-    <input type="text" name="kt" required>
-
-    <br><br>
-
-    <button type="submit" name="submit" value="">Vorschlag abschicken</button>
-  </form>
-  </div>
-</div>
-<br>
+    <br>
+    <div class="row">
+     <div class="col-3 col-s-3 menu">
+     </div>
+      <div class="aside">
+        <h1>Beitrag erstellen</h1>
+        <form class="" action="" method="post">
+        <label for="ueberschrift">Überschrift:</label><br>
+        <input type="text" name="ue" required>
+        <br><br>
+        <label for="Beitraginhalt">Beitragsinhalt:</label><br>
+        <textarea rows="10" cols="70" name="bi"></textarea>
+        <br><br><br>
+        <label for="Kategorie">Kategorie:</label><br>
+        <input type="text" name="kt" required>
+        <br><br>
+        <button type="submit" name="submit" value="">Vorschlag abschicken</button>
+      </form>
+      </div>
+    </div>
+    <br>
 <?php
 if (isset($_POST["submit"]))
 {
@@ -48,13 +40,9 @@ if (isset($_POST["submit"]))
 		{
 		$id = $_SESSION['nID'];
 		}
-		// Zum Aufbau der Verbindung zur Datenbank
-		//$benutzer='root';
-		//$adminpasswort='';
-		//$server='localhost';
-		//$datenbankname='wintercamp';
 		include '../php/datenbanklink.php';
 		mysqli_set_charset($db_link, 'utf8');
+
 		$btitel=$_POST["ue"];//Überschrift
 		$binhalt=$_POST["bi"];//Text zu Vorschlag
 		$bkategorie=$_POST["kt"];//Kategorie
@@ -69,7 +57,6 @@ if (isset($_POST["submit"]))
 		 header('location: login.php');
 		 }
 }
-
 include './footer.php';
 ?>
   </body>
