@@ -9,24 +9,21 @@
 <?php
       include './header.php';
 ?>
-  <div class="oben" align="center" id="oben">
+<br>
+  <div class="aside">
       <h1>Forum</h1>
 
-      <form class="" action="Vorschlag_erstellen.php" align="left" method="post">
-          <input type="submit" name="neubeitrag" value="Neuer Vorschlag">
+      <form class="" action="Beitrag_erstellen.php" align="left" method="post">
+          <input type="submit" name="neubeitrag" value="Neuer Beitrag">
       </form>
-  <br>
+
   </div>
-  <div class="vorschlagallg" align="center">
+  <div class="beitragallg" align="center">
 <?php
 if ($_SESSION['angemeldet']==1)
 	{
 		error_reporting(E_ALL);
-		// Zum Aufbau der Verbindung zur Datenbank
-		//$benutzer='root';
-		//$adminpasswort='';
-		//$server='localhost';
-		//$datenbankname='wintercamp';
+
 		include '../php/datenbanklink.php';
 		mysqli_set_charset($db_link, 'utf8');
 		$wertebeitrag=$db_link->query("SELECT * FROM beitrag");
@@ -35,12 +32,12 @@ if ($_SESSION['angemeldet']==1)
 		while($wertebeitrag2=$wertebeitrag->fetch_array()){
 		  $ueberschrift=$wertebeitrag2['beitragstitel'];
 		  $id=$wertebeitrag2["bId"];
-		  $link="Vorschlag_kommentieren.php?id=".$id;
+		  $link="Beitrag_kommentieren.php?id=".$id;
       echo '<tr>
               <td>
                 <hr/>
                 <a href="'.$link.'">
-                  <div align="center" text-align="center" class="vorschlag"><br>'.$ueberschrift.'</div>
+                  <div align="center" text-align="center" class="beitrag"><br>'.$ueberschrift.'</div>
                 </a>
               </td>
             </tr>';

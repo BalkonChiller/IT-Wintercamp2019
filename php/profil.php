@@ -7,18 +7,7 @@
     <body>
 <?php
 include '../php/header.php';
-/*
-$db_link = mysqli_connect('localhost', 'root', '', 'wintercamp');
-$nID = $_SESSION['nID'];
 
-$infos=$db_link->query("SELECT * FROM nutzer WHERE nId='$nID'");
-
-while ($infos2=$infos->fetch_array()) {
-$vname=$infos2["vorname"];
-$nname=$infos2["nachname"];
-$bname=$infos2["benutzername"];
-$eMail=$infos2["eMail"];
-*/
 $bname = $_SESSION['fbenutzername'];
 $vname = $_SESSION['vorname'];
 $nname = $_SESSION['nachname'];

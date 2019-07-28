@@ -1,16 +1,17 @@
 <!DOCTYPE html>
+<link rel="stylesheet" type="text/css"  href="../css/stylesheet1.css">
 <link rel="stylesheet" type="text/css"  href="../css/chat.css">
-<?php
 
+<?php
 include './header.php';
 if ($_SESSION['angemeldet'] == 0) {
-     header('location: ../php/logIn.php');
- }
-
+  header('location: ../php/logIn.php');
+}
 ?>
-<div id=ausgabe >
+<br>
+<div id=ausgabe>
 <h2>GlobalerChat</h2>
-  <div id= chat>
+  <div id=chat>
 
 <?php
 
@@ -86,6 +87,7 @@ if (isset( $_POST['submit'] )) {
  ?>
  </div>
  <body onload="setInterval('chat.update()', 1000)">
+   <br>
 <?php
 include './footer.php';
 ?>

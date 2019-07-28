@@ -17,18 +17,12 @@ include '../php/header.php';
    	<div class="col-3 col-s-3 menu"></div>
 	<div class="aside">
 <?php
-	$benutzer='root';
-	$adminpasswort='';
-	$server='localhost';
-	$datenbankname='wintercamp';
-
-  	$ok=mysqli_connect($server, $benutzer, $adminpasswort, $datenbankname);
-
+  include '../php/datenbanklink.php';
 	$id = $_GET['campid'];
 
 	$sqli="SELECT bilderlink,galeriebezeichnung FROM galeriebild,galerie where campId= ".$id." and galerie.gId = galeriebild.campId ";
 
-    $r=mysqli_query($ok, $sqli);
+  $r=mysqli_query($db_link, $sqli);
 
 	$sTitel = "";
 	while($erg3=mysqli_fetch_array($r, MYSQLI_NUM)) {
@@ -42,7 +36,7 @@ include '../php/header.php';
 			<div class="inner-wrapper">
 				<ul class="slides">
 <?php
-	$r2=mysqli_query($ok, $sqli);
+	$r2=mysqli_query($db_link, $sqli);
 
 	if (!empty($r2))
 	{
