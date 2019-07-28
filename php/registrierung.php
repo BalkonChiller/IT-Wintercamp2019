@@ -63,7 +63,6 @@ $error = false;
         <meta charset="utf-8">
         <script language="javascript" type="text/javascript" src="../javascript/registrierung.js"></script>
         <link rel="stylesheet" type="text/css"  href="../css/stylesheet1.css">
-        <link rel="stylesheet" href="../css/registrierung.css" type = "text/css">
         <title>IT-Camp/Registrierung</title>
     </head>
     <body>
@@ -76,7 +75,7 @@ include './header.php';
    <br>
    <h1>IT-Camp Registrierung</h1>
 
-   <form action="../php/registrierung.php" method="post">
+   <form action="../php/registrierung.php" method="post" onsubmit="return registrieren();">
    <input type="text" name="fvorname" id="fvorname" required placeholder="Vorname"> <br>
    <input type="text" name="fnachname" id="fnachname" required placeholder="Nachname"> <br>
    <input type="text" name="fbenutzername" id="fbenutzername" required placeholder="Benutzername"> <br>
@@ -92,7 +91,7 @@ include './header.php';
 
    <div id="teilnehmerjahr">&nbsp
    <select id='fcamp' name="fcamp" size="1">
-   <option value ="Wähl dein Camp aus" selected> Wähle dein Camp aus</option>
+   <option value ="Wähl dein Camp aus" selected disabled> Wähle dein Camp aus</option>
    <option value="SummerCamp">SummerCamp </option>
    <option value="WinterCamp">WinterCamp </option>
    </select>
@@ -105,7 +104,7 @@ include './header.php';
    </label>
    <br>
    <br>
-   <button type="submit" onclick="registrieren()">Registrieren</button>
+   <button type="submit">Registrieren</button>
    </form>
 </div>
 <br>

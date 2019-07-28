@@ -22,15 +22,16 @@ fehler += "Eine korrekte E-Mail-Adresse eingeben\n";
 
 //teilnahmejahr
 var heute = new Date();
-if (document.getElementById("fcamp").value="SummerCamp"){
-  if (document.getElementById("fjahr").value < 2016 || document.getElementById("fjahr").value > heute.getFullYear()){
-    fehler += "Ungültiges Jahr eingegeben\n";
+if(document.getElementById("fteilnehmer").checked == true){
+  if (document.getElementById("fcamp").value="SummerCamp"){
+    if (document.getElementById("fjahr").value < 2016 || document.getElementById("fjahr").value > heute.getFullYear()){
+      fehler += "Ungültiges Jahr eingegeben\n";
+    }
   }
-}
-
-if (document.getElementById("fcamp").value="WinterCamp"){
-  if (document.getElementById("fjahr").value < 2018 || document.getElementById("fjahr").value > heute.getFullYear()){
-    fehler += "Ungültiges Jahr eingegeben\n";
+  else if (document.getElementById("fcamp").value="WinterCamp"){
+    if (document.getElementById("fjahr").value < 2018 || document.getElementById("fjahr").value > heute.getFullYear()){
+      fehler += "Ungültiges Jahr eingegeben\n";
+    }
   }
 }
 
@@ -49,7 +50,9 @@ if (fehler != ""){
 var fehlertext = "Die folgenden Felder wurden nicht vollständig ausgefüllt:\n\n";
 fehlertext += fehler;
 alert(fehlertext + "\nBitte füll die Informationen noch aus. Danke.");
+return false;
 }
+else return true;
 }
 
 //teilnehmer
