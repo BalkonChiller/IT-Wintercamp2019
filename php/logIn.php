@@ -24,7 +24,7 @@ include '../php/header.php';
         <br>
       <a href="./registrierung.php">Registrieren</a>
         <br>
-      <a href="./Passwort_aendern_anfrage.php">Passwort vergessen</a>
+      <a href="./passwort_vergessen_anfrage.php">Passwort vergessen</a>
   </form>
   </div>
 </div>
