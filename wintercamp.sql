@@ -115,9 +115,7 @@ INSERT INTO `galerie` (`gId`, `galeriebezeichnung`) VALUES
 
 CREATE TABLE `galeriebild` (
   `gbId` int(11) NOT NULL,
-  `nId` int(11) NOT NULL,
   `bilderlink` text NOT NULL,
-  `zeit` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `aktivitaet` tinyint(1) NOT NULL,
   `gId` int(11) NOT NULL,
   `campId` int(11) NOT NULL
@@ -127,36 +125,36 @@ CREATE TABLE `galeriebild` (
 -- Daten für Tabelle `galeriebild`
 --
 
-INSERT INTO `galeriebild` (`gbId`, `nId`, `bilderlink`, `zeit`, `aktivitaet`, `gId`, `campId`) VALUES
-(535, 42421, '/homepagebilder/bilder_Galerie/sc2017_3.png', '2019-03-29 16:01:22', 2, 2425, 170),
-(2845, 128745, '/homepagebilder/bilder_Galerie/wc2019_4.jpg', '2019-05-10 11:34:34', 25, 964, 191),
-(4533, 7648643, '/homepagebilder/bilder_Galerie/sc2017_9.jpg', '2019-03-29 15:16:02', 8, 6463, 170),
-(7543, 125467, '/homepagebilder/bilder_Galerie/sc2016_2.jpg', '2019-04-05 12:44:05', 14, 86543, 160),
-(8737, 3264, '/homepagebilder/bilder_Galerie/sc2019_4.jpg', '2019-05-10 11:36:16', 28, 3265, 180),
-(8753, 67829, '/homepagebilder/bilder_Galerie/wc2019_5.jpg', '2019-05-10 11:34:34', 26, 32521, 94847),
-(9437, 34745, '/homepagebilder/bilder_Galerie/sc2018_5.jpg', '2019-05-10 11:37:13', 29, 853452, 170),
-(21946, 124215, '/homepagebilder/bilder_Galerie/sc2016.jpg', '2019-04-05 12:30:34', 12, 241297, 160),
-(23536, 9872935, '/homepagebilder/bilder_Galerie/sc2017_7.jpg', '2019-04-05 12:39:29', 13, 62362, 170),
-(35235, 6453, '/homepagebilder/bilder_Galerie/sc2017_5.jpg', '2019-03-29 15:17:34', 10, 153254, 170),
-(47653, 7235, '/homepagebilder/bilder_Galerie/sc2016_5.jpg', '2019-04-05 12:48:03', 18, 6421, 160),
-(63462, 25326, '/homepagebilder/bilder_Galerie/wc2019_2.jpg', '2019-04-05 12:42:58', 11, 73423, 191),
-(63563, 98435, '/homepagebilder/bilder_Galerie/sc2017_10.jpg', '2019-04-05 12:58:28', 23, 83264, 170),
-(64765, 37475, '/homepagebilder/bilder_Galerie/sc2016_8.jpg', '2019-03-29 15:14:40', 6, 32523, 160),
-(67324, 982347, '/homepagebilder/bilder_Galerie/sc2018_2.jpg', '2019-04-05 12:56:42', 21, 8346, 180),
-(83562, 7352, '/homepagebilder/bilder_Galerie/sc2018.jpg', '2019-04-05 12:54:29', 19, 23532, 180),
-(97347, 62534, '/homepagebilder/bilder_Galerie/sc2016_4.jpg', '2019-04-05 12:48:03', 17, 4387, 160),
-(98435, 87823, '/homepagebilder/bilder_Galerie/sc2016_6.jpg', '2019-04-05 12:54:29', 20, 3746, 160),
-(98765, 9876, '/homepagebilder/bilder_Galerie/wc2019.jpg', '2019-03-29 15:13:17', 5, 987, 191),
-(321421, 214214, '/homepagebilder/bilder_Galerie/sc2017_4.png', '2019-03-29 16:00:29', 1, 231, 170),
-(324623, 732, '/homepagebilder/bilder_Galerie/sc2018_3.jpg', '2019-05-10 11:36:16', 27, 353, 180),
-(342313, 13131, '/homepagebilder/bilder_Galerie/sc2017_6.jpg', '2019-03-29 15:16:40', 9, 2424, 170),
-(421412, 1111, '/homepagebilder/bilder_Galerie/sc2017.jpg', '2019-03-29 16:03:27', 4, 14532, 170),
-(454347, 96985, '/homepagebilder/bilder_Galerie/sc2017_2.jpg', '2019-03-29 16:02:15', 3, 242, 170),
-(893457, 3247, '/homepagebilder/bilder_Galerie/sc2016_7.png', '2019-04-05 12:56:42', 22, 29847, 160),
-(965454, 2357, '/homepagebilder/bilder_Galerie/wc2019_3.jpg', '2019-05-10 11:32:02', 24, 7346, 191),
-(986986, 76735, '/homepagebilder/bilder_Galerie/sc2016_3', '2019-04-05 12:45:58', 16, 34358, 160),
-(8963846, 7345, '/homepagebilder/bilder_Galerie/wc2018.jpg', '2019-04-05 12:45:58', 15, 976, 181),
-(64576476, 235263, '/homepagebilder/bilder_Galerie/sc2017_8.jpg', '2019-03-29 15:15:14', 7, 77776, 170);
+INSERT INTO `galeriebild` (`gbId`, `bilderlink`, `aktivitaet`, `campId`) VALUES
+(1, '/sc2016_1.jpg', 12, 160),
+(2, '/sc2016_2.jpg', 14, 160),
+(3, '/sc2016_3.jpg', 16, 160),
+(4, '/sc2016_4.jpg', 17, 160),
+(5, '/sc2016_5.jpg', 18, 160),
+(6, '/sc2016_6.jpg', 20, 160),
+(7, '/sc2016_7.png', 22, 160),
+(8, '/sc2016_8.jpg', 6, 160),
+(9, '/sc2017_1.jpg', 4, 170),
+(10, '/sc2017_2.jpg', 3, 170),
+(11, '/sc2017_3.png', 2, 170),
+(12, '/sc2017_4.png', 1, 170),
+(13, '/sc2017_5.jpg', 10, 170),
+(14, '/sc2017_6.jpg', 9, 170),
+(15, '/sc2017_7.jpg', 13, 170),
+(16, '/sc2017_8.jpg', 7, 170),
+(17, '/sc2017_9.jpg', 8, 170),
+(18, '/sc2017_10.jpg', 23, 170),
+(19, '/wc2018_1.jpg', 15, 181),
+(20, '/sc2018_1.jpg', 19, 180),
+(21, '/sc2018_2.jpg', 21, 180),
+(22, '/sc2018_3.jpg', 27, 180),
+(23, '/sc2018_4.jpg', 28, 80),
+(24, '/sc2018_5.jpg', 26, 180),
+(25, '/wc2019_1.jpg', 5, 191),
+(26, '/wc2019_2.jpg', 11, 191),
+(27, '/wc2019_3.jpg', 24, 191),
+(28, '/wc2019_4.jpg', 25, 191),
+
 
 -- --------------------------------------------------------
 
@@ -176,19 +174,7 @@ CREATE TABLE `globalchat` (
 --
 
 INSERT INTO `globalchat` (`gcId`, `nId`, `kommentar`, `zeit`) VALUES
-(1, 1, 'hallo', 1559295926),
-(2, 1, 'test', 1559295931),
-(3, 1, 'es klappt!', 1559295939),
-(4, 1, 'es klappt!', 1559295983),
-(5, 1, 'ich', 1559295988),
-(6, 1, 'ich', 1559296014),
-(7, 1, 'ich', 1559296026),
-(8, 1, 'ich', 1559296036),
-(9, 1, 'ich', 1559296113),
-(10, 1, 'ich', 1559296121),
-(11, 1, 'wow', 1559296886),
-(12, 1, 'wow', 1559296892),
-(13, 1, 'Hello World', 1559308744);
+(1, 1, 'hallo', 1559295926);
 
 -- --------------------------------------------------------
 
@@ -221,17 +207,19 @@ CREATE TABLE `nutzer` (
   `teilnahme` varchar(255) NOT NULL,
   `registrierungsdatum` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `aenderungsdatum` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `aktivierung` tinyint(1) NOT NULL
+  `aktivierung` tinyint(1) NOT NULL,
+  `passwortcode` VARCHAR(255) NULL,
+  `passwortcode_zeit` int(12) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `nutzer`
 --
 
-INSERT INTO `nutzer` (`nID`, `nachname`, `vorname`, `benutzername`, `eMail`, `passwort`, `rId`, `teilnahme`, `registrierungsdatum`, `aenderungsdatum`, `aktivierung`) VALUES
-(1, 'Mustermann', 'Maxi', 'tollsterAdmin', 'max.mustermann@gmail.com', 'ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413', 1, '', '2019-05-31 13:18:46', '0000-00-00 00:00:00', 0),
-(2, 'Wendorff', 'Marvin', 'BalkonChiller', 'm.wendorff09@gmail.com', '6f41a341ba6a2db33aa65b9289cb6e38fd17a4b240c95a0978c32baccf5a8dedb97e3f6f996412392485724c6ed874fe32fa67c862c1661128d6ea20978bfb4b', 2, 'WinterCamp 2006', '2019-05-31 13:26:38', '0000-00-00 00:00:00', 0);
-
+INSERT INTO `nutzer` (`nID`, `nachname`, `vorname`, `benutzername`, `eMail`, `passwort`, `rId`, `teilnahme`, `registrierungsdatum`, `aenderungsdatum`, `aktivierung`, `passwortcode`, `passwortcode_zeit`) VALUES
+(1, 'Mustermann', 'Maxi', 'tollsterAdmin', 'max.mustermann@gmail.com', 'ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413', 1, 'WinterCamp 2019', '2019-05-31 13:18:46', '0000-00-00 00:00:00', 0, NULL, NULL),
+(2, 'Wendorff', 'Marvin', 'BalkonChiller', 'm.wendorff09@gmail.com', '6f41a341ba6a2db33aa65b9289cb6e38fd17a4b240c95a0978c32baccf5a8dedb97e3f6f996412392485724c6ed874fe32fa67c862c1661128d6ea20978bfb4b', 2, 'WinterCamp 2019', '2019-05-31 13:26:38', '0000-00-00 00:00:00', 0, NULL, NULL),
+(3, 'Weickert', 'Max', 'Moorex', 'max.weickert03@gmail.com', '26838b06502abee51b59a7d17647b55f489f955066382e959d097bb7f737331f72ce6924c304f4a6c12db9c1b4ad8a3fd425fe968a767b2f6b9e795e34778202', 2, 'WinterCamp 2019', '2019-07-28 17:14:50', '0000-00-00 00:00:00', 0, NULL, NULL);
 -- --------------------------------------------------------
 
 --
