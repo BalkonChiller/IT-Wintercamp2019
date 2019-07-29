@@ -15,11 +15,11 @@
       <div class="aside">
         <h1>Beitrag erstellen</h1>
         <form class="box" method="post">
-        <input type="text" name="ue" placeholder="Überschrift" required>
+        <input type="text" name="titel" placeholder="Überschrift" required>
         <br>
-        <input type="text" name="kt" placeholder="Kategorie" required>
+        <input type="text" name="kategorie" placeholder="Kategorie" required>
         <br>
-        <textarea rows="10" cols="70" name="bi" placeholder="Beitragsinhalt"></textarea>
+        <textarea rows="10" cols="70" name="inhalt" placeholder="Beitragsinhalt"></textarea>
         <br>
         <button type="submit" name="submit" value="">Beitrag abschicken</button>
       </form>
@@ -39,9 +39,9 @@ if (isset($_POST["submit"]))
 		include '../php/datenbanklink.php';
 		mysqli_set_charset($db_link, 'utf8');
 
-		$btitel=$_POST["ue"];//Überschrift
-		$binhalt=$_POST["bi"];//Text zu Beitrag
-		$bkategorie=$_POST["kt"];//Kategorie
+		$btitel=$_POST["titel"];//Überschrift
+		$binhalt=$_POST["inhalt"];//Text zu Beitrag
+		$bkategorie=$_POST["kategorie"];//Kategorie
 		$sql = "INSERT INTO beitrag (nID, beitragstitel, beitraginhalt, kategorie) VALUES ('$id','$btitel','$binhalt','$bkategorie')";
 		$db_link->query($sql);
 		$sql2 = "SELECT Count(bID) FROM beitrag";

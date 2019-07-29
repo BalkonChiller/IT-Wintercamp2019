@@ -6,12 +6,11 @@
   </head>
 <body>
 <?php
-include '../php/header.php';
+include './header.php';
 ?>
 <br>
 <div class="row">
- <div class="col-3 col-s-3 menu">
- </div>
+ <div class="col-3 col-s-3 menu"></div>
   <div class="aside">
   <form class="box" action="../php/logIn_funktion.php"  method="post">
     <br>

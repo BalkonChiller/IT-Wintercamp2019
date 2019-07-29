@@ -3,9 +3,9 @@
 	<head>
 		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script language="javascript" type="text/javascript" src="slider3.js"></script>
+		<script language="javascript" type="text/javascript" src="slider.js"></script>
 		<link rel="stylesheet" type = "text/css" href="../css/stylesheet1.css">
-		<link rel="stylesheet" type = "text/css" href="./slider3.css">
+		<link rel="stylesheet" type = "text/css" href="./slider.css">
 		<title>Galerie</title>
 	</head>
 	<body>
@@ -14,7 +14,7 @@ include '../php/header.php';
 ?>
 	<br>
 	<div class="row">
-   	<div class="col-3 col-s-3 menu"></div>
+  <div class="col-3 col-s-3 menu"></div>
 	<div class="aside">
 <?php
   include '../php/datenbanklink.php';
@@ -28,10 +28,9 @@ include '../php/header.php';
 	while($erg3=mysqli_fetch_array($r, MYSQLI_NUM)) {
 		$sTitel = $erg3['1'];
 	}
-
 ?>
 		<h2><?php echo $sTitel ?></h2>
-	  		<div class="container">
+	  	<div class="container">
 			<div class="slider-wrapper">
 			<div class="inner-wrapper">
 				<ul class="slides">
