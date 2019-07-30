@@ -1,55 +1,48 @@
 <?php
-			include '../php/datenbanklink.php';
+include '../php/datenbanklink.php';
 
-			$fbenutzername = $_POST["fbenutzername"];
-			$fpasswort1 = $_POST["fpasswort1"];
+$fbenutzername = $_POST["fbenutzername"];
+$fpasswort1 = $_POST["fpasswort1"];
 
-			$fpasswort1=hash("sha512",$fpasswort1);
+$sql = "SELECT * FROM nutzer WHERE benutzername = '$fbenutzername'";
 
-			##################################################################
+$res = mysqli_query($db_link, $sql);
 
-			$sql = "SELECT * FROM nutzer WHERE benutzername = '$fbenutzername'";
+while ($ausgabe = mysqli_fetch_assoc($res)) {
+  $passwort = $ausgabe["passwort"];
+	$nID = $ausgabe["nID"];
+	$vorname = $ausgabe["vorname"];
+	$nachname = $ausgabe["nachname"];
+	$eMail = $ausgabe["eMail"];
+	$rId = $ausgabe["rId"];
 
-			$res = mysqli_query($db_link, $sql);
+}
+mysqli_close($db_link);
 
-			while ($ausgabe = mysqli_fetch_assoc($res))
-			{
-			  $passwort = $ausgabe["passwort"];
-				$nID = $ausgabe["nID"];
-				$vorname = $ausgabe["vorname"];
-				$nachname = $ausgabe["nachname"];
-				$eMail = $ausgabe["eMail"];
-				$rId = $ausgabe["rId"];
+if (empty($fbenutzername) || empty($fpasswort1)) {
+	echo "<script>alert('Bitte Nutzerdaten eingeben'); window.location.assign('../php/logIn.php');</script>";
+}
 
-			}
-			mysqli_close($db_link);
+$fpasswort1=hash("sha512",$fpasswort1);
 
-			if (empty($fbenutzername) || empty($fpasswort1))
-			  {
-			    echo "Bitte Nutzerdaten eingeben";
-			  }
+if ($fpasswort1 == $passwort) {
+		# session variable!
+	session_start();
+ 	$_SESSION['fbenutzername'] = $fbenutzername;
+	$_SESSION['angemeldet'] = 1;
+ 	$_SESSION['nID'] = $nID;
+ 	$_SESSION['vorname'] = $vorname;
+	$_SESSION['nachname'] = $nachname;
+	$_SESSION['eMail'] = $eMail;
+	$_SESSION['rId'] = $rId;
 
-			if ($fpasswort1 == $passwort)
-			{
-					#session variable!
-					 session_start();
-					 $_SESSION['fbenutzername'] = $fbenutzername;
-					 $_SESSION['angemeldet'] = 1;
-					 $_SESSION['nID'] = $nID;
-					 $_SESSION['vorname'] = $vorname;
-					 $_SESSION['nachname'] = $nachname;
-					 $_SESSION['eMail'] = $eMail;
-					 $_SESSION['rId'] = $rId;
-
-					  # weiterleitung auf die seite nach erfolgreichem login
-			    	header('location: ../index.php');
-			    	exit(1);
-			}
-			else
-			{
-						# falsche eingabe gibt meldung aus
-						session_start();
-						$_SESSION['angemeldet'] = 0;
-					 	echo "<script>alert('Anmeldung nicht erfolgreich'); window.location('../php/logIn.php');</script>";
-			}
+  # weiterleitung auf die seite nach erfolgreichem login
+	header('location: ../index.php');
+}
+else {
+	# falsche eingabe gibt meldung aus
+	session_start();
+	$_SESSION['angemeldet'] = 0;
+ 	echo "<script>alert('Anmeldung nicht erfolgreich'); window.location.assign('../php/logIn.php');</script>";
+}
 ?>

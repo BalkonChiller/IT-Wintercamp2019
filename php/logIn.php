@@ -14,7 +14,7 @@ include './header.php';
   <div class="aside">
   <form class="box" action="../php/logIn_funktion.php"  method="post">
     <br>
-    <h1>Login IT-Camp</h1> <br />
+    <h1>Login IT-Camp</h1> <br>
       <input type="text" name="fbenutzername" placeholder="Benutzername" class="login">
         <br>
       <input type="password" name="fpasswort1" placeholder="Passwort" class="login">

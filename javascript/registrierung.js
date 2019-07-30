@@ -9,11 +9,9 @@ var fehler = "";
 //passwort
 if (document.getElementById("fpasswort1").value != document.getElementById("fpasswort2").value){
 fehler += "Die eingegebenen Passwörter stimmen nicht überein\n";
-}
-
-if (document.getElementById("fpasswort1").value.length < 6){
-fehler += "Passwort mit mindestens 6 Zeichen verwenden\n";
-}
+} else if (document.getElementById("fpasswort1").value.length < 6){
+       fehler += "Passwort mit mindestens 6 Zeichen verwenden\n";
+       }
 
 //email
 if (document.getElementById("femail").value.length < 7 || document.getElementById("femail").value.indexOf("@") == -1 || document.getElementById("femail").value.indexOf(".", document.getElementById("femail").value.indexOf("@")) == -1){
@@ -49,7 +47,7 @@ fehler += "Die Datenschutzbestimmungen sind noch nicht akzeptiert\n";
 if (fehler != ""){
 var fehlertext = "Die folgenden Felder wurden nicht vollständig ausgefüllt:\n\n";
 fehlertext += fehler;
-alert(fehlertext + "\nBitte füll die Informationen noch aus. Danke.");
+alert(fehlertext + "\nBitte änder deine Eingabe noch. Danke.");
 return false;
 }
 else return true;

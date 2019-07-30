@@ -41,7 +41,7 @@ $eMail = $_SESSION['eMail'];
                 </tr>
                 <tr><td colspan='2'><hr></td></tr>
                 <tr>
-                    <td><a href='./Passwort_aendern_anfrage.php'><button>Passwort ändern</a></button></td>
+                    <td><a href='./passwort_aendern.php'><button>Passwort ändern</a></button></td>
                 </tr>
                 <tr><td colspan='2'><br></td></tr>
                 <tr>

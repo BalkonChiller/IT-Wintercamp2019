@@ -44,22 +44,20 @@ if (isset($codetime) && isset($passwortcode)) {
               <a href='./passwort_vergessen_anfrage.php'>Neuen Code anfragen</a>";
     } else {
         echo "<h1>Neues Passwort wählen</h1>
-              <form method='post'>
+              <form method='post' onsubmit='return passwort_aendern()'>
               <input type='password' name='fpasswort1' id='fpasswort1' required placeholder='Passwort' class='login'> <br>
               <input type='password' name='fpasswort2' id='fpasswort2' required placeholder='Passwort bestätigen' class='login'> <br>
-              <button type='submit' name='submit' onclick='passwort_aendern()'>Passwort ändern</button>
+              <button type='submit' name='submit'>Passwort ändern</button>
               </form>";
     }
 }
 
 if (isset($_POST['submit'])) {
-    $passwort1 = $_POST['fpasswort1'];
-	$passwort2 = $_POST['fpasswort2'];
-    if (($passwort1 = $passwort2) && (strlen($passwort1) > 5)) {
-        $pw = hash('sha512',$passwort1);
-        $db_link->query("UPDATE nutzer SET passwort = '$pw' WHERE nID = '$nID'");
-        header('location: ./logIn.php');
-    }
+  $passwort = $_POST['fpasswort1'];
+  $pw = hash('sha512', $passwort);
+
+  $db_link->query("UPDATE nutzer SET passwort = '$pw' WHERE nID = '$nID'");
+  header('location: ./logIn.php');
 }
 ?>
         </div>
