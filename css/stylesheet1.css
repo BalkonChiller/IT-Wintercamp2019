@@ -217,6 +217,16 @@ button:hover {
   table-layout: fixed;
 }
 
+.profil input[type=text], input[type=email] {
+  box-shadow: none;
+  align: left;
+  width: 30%;
+  border-color: rgb(128, 128, 128);
+  border-width: 2px;
+  margin-bottom: 0;
+  padding: 8px 10px;
+}
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: white;
 }
