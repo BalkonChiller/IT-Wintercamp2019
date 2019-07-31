@@ -207,8 +207,14 @@ button:hover {
   opacity: 0.8;
 }
 
-.box p {
+.box {
   text-align: center;
+}
+
+.profil {
+  font-size: 20px;
+  text-align: left;
+  table-layout: fixed;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */

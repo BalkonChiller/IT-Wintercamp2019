@@ -17,38 +17,43 @@ $nname = $_SESSION['nachname'];
 $eMail = $_SESSION['eMail'];
 
 echo "<br>
-     <!--<div class='row aside'>                    AUSKOMMENTIERT-->
-     <div class='col-3 col-s-3 menu'></div>
-     <div style='margin-left:2%;'>
-        <h1>Profil</h1>
-        <br><br>
-        <form method='post'>
-            <table>
-                <tr>
-                <td><label for='vname'>Vorname:</label></td>
-                    <td><input type='text' name='vname' value='".$vname."'></td>
-                </tr>
-                <tr><td colspan='2'><hr></td></tr>
-                <tr>
-                    <td><label for='nname'>Nachname:</label></td>
-                    <td><input type='text' name='nname' value='".$nname."'></td>
-                </tr>
-                <tr><td colspan='2'><hr></td></tr>
-                <tr>
-                    <td><label for='bname'>Benutzername:</label></td>
-                    <td><input type='text' name='bname' value='".$bname."'></td>
-                </tr>
-                <tr><td colspan='2'><hr></td></tr>
-                <tr>
-                    <td><label for='email'>E-Mail:</label></td>
-                    <td><input type='email' name='email' value='".$eMail."'></td>
-                </tr>
-                <tr><td colspan='2'><br></td></tr>
-                <tr>
-                    <td><input type='submit' name='speichern' value='Änderungen speichern'></td>
-                </tr>
-            </table>
-        </form>
+      <div class='row'>
+      <div class='col-3 col-s-3 menu'></div>
+      <div class='aside'>
+      <h1>Profil</h1>
+      <br>
+      <form method='post'>
+        <table class='profil'>
+            <tr>
+              <td width='5%'></td>
+              <td><label for='vname'>Vorname:</label></td>
+              <td><input type='text' name='vname' value='".$vname."' required></td>
+            </tr>
+            <tr><td colspan='3'><hr noshade></td></tr>
+            <tr>
+              <td width='5%'></td>
+              <td><label for='nname'>Nachname:</label></td>
+              <td><input type='text' name='nname' value='".$nname."' required></td>
+            </tr>
+            <tr><td colspan='3'><hr noshade></td></tr>
+            <tr>
+              <td width='5%'></td>
+              <td><label for='bname'>Benutzername:</label></td>
+              <td><input type='text' name='bname' value='".$bname."' required></td>
+            </tr>
+            <tr><td colspan='3'><hr noshade></td></tr>
+            <tr>
+              <td width='5%'></td>
+              <td><label for='email'>E-Mail:</label></td>
+              <td><input type='email' name='email' value='".$eMail."' required></td>
+            </tr>
+            <tr><td colspan='3'><hr noshade></td></tr>
+            <tr>
+              <td width='5%'></td>
+              <td><input type='submit' name='speichern' value='Änderungen speichern'></td>
+            </tr>
+        </table>
+      </form>
       </div>
       </div>
       <br>";

@@ -12,11 +12,9 @@
 <br>
   <div class="aside">
       <h1>Forum</h1>
-
       <form class="" action="Beitrag_erstellen.php" align="left" method="post">
           <input type="submit" name="neubeitrag" value="Neuer Beitrag">
       </form>
-
   </div>
   <div class="beitragallg" align="center">
 <?php

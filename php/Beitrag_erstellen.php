@@ -14,7 +14,7 @@
      <div class="col-3 col-s-3 menu"></div>
       <div class="aside">
         <h1>Beitrag erstellen</h1>
-        <form class="box" method="post">
+        <form method="post">
         <input type="text" name="titel" placeholder="Überschrift" required>
         <br>
         <input type="text" name="kategorie" placeholder="Kategorie" required>
