@@ -1,94 +1,67 @@
 <!DOCTYPE html>
-<link rel="stylesheet" type="text/css"  href="../css/stylesheet1.css">
-<link rel="stylesheet" type="text/css"  href="../css/chat.css">
-
+<html>
+	<head>
+	  <meta charset='utf-8' name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css"  href="../css/stylesheet1.css">
+    <link rel="stylesheet" type="text/css"  href="../css/chat.css">
+	</head>
+	<body>
 <?php
 include './header.php';
 if ($_SESSION['angemeldet'] == 0) {
   header('location: ../php/logIn.php');
 }
 ?>
-<br>
-<div id=ausgabe>
-<h2>GlobalerChat</h2>
-  <div id=chat>
+    <br>
+    <div class="row">
+    <div class="col-3 col-s-3 menu"></div>
+    <div class="aside">
+      <h2>GlobalerChat</h2>
+      <div id=chat>
 
 <?php
-
-
   include '../php/datenbanklink.php';
   $bid=$_SESSION["nID"];
+
  //ausgabe
-
-
  $kommausgabe=$db_link->query("SELECT kommentar, benutzername FROM globalchat,nutzer WHERE nutzer.nId=globalchat.nId ");
  while ($kommausgabe2=$kommausgabe->fetch_array()) {
    $komm=$kommausgabe2['kommentar'];
    $bname=$kommausgabe2['benutzername'];
 
-   echo "
-    <table class='kommentar'>
-           <tr class='kommentar2'>
-               <td class='kommentar2' valign='top' align='left'>$bname:  </td>
-               <th class='kommentar2' align='left'>$komm</th>
-           </tr>
-           </table> ";
+   echo "<table class='kommentar'>
+         <tr class='kommentar2'>
+           <td class='kommentar2' valign='top' align='left'>$bname:  </td>
+           <th class='kommentar2' align='left'>$komm</th>
+         </tr>
+         </table>";
  }
-
-
-
 ?>
-</div>
+      </div>
 
-<div id=sendi >
+<script type="text/javascript">
+var myDiv = document.getElementById('chat');
+myDiv.scrollTop = myDiv.scrollHeight;
+</script>
+    <div>
       <form method="post">
-          <input type="text" name="kommentar">
-          <input type="submit" name="submit" value="Posten">
+        <input type="text" name="kommentar">
+        <input type="submit" name="submit" value="Posten">
       </form>
-</div>
-<br>
-
+    </div>
+		<br><br><br>
+  </div>
+  <br>
 <?php
 if (isset( $_POST['submit'] )) {
   $zeit = time();
-  $dbkommzeit= $db_link->query("SELECT zeit,MAX(kId),kommentar FROM kommentar");
-  $dbkommzeit2=$dbkommzeit->fetch_array();
-  $dbzeit=$dbkommzeit2['zeit'];
-  $dbkomm=$dbkommzeit2['kommentar'];
-  $dauer=$zeit-$dbzeit;
   $kommentar=$_POST["kommentar"];
-  if ($dbkomm==$kommentar) {
-    if ($dauer<3) {
-      echo "";
-    }else {
-      //eingabe
-          if ($bid!="") {
-            //$kommentar=sqlxss($kommentar);
-            if ($kommentar!="") {
-              $db_link->query("INSERT INTO globalchat (nId,  kommentar, zeit) VALUES ('$bid', '$kommentar', '$zeit')");//Hochladen des Kommentars
-            }
-          }else {
-            echo "Sie müssen sich zuerst Anmelden<br>";
-          }
-    }
-  }else {
-    //eingabe
-        if ($bid!="") {
-          //$kommentar=sqlxss($kommentar);
-          if ($kommentar!="") {
-            $db_link->query("INSERT INTO globalchat (nId,  kommentar, zeit) VALUES ('$bid', '$kommentar', '$zeit')");//Hochladen des Kommentars
-          }
-        }else {
-          echo "Sie müssen sich zuerst Anmelden<br>";
-        }
+
+  if ($kommentar!="") {
+    $db_link->query("INSERT INTO globalchat (nId,  kommentar, zeit) VALUES ('$bid', '$kommentar', '$zeit')");
   }
 }
-
- ?>
- </div>
- <body onload="setInterval('chat.update()', 1000)">
-   <br>
-<?php
 include './footer.php';
 ?>
-</body>
+  </body>
+</html>
