@@ -26,18 +26,40 @@
 
 							//ausgabe
 							$kommausgabe=$db_link->query("SELECT kommentar, benutzername FROM globalchat,nutzer WHERE nutzer.nId=globalchat.nId ");
-							while ($kommausgabe2=$kommausgabe->fetch_array()) {
-								$komm=$kommausgabe2['kommentar'];
-								$bname=$kommausgabe2['benutzername'];
-
-								echo "
-									<table class='kommentar'>
-										<tr class='kommentar2'>
-											<td class='kommentar2' valign='top' align='left'>$bname:</td>
-											<th class='kommentar2' align='left'>$komm</th>
-										</tr>
-									</table>";
+							if ($kommausgabe == false) {
+								echo "<script>alert('query failed')</script>";
 							}
+							else {
+								// echo "<ol style='list-style-type: none;'>";
+								while ($kommausgabe2=$kommausgabe->fetch_array()) {
+									$komm=$kommausgabe2['kommentar'];
+									$bname=$kommausgabe2['benutzername'];
+									$id=15;
+
+									echo "
+										<table class='kommentar'>
+											<tr class='kommentar2'>
+												<td class='kommentar2' valign='top' align='left'>$bname:</td>
+												<th class='kommentar2' align='left'>$komm</th>
+											</tr>
+										</table>";
+
+									// echo "
+									// 	<li class='kommentar' id='$id'>
+									// 		<div class='kommmentar2'>
+									// 			<table>
+									// 				<tr>
+									// 					<td class='kommentar2' valign='top' align='left' style='width:35% !important;'>$bname:</td>
+									// 					<td class='kommentar2' align='left'>$komm</td>
+									// 				</tr>
+									// 			</table>
+									// 		</div>
+									// 	</li>
+									// ";
+								}
+								// echo "</ol>";
+							}
+
 						?>
 					</div>
 
