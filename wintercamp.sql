@@ -219,7 +219,8 @@ CREATE TABLE `nutzer` (
 INSERT INTO `nutzer` (`nID`, `nachname`, `vorname`, `benutzername`, `eMail`, `passwort`, `rId`, `teilnahme`, `registrierungsdatum`, `aenderungsdatum`, `aktivierung`, `passwortcode`, `passwortcode_zeit`) VALUES
 (1, 'Mustermann', 'Maxi', 'tollsterAdmin', 'max.mustermann@gmail.com', 'ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413', 1, 'WinterCamp 2019', '2019-05-31 13:18:46', '0000-00-00 00:00:00', 0, NULL, NULL),
 (2, 'Wendorff', 'Marvin', 'BalkonChiller', 'm.wendorff09@gmail.com', '6f41a341ba6a2db33aa65b9289cb6e38fd17a4b240c95a0978c32baccf5a8dedb97e3f6f996412392485724c6ed874fe32fa67c862c1661128d6ea20978bfb4b', 2, 'WinterCamp 2019', '2019-05-31 13:26:38', '0000-00-00 00:00:00', 0, NULL, NULL),
-(3, 'Weickert', 'Max', 'Moorex', 'max.weickert03@gmail.com', '26838b06502abee51b59a7d17647b55f489f955066382e959d097bb7f737331f72ce6924c304f4a6c12db9c1b4ad8a3fd425fe968a767b2f6b9e795e34778202', 2, 'WinterCamp 2019', '2019-07-28 17:14:50', '0000-00-00 00:00:00', 0, NULL, NULL);
+(3, 'George', 'Joel', 'test2303', 'george.joel@gymbw.lernsax.de', 'ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413', 2, 'WinterCamp 2019', '2019-05-31 13:33:29', '0000-00-00 00:00:00', 0, NULL, NULL),
+(4, 'Weickert', 'Max', 'Moorex', 'max.weickert03@gmail.com', '26838b06502abee51b59a7d17647b55f489f955066382e959d097bb7f737331f72ce6924c304f4a6c12db9c1b4ad8a3fd425fe968a767b2f6b9e795e34778202', 2, 'WinterCamp 2019', '2019-07-28 17:14:50', '0000-00-00 00:00:00', 0, NULL, NULL);
 -- --------------------------------------------------------
 
 --
