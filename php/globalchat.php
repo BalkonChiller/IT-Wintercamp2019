@@ -11,8 +11,9 @@
 			<?php
 				include './header.php';
 				if ($_SESSION['angemeldet'] == 0) {
-				header('location: ../php/logIn.php');
+					header('location: ../php/logIn.php');
 				}
+				//$_POST = [];
 			?>
 		<br/>
 		<div class="row">
@@ -25,16 +26,16 @@
 							$bid=$_SESSION["nID"];
 
 							//ausgabe
-							$kommausgabe=$db_link->query("SELECT kommentar, benutzername FROM globalchat,nutzer WHERE nutzer.nId=globalchat.nId ");
+							$kommausgabe=$db_link->query("SELECT kommentar, benutzername, gcId FROM globalchat,nutzer WHERE nutzer.nId=globalchat.nId ");
 							if ($kommausgabe == false) {
-								echo "<script>alert('query failed')</script>";
+								echo "<script>alert('query failed. It could be the database aren`t connected to this script )</script>";
 							}
 							else {
 								// echo "<ol style='list-style-type: none;'>";
 								while ($kommausgabe2=$kommausgabe->fetch_array()) {
 									$komm=$kommausgabe2['kommentar'];
 									$bname=$kommausgabe2['benutzername'];
-									$id=15;
+									$gcId=$kommausgabe2['gcId'];
 
 									echo "
 										<table class='kommentar'>
@@ -86,6 +87,8 @@
 					$db_link->query("INSERT INTO globalchat (nId,  kommentar, zeit) VALUES ('$bid', '$kommentar', '$zeit')");
 				}
 			}
+			$kommausgabe='';
+			$kommentar='';
 			include './footer.php';
 		?>
 		</body>
