@@ -23,7 +23,7 @@
 					<div id="chat">
 						<?php
 							include '../php/datenbanklink.php';
-							$bid=$_SESSION["nID"];
+							$bId=$_SESSION["nID"];
 
 							//ausgabe
 							$kommausgabe=$db_link->query("SELECT kommentar, benutzername, gcId FROM globalchat,nutzer WHERE nutzer.nId=globalchat.nId ");
@@ -36,14 +36,23 @@
 									$komm=$kommausgabe2['kommentar'];
 									$bname=$kommausgabe2['benutzername'];
 									$gcId=$kommausgabe2['gcId'];
+									$next_gcId=$gcId+1;
 
 									echo "
-										<table class='kommentar'>
+										<table class='kommentar' id='$gcId'>
 											<tr class='kommentar2'>
 												<td class='kommentar2' valign='top' align='left'>$bname:</td>
 												<th class='kommentar2' align='left'>$komm</th>
 											</tr>
 										</table>";
+									echo "
+										<table class='kommentar'>
+											<tr class='kommentar2'>
+												<td class='kommentar2' valign='top' align='left'>$bId:</td>
+												<td class='kommentar2' align='left'  id='$next_gcId'></td>
+											</tr>
+										</table>";
+
 
 									// echo "
 									// 	<li class='kommentar' id='$id'>
@@ -70,14 +79,32 @@
 					</script>
 					<div>
 						<form method="post">
-							<input type="text" name="kommentar">
-							<input type="submit" name="submit" value="Posten">
+							<input type="text" name="kommentar" id="kommentar">
+							<button type="button" onclick="loadDoc()" name="submit" value="Posten">Posten</button>
 						</form>
 					</div>
 				<br/><br/><br/>
 			</div>
 		</div>
 		<br/>
+		<!-- ajax part -->
+		<script>
+		function loadDoc() {
+			var x = document.getElementById("kommentar").value;
+			if (x != '') {
+				document.getElementById("kommentar").value='';
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						document.getElementById(<?php echo $next_gcId; ?>).innerHTML = x;
+						//this.responseText;
+					}
+				};
+				xhttp.open("GET", "globalchat.php#chat", true);
+				xhttp.send();
+			}
+		}
+		</script>
 		<?php
 			if (isset( $_POST['submit'] )) {
 				$zeit = time();
