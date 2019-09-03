@@ -18,11 +18,24 @@
 	$bId=$_SESSION["nID"];
 ?>
 		<script>
+		var old_result = <?php echo $db_link->query("SELECT * FROM globalchat")->num_rows; ?>;
+			var checkUpdate = function(freq=5000) {
+				$.post('globalchat_check.php', {check: true}, function(result) {
+					console.log(old_result);
+					console.log(result);
+					if(parseInt(old_result) !== parseInt(result)){
+						updateChat();
+						old_result = result;
+    				}
+				});
+				setTimeout(checkUpdate, freq); // check again in a second
+			}
+
 			function upload() {
 				var comm = $('#kommentar').val();
 				$('#kommentar').val('');
 				console.log(comm);
-				$.post('globalchat_upload.php', {userId: <?php echo $bId ?>, comment: comm}, function (result) {
+				$.post('globalchat_upload.php', {userId: <?php echo $_SESSION['nID'] ?>, comment: comm}, function (result) {
 					console.log(result);
 				});
 				console.log('upload query');
@@ -42,6 +55,7 @@
 					upload();
 					updateChat();
 				});
+				checkUpdate();
 			});
 		</script>
 		<br/>
