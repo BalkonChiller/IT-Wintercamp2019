@@ -22,7 +22,9 @@
 				var comm = $('#kommentar').val();
 				$('#kommentar').val('');
 				console.log(comm);
-				$.post('globalchat_upload.php', {userId: <?php echo $bId ?>, comment: comm});
+				$.post('globalchat_upload.php', {userId: <?php echo $bId ?>, comment: comm}, function (result) {
+					console.log(result);
+				});
 				console.log('upload query');
 			}
 
