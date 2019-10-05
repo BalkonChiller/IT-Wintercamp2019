@@ -59,12 +59,12 @@ if (isset($_POST["submit"])) {
                   Sie haben angefordert, Ihr Passwort für die Website des <a href=http://winter2019.it-wintercamp-dd.de/>IT-Camps<a> zurückzusetzen, da Sie Ihr Passwort vergessen haben.<br>
                   Wenn Sie dies nicht angefordert haben, ignorieren Sie diese E-Mail bitte. Sie verfällt und wird innerhalb von 2 Stunden unbrauchbar.<br><br>
                   Um Ihr Passwort zurückzusetzen, besuchen Sie bitte die folgende Seite:<br>
-                  https://localhost/php/passwort_zuruecksetzen.php?id=$nID&code=$str
+                  http://winter2019.it-wintercamp-dd.de/php/passwort_zuruecksetzen.php?id=$nID&code=$str
                   <br><br>
                   Mit freundlichen Grüßen,<br>
                   Das IT-Wintercamp Team";
     $headers = "MIME-Version: 1.0\r\n";
-    $headers.= "From: IT_Wintercamp <IT_Wintercamp@SAP.de>\r\n";
+    $headers.= "From: IT Wintercamp <noreply@IT-Camp-SAP.de>\r\n";
     $headers.= "Content-Type: text/html; charset=utf-8\r\n";
     mail($email, $betreff, $nachricht, $headers);
 

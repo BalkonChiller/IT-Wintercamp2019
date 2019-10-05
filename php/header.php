@@ -23,7 +23,7 @@
 		</div></th>
 	  <th>
 <?php
-      
+
 
       if(isset($_SESSION['angemeldet'])){
         if ($_SESSION['angemeldet'] == 1) {
@@ -39,7 +39,7 @@
      if(isset($_SESSION)) {
 
 			if($_SESSION['angemeldet'] != 1) {
-	echo"<div class='dropdown'>			
+	echo"<div class='dropdown'>
               <button class='dropbtn'><b>Login</b>
               <i class='fa fa-caret-down'></i>
               </button>

@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
   $passwort = $_POST['fpasswort1'];
   $pw = hash('sha512', $passwort);
 
-  $db_link->query("UPDATE nutzer SET passwort = '$pw' WHERE nID = '$nID'");
+  $db_link->query("UPDATE nutzer SET passwort = '$pw', passwortcode_zeit = NULL WHERE nID = '$nID'");
   header('location: ./logIn.php');
 }
 ?>

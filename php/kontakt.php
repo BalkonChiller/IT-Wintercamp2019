@@ -37,17 +37,16 @@ $an = "max.weickert03@gmail.com";
 $name = $_POST['name'];
 $email = $_POST['email'];
 $betreff = $_POST['betreff'];
-$nachricht = $_POST['nachricht'];
+$nachricht = nl2br($_POST['nachricht']);
 
 if (($name!="") && ($email!="") && ($betreff!="") && ($nachricht!="")) {
 // Mailheader UTF-8 fähig machen
 $headers = "MIME-Version: 1.0\r\n";
-$headers.= "From: $email\r\n";
+$headers.= "From: 'Kontakt IT Wintercamp' $email\r\n";
 $headers.= "Content-Type: text/html; charset=utf-8\r\n";
 // Nachrichtenlayout erstellen
-$message = "Name: $name <br>
-						Email: $email <br>
-						Nachricht: $nachricht <br>";
+$message = "Nachricht: $nachricht <br>
+						Von: $name";
 // Verschicken der Mail
 mail($an, $betreff, $message, $headers);
 }

@@ -50,7 +50,7 @@ echo "<br>
             <tr><td colspan='3'><hr noshade></td></tr>
             <tr>
               <td width='5%'></td>
-              <td><input type='submit' name='speichern' value='Änderungen speichern'></td>
+              <td><button name='submit'>Änderungen speichern</button></td>
             </tr>
         </table>
       </form>
@@ -58,7 +58,7 @@ echo "<br>
       </div>
       <br>";
 
-if (isset($_POST["speichern"])) {
+if (isset($_POST["submit"])) {
     if ($_POST["vname"] && $_POST["nname"] && $_POST["bname"] && $_POST["email"] !="") {
 $vname=$_POST["vname"];
 $nname=$_POST["nname"];
