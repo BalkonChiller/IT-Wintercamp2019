@@ -42,7 +42,7 @@ $nachricht = nl2br($_POST['nachricht']);
 if (($name!="") && ($email!="") && ($betreff!="") && ($nachricht!="")) {
 // Mailheader UTF-8 fähig machen
 $headers = "MIME-Version: 1.0\r\n";
-$headers.= "From: 'Kontakt IT Wintercamp' $email\r\n";
+$headers.= "From: Kontakt IT Wintercamp <$email>\r\n";
 $headers.= "Content-Type: text/html; charset=utf-8\r\n";
 // Nachrichtenlayout erstellen
 $message = "Nachricht: $nachricht <br>
