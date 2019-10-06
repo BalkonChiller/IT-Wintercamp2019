@@ -7,11 +7,15 @@
   </head>
   <body>
 <?php
-      include './header.php';
+include './header.php';
+
+if ($_SESSION['angemeldet'] == 0) {
+  header('location: ./logIn.php');
+}
 ?>
     <br>
     <div class="row">
-     <div class="col-3 col-s-3 menu"></div>
+    <div class="col-3 col-s-3 menu"></div>
       <div class="aside">
         <h1>Beitrag erstellen</h1>
         <form method="post">
@@ -22,37 +26,27 @@
         <textarea rows="10" cols="70" name="inhalt" placeholder="Beitragsinhalt"></textarea>
         <br>
         <button type="submit" name="submit" value="">Beitrag abschicken</button>
-      </form>
+        </form>
       </div>
     </div>
     <br>
 <?php
-if (isset($_POST["submit"]))
-{
-	if ($_SESSION['angemeldet']==1)
-	{
-		error_reporting(E_ALL);
-		if(isset($_SESSION['nID']))
-		{
-		$id = $_SESSION['nID'];
-		}
-		include '../php/datenbanklink.php';
-		mysqli_set_charset($db_link, 'utf8');
+if (isset($_POST["submit"])) {
+	  $id = $_SESSION['nID'];
+  	include '../php/datenbanklink.php';
 
-		$btitel=$_POST["titel"];//Überschrift
-		$binhalt=$_POST["inhalt"];//Text zu Beitrag
-		$bkategorie=$_POST["kategorie"];//Kategorie
-		$sql = "INSERT INTO beitrag (nID, beitragstitel, beitraginhalt, kategorie) VALUES ('$id','$btitel','$binhalt','$bkategorie')";
-		$db_link->query($sql);
-		$sql2 = "SELECT Count(bID) FROM beitrag";
-		$erg = mysqli_query($db_link, $sql2);
-		$erg2 = mysqli_fetch_array($erg, MYSQLI_NUM);
-		header('location: ../php/Beitrag_kommentieren.php?id='.$erg2[0]);
-	}
-	else {
-		 header('location: login.php');
-		 }
+  	$btitel = htmlspecialchars($_POST["titel"]); //Überschrift
+  	$binhalt = htmlspecialchars($_POST["inhalt"]); //Text zu Beitrag
+  	$bkategorie = htmlspecialchars($_POST["kategorie"]); //Kategorie
+  	$sql = "INSERT INTO beitrag (nID, beitragstitel, beitraginhalt, kategorie) VALUES ('$id','$btitel','$binhalt','$bkategorie')";
+  	$db_link->query($sql); //Eintragen des Beitrags in die db
+
+  	$sql2 = "SELECT Count(bID) FROM beitrag";
+  	$erg = mysqli_query($db_link, $sql2);
+  	$erg2 = mysqli_fetch_array($erg, MYSQLI_NUM);
+  	header('location: ../php/Beitrag_kommentieren.php?id='.$erg2[0]); //Weiterleitung
 }
+
 include './footer.php';
 ?>
   </body>

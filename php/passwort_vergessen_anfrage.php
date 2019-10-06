@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="content-type" content="text/html" charset="utf-8">
-        <link rel="stylesheet" type="text/css"  href="../css/stylesheet1.css">
-        <title>Passwort vergessen</title>
-    </head>
-    <body>
+  <head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8">
+    <link rel="stylesheet" type="text/css"  href="../css/stylesheet1.css">
+    <title>Passwort vergessen</title>
+  </head>
+  <body>
 <?php
 include '../php/header.php';
 ?>
+    <br>
+    <div class="row">
+    <div class="col-3 col-s-3 menu"></div>
+      <div class="aside">
+      <form method="post"><br>
+        <h1>Passwort vergessen</h1> <br>
+        <input type="text" name="fbenutzername" placeholder="Benutzername" class="login">
         <br>
-        <div class="row">
-        <div class="col-3 col-s-3 menu"></div>
-        <div class="aside">
-          <form method="post"><br>
-            <h1>Passwort vergessen</h1> <br>
-              <input type="text" name="fbenutzername" placeholder="Benutzername" class="login">
-              <br>
-            <button type="submit" name="submit">Neues Passwort anfragen</button>
-          </form>
-        </div>
-        </div>
-        <br>
+        <button type="submit" name="submit">Neues Passwort anfragen</button>
+      </form>
+      </div>
+    </div>
+    <br>
 <?php
 include '../php/datenbanklink.php';
 
@@ -53,7 +53,6 @@ if (isset($_POST["submit"])) {
     $str = bin2hex($bytes);
     $zeit = time();
 
-    #link noch anpassen
     $betreff = "Passwort vergessen";
     $nachricht = "Hallo $name,<br>
                   Sie haben angefordert, Ihr Passwort für die Website des <a href=http://winter2019.it-wintercamp-dd.de/>IT-Camps<a> zurückzusetzen, da Sie Ihr Passwort vergessen haben.<br>

@@ -9,19 +9,19 @@ $error = false;
     $error = true;
   }
 
-	$vorname = $_POST['fvorname'];
-	$nachname = $_POST['fnachname'];
-	$benutzername = $_POST['fbenutzername'];
+	$vorname = htmlspecialchars($_POST['fvorname']);
+	$nachname = htmlspecialchars($_POST['fnachname']);
+	$benutzername = htmlspecialchars($_POST['fbenutzername']);
 	$passwort1 = $_POST['fpasswort1'];
 	$passwort2 = $_POST['fpasswort2'];
-	$email = strtolower($_POST['femail']);
+	$email = htmlspecialchars(strtolower($_POST['femail']));
 	$dsgelesen = $_POST['fdsgelesen'];
 	$teilnehmer = $_POST['fteilnehmer'];
 	$campe = $_POST['fcamp'];
 	$jahr = $_POST['fjahr'];
     $camp = $campe." ".$jahr;
 
-    include '../php/datenbanklink.php';
+    include './datenbanklink.php';
 
     $sqli="SELECT Count(nID) AS anz FROM nutzer WHERE benutzername='".$benutzername."'";
 
@@ -76,13 +76,13 @@ include './header.php';
    <br>
    <h1>IT-Camp Registrierung</h1>
 
-   <form action="../php/registrierung.php" method="post" onsubmit="return registrieren();">
+   <form method="post" onsubmit="return registrieren();">
    <input type="text" name="fvorname" id="fvorname" required placeholder="Vorname"> <br>
    <input type="text" name="fnachname" id="fnachname" required placeholder="Nachname"> <br>
    <input type="text" name="fbenutzername" id="fbenutzername" required placeholder="Benutzername"> <br>
    <input type="password" name="fpasswort1" id="fpasswort1" required placeholder="Passwort"> <br>
    <input type="password" name="fpasswort2" id="fpasswort2" required placeholder="Passwort bestätigen"> <br>
-   <input type="text" id='femail' name="femail" required placeholder="E-Mail-Adresse"> <br>
+   <input type="email" name="femail" id='femail' required placeholder="E-Mail-Adresse"> <br>
 
    <br>
    <label for="checkbox"> Habe Teilgenommen
