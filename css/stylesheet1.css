@@ -217,7 +217,7 @@ button:hover {
   table-layout: fixed;
 }
 
-.profil input[type=text], input[type=email] {
+.profil input[type=text], .profil input[type=email] {
   box-shadow: none;
   align: left;
   width: 30%;
