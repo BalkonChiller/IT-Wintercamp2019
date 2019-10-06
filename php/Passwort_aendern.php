@@ -1,73 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Passwort ändern</title>
-  </head>
-  <body>
-    <form action="" method="post">
-        <label for="emailf">E-Mail:</label>
-        <input type="email" name="emailf" required><br>
-        <label for="pw1">Neues Passwort:</label>
-        <input type="password" name="pw1" required><br>
-        <label for="pw2">Neues Passwort:</label>
-        <input type="password" name="pw2" required><br>
-        <input type="submit" name="submit" value="Bestätigen" >
-
-    </form>
-
+    <head>
+        <meta http-equiv="content-type" content="text/html" charset="utf-8">
+        <script language="javascript" type="text/javascript" src="../javascript/passwort_aendern.js"></script>
+        <link rel="stylesheet" type="text/css"  href="../css/stylesheet1.css">
+        <title>Passwort ändern</title>
+    </head>
+    <body>
 <?php
-if (isset($_POST["submit"])) {
+include '../php/header.php';
+if ($_SESSION['angemeldet'] == 0) {
+  header('location: ../php/logIn.php');
+}
+?>
+        <br>
+        <div class="row">
+        <div class="col-3 col-s-3 menu"></div>
+        <div class="aside">
+          <form method="post" onsubmit="return passwort_aendern();"><br>
+            <h1>Passwort ändern</h1> <br>
+              <input type="password" name="fpwalt" required placeholder="Altes Passwort" class="login">
+              <br>
+              <br>
+              <input type='password' name='fpasswort1' id='fpasswort1' required placeholder='Neues Passwort' class='login'>
+              <br>
+              <input type='password' name='fpasswort2' id='fpasswort2' required placeholder='Passwort bestätigen' class='login'>
+              <br>
+            <button type="submit" name="submit">Passwort ändern</button>
+          </form>
+        </div>
+        </div>
+        <br>
+<?php
+include '../php/datenbanklink.php';
 
-    	error_reporting(E_ALL);
+if (isset($_POST['submit'])) {
+  $nID = $_SESSION['nID'];
+  $pwalt = $_POST["fpwalt"];
+  $pwalthash = hash("sha512", $pwalt);
 
-       //Zum Aufbau der Verbindung zur Datenbank
-      define ( 'MYSQL_HOST',      'localhost' );
-      define ( 'MYSQL_BENUTZER',  'root'      );
-      define ( 'MYSQL_KENNWORT',  ''          );
-      define ( 'MYSQL_DATENBANK', 'wintercamp');
-
-      $db_link = mysqli_connect ('localhost' , 'root' , '' , 'wintercamp');
-      mysqli_set_charset($db_link, 'utf8');
-
-      $email=$_POST["emailf"];  //E-Mail
-      $npw=$_POST["pw1"];     //neues Passwort
-      $hash=$_GET["hash"];    //hash url
-
-      $time_krpyt=$_GET["time"];   //time url
-      $time_krpyt_split = explode('y', $time_krpyt);
-      $time_old = intval($time_krpyt_split[1]);
-
-      $hashdb=$db_link->query("SELECT hash FROM nutzer WHERE eMail='$email'"); //hash Datenbank
-      $hashdb=$hashdb->fetch_array();
-      $hashend = $hashdb['hash'];
-
-      $diff = time()-$time_old;
-      if (strlen($npw)>=6 && $diff<=600) {
-              $npw = hash("sha512", $npw);
-              if ($_POST["pw1"]==$_POST["pw2"]) {//Überprüfung ob beide Passwörter gleich
-
-                  if ($hash==$hashend) {//ob hashes gleich sind
-                      $update=$db_link->query("UPDATE nutzer SET passwort= '$npw' WHERE eMail='$email' LIMIT 1");//Datenbank neues Passwort zuweisen
-                      //var_dump($update);
-                  }else {
-                    echo "fehler";
-                  }
-
-
-              }else {
-                echo "Passwörter stimmen nicht überein!";
-
-              }
-
-    }else {
-      echo "mindestens 6 Zeichen oder Hash ausgelaufen";
-    }
+  $sql = "SELECT passwort FROM nutzer WHERE nID = '$nID'";
+  $res = mysqli_query($db_link, $sql);
+  while ($ausgabe = mysqli_fetch_assoc($res)) {
+    $pwdb = $ausgabe["passwort"];
   }
 
+  if ($pwalthash == $pwdb) {
+    $pwneu = $_POST['fpasswort1'];
+    $pw = hash('sha512', $pwneu);
+    $db_link->query("UPDATE nutzer SET passwort = '$pw' WHERE nID = '$nID'");
+    mysqli_close($db_link);
+    session_destroy();
+    header('location: ./logIn.php');
+  } else echo "<script>alert('Falsches Passwort!');</script>";
+}
+
+include '../php/footer.php';
 ?>
-
-
-
-</body>
-</html
+    </body>
+</html>
