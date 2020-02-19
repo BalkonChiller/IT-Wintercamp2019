@@ -7,14 +7,14 @@
 			<?php
 				print_r($_POST);
 
-				if(!empty ($_POST['fbenutzername']) a$_POST['fpasswort1']nd !empty($_POST['fpasswort1']) and !empty( $_POST['fpasswort2']) and !empty($_POST['femail']))
+				if(!empty ($_POST['fbenutzername']) and !empty($_POST['fpasswort1']) and !empty( $_POST['fpasswort2']) and !empty($_POST['femail']))
 				{
 					if (empty ($_POST['fdsgelesen']))
 					{
 						if ($_POST['fpasswort1']==$_POST['fpasswort2'])
 						{
-							$anz=strlen($passwort1)
-							if ($anz>=6)
+							$anz=strlen($passwort1);
+							if ( $anz >= 6)
 							{
 								/*$email = test_input($_POST["femail"]);
 								if (filter_var($email, FILTER_VALIDATE_EMAIL))
@@ -48,29 +48,29 @@
 							$dsgelesen=$_POST['fdsgelesen'];
 							$teilnehmer=$_POST['fteilnehmer'];
 							$camp=$_POST['fcamp'];
-							if ($teilnehmer==true)
+							if ($teilnehmer == true)
 								{
-									$rID=2;
+									$rID = 2;
 								}
-								else $rID=3;
-							$userpasswort=hash("sha512",$passwort1);
+								else $rID = 3;
+							$userpasswort = hash("sha512",$passwort1);
 
-							$sql="INSERT INTO 'wintercamp'.'nutzer'
+							$sql = "INSERT INTO 'wintercamp'.'nutzer'
 								('nID','nachname','vorname','benutzername','eMail','passwort','rID','teilnahme')
-								VALUES(NULL,'$nachname','$vorname','$benutzername','$email','$userpasswort','$rID','$camp')
-							header("Location: frontend.php")
+								VALUES(NULL,'$nachname','$vorname','$benutzername','$email','$userpasswort','$rID','$camp')";
+							header('Location: frontend.php');
 										}
-										else echo "Benutzername ist bereits vergeben!";
+										else echo 'Benutzername ist bereits vergeben!';
 							/*	}
-								else echo "Ungültige Email-Adresse!"; */
+								else echo 'Ungültige Email-Adresse!'; */
 							}
-							else echo "Passwort mit mindestens 6 Zeichen verwenden!";
+							else echo 'Passwort mit mindestens 6 Zeichen verwenden!';
 						}
-						else echo "Passwörter stimmen nicht überein!";
+						else echo 'Passwörter stimmen nicht überein!';
 					}
-					else echo "Datenschutzbestimmung akzeptieren!";
+					else echo 'Datenschutzbestimmung akzeptieren!';
 				}
-				else echo "fehlende Eingabe!";
+				else echo 'fehlende Eingabe!';
 
 
 			?>

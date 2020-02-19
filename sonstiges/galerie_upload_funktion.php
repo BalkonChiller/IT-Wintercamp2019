@@ -19,8 +19,8 @@
 
 			include '../php/datenbanklink.php';
 
-			$rID="SELECT rId FROM nutzer WHERE $nID"
-			if ($_SESSION['angemeldet']==1)
+			$rID = "SELECT rId FROM nutzer WHERE $nID";
+			if ($_SESSION['angemeldet'] == 1)
 			{
 				$uploadOk=0;
 				header("Location: login.html");
@@ -70,8 +70,8 @@
 				}
 			}
 
-			$gId="SELECT teilnahme FROM nutzer WHERE $nID"
-			$sqli="INSERT INTO galeriebild
+			$gId = "SELECT teilnahme FROM nutzer WHERE $nID";
+			$sqli = "INSERT INTO galeriebild
 				(nId, bilderlink, aktiviaet, gId)
 				VALUES ($nId, $target_file, 0, $gId)";
 			$send=mysqli_query($db_link, $sqli);
